@@ -10,7 +10,7 @@
     --card-foreground: 255, 10%, 8%;
     --popover: 0 0% 100%;
     --popover-foreground: 255, 10%, 8%;
-    --primary: 142.1 76.2% 36.3%; /* Updated to #01fca2 */
+    --primary: 158 99% 50%; /* Updated to #01fca2 */
     --primary-foreground: 60 9.1% 97.8%;
     --secondary: 60 4.8% 95.9%;
     --secondary-foreground: 24 9.8% 10%;
@@ -20,7 +20,7 @@
     --accent-foreground: 24 9.8% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 60 9.1% 97.8%;
-    --border: 20 5.9% 90%;
+    --border: 20 7.69% 92.35%;
     --input: 20 5.9% 90%;
     --ring: 255, 10%, 8%;
     --chart-1: 12 76% 61%;
@@ -34,11 +34,11 @@
   .dark {
     --background: 255, 10%, 8%;
     --foreground: 60 9.1% 97.8%;
-    --card: 255, 10%, 8%;
+    --card: 255 10% 8%;
     --card-foreground: 60 9.1% 97.8%;
-    --popover: 255, 10%, 8%;
+    --popover: 255 10% 8%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 142.1 76.2% 36.3%;
+    --primary: 158 99% 50%;
     --primary-foreground: 24 9.8% 10%;
     --secondary: 12 6.5% 15.1%;
     --secondary-foreground: 60 9.1% 97.8%;
@@ -66,4 +66,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.h{
+    color: #edebea;
 }
