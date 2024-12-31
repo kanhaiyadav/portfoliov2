@@ -1,0 +1,28 @@
+.hide-x-scrollbar {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.hide-x-scrollbar::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.skill-directory::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+}
+
+.skill-directory::-webkit-scrollbar-corner {
+    height: 0;
+}
+
+.skill-directory::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.skill-directory::-webkit-scrollbar-thumb {
+    background-color: #562f23;
+    border-radius: 10px;
+}

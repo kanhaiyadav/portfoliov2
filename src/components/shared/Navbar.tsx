@@ -65,8 +65,9 @@ const Navbar = () => {
                 <ul className="flex items-center space-x-8">
                     <li>Home</li>
                     <li>Education</li>
-                    <li>Work Experience</li>
+                    <li>Skills</li>
                     <li>Projects</li>
+                    <li>Achivements</li>
                     <li>Contact</li>
                     <Button>Hire me</Button>
                 </ul>
