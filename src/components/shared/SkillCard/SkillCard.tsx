@@ -58,7 +58,7 @@ const   SkillCard = ({
             href={documentation}
             target="_blank"
             rel="noreferrer"
-            className="shrink-0 bg-background/90 hover:ring-primary ring-1 ring-transparent border h-fit skill-card flex flex-col items-center gap-1 p-3 rounded-sm shadow-md w-[100px] sm:w-[150px] md:w-[180px]"
+            className="shrink-0 bg-background hover:ring-primary ring-1 ring-transparent border h-fit skill-card flex flex-col items-center gap-1 p-3 rounded-sm shadow-md w-[100px] sm:w-[150px] md:w-[180px]"
             {...otherProps}
         >
             <div

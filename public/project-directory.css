@@ -1,0 +1,12 @@
+#timeline{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#timeline::before{
+    content: '';
+    position: absolute;
+    border-left: 2px dashed #fe6263;
+    height: 100%;
+    left: 48%;
+}

@@ -163,11 +163,9 @@ const Home = () => {
                 </p>
                 <div className="flex justify-between items-center">
                     <Dialog>
-                        <DialogTrigger>
-                            <Button variant={"custom"}>
-                                <IoDocumentTextOutline />
-                                My Resume
-                            </Button>
+                        <DialogTrigger className="inline-flex p-3 px-4 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent outline outline-2 outline-primary text-primary hover:bg-primary hover:text-black">
+                            <IoDocumentTextOutline />
+                            My Resume
                         </DialogTrigger>
                         <DialogContent className="w-[70vw] max-w-[90vw]">
                             <DialogHeader>

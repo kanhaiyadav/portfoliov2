@@ -5,6 +5,7 @@ import Home from "./components/shared/Home";
 import Divider from "./components/shared/divider";
 import Education from "./components/shared/Education";
 import Skills from "./components/shared/Skills/Skills";
+import Projects from "./components/shared/Projects";
 
 function App() {
     // useEffect(() => {
@@ -27,6 +28,8 @@ function App() {
             <Education />
             <Divider />
             <Skills />
+            <Divider />
+            <Projects />
         </div>
     );
 }

@@ -132,7 +132,7 @@ const Education = () => {
                         )}
                     </div>
                 </div>
-                <Card className="h-full max-w-[400px]">
+                <Card className="h-full max-w-[400px] bg-primary/5">
                     <CardHeader>
                         <CardTitle>Details</CardTitle>
                         <CardDescription>

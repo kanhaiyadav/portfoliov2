@@ -27,7 +27,7 @@ const SkillDirectory = () => {
             <div className="flex mx-[50px]">
                 <span
                     className={`p-4 cursor-default rounded-t-xl  ${
-                        count === 0 ? "bg-gray-500/5 border border-b-none" : "border"
+                        count === 0 ? "bg-primary/5 border border-b-none" : "border"
                     }`}
                     onClick={() => setCount(0)}
                 >
@@ -35,7 +35,7 @@ const SkillDirectory = () => {
                 </span>
                 <span
                     className={`p-4 cursor-default rounded-t-xl  ${
-                        count === 1 ? "bg-gray-500/5 border border-b-none" : "border"
+                        count === 1 ? "bg-primary/5 border border-b-none" : "border"
                     }`}
                     onClick={() => setCount(1)}
                 >
@@ -43,7 +43,7 @@ const SkillDirectory = () => {
                 </span>
                 <span
                     className={`p-4 cursor-default rounded-t-xl  ${
-                        count === 2 ? "bg-gray-500/5 border border-b-none" : "border"
+                        count === 2 ? "bg-primary/5 border border-b-none" : "border"
                     }`}
                     onClick={() => setCount(2)}
                 >
@@ -51,7 +51,7 @@ const SkillDirectory = () => {
                 </span>
             </div>
 
-            <div className="h-full rounded-b-xl mx-[50px] p-10 bg-gray-500/5 border">
+            <div className="h-full rounded-b-xl mx-[50px] p-10 bg-primary/5 border">
                 <div className="skill-directory w-full flex justify-center items-start flex-wrap gap-8">
                     {skills.map((skill: {
                         imgPath?: string;
