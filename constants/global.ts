@@ -253,31 +253,40 @@ export const projects = [
         source: "https://github.com/kanhaiyadav/Converza",
         timeSpan: "July 2024 - October 2024",
         technologies: [5, 0, 1, 2, 3, 4],
+        youtube:
+            "https://www.youtube.com/embed/hS1kEGRxCWk?si=FQZCseS3NHMfTAcN",
     },
     {
         path: "kisaanSetu.png",
         imgPath: "kisaanSetu_icon.png",
         title: "KisaanSetu",
-        description:"A platform for farmers where they can sell their products directly to the customers. Even through it is a team project(for a hackathon) everything except the ML model and chatbot is done by me.",
+        description:
+            "A platform for farmers where they can sell their products directly to the customers. Even through it is a team project(for a hackathon) everything except the ML model and chatbot is done by me.",
         source: "https://github.com/kanishy/KisaanSetu",
         timeSpan: "Sep 2024 - Present",
         technologies: [0, 1, 2, 3, 4, 5],
+        youtube:
+            "https://www.youtube.com/embed/VdaOQMOajNc?si=FrSfdgbwZ-KBV5Tr",
     },
     {
         path: "todoApp.png",
         imgPath: "icon.png",
         title: "YourCheckMate",
-        description:"This is one of my initial web dev project, a simple todo app with all necessary features. It is a full stack project with a beautiful and responsive design.",
+        description:
+            "This is one of my initial web dev project, a simple todo app with all necessary features. It is a full stack project with a beautiful and responsive design.",
         preview: "https://yourcheckmate.netlify.app/",
         source: "https://github.com/kanishy/todo_react",
         timeSpan: "July 2024 - July 2024",
         technologies: [0, 1, 2, 3, 4],
+        youtube:
+            "https://www.youtube.com/embed/FvZDQBydzuQ?si=bOqi6idkaCJ5q3ZH",
     },
     {
         path: "portfolio.png",
         imgPath: "myLogo.jpeg",
         title: "My Portfolio",
-        description:"This is my first portfolio website with beautiful and responsive design.",
+        description:
+            "This is my first portfolio website with beautiful and responsive design.",
         source: "https://github.com/kanishy/Portfolio",
         timeSpan: "october 2024 - October 2024",
         technologies: [0, 6],
@@ -286,28 +295,37 @@ export const projects = [
         path: "/mypass.png",
         imgPath: "python.png",
         title: "MyPass",
-        description:"A simple password manager which generates and save your password.",
-        preview: "https://drive.google.com/file/d/1AIb_gdepumq5fRTfRJBg_0_HJeEyuwOv/view?usp=sharing",
+        description:
+            "A simple password manager which generates and save your password.",
+        preview:
+            "https://drive.google.com/file/d/1AIb_gdepumq5fRTfRJBg_0_HJeEyuwOv/view?usp=sharing",
         source: "https://github.com/kanishy/python_password_manager",
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 7],
+        youtube:
+            "https://www.youtube.com/embed/Hi-g3dInSLg?si=wj7u8v8HTdelS1D6",
     },
     {
         path: "/pomodoro.png",
         imgPath: "python.png",
         title: "Pomodoro",
-        description:"A simple pomodoro timer for managing work and break time.",
-        preview:"https://drive.google.com/file/d/18p-ybkm0llmPDIHfUISxcFxqoBMYI56V/view?usp=sharing",
+        description:
+            "A simple pomodoro timer for managing work and break time.",
+        preview:
+            "https://drive.google.com/file/d/18p-ybkm0llmPDIHfUISxcFxqoBMYI56V/view?usp=sharing",
         source: "https://github.com/kanishy/python_pomodoro_app",
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 7],
+        youtube:
+            "https://www.youtube.com/embed/DZPovvuUBeM?si=DjdDMglS0OB8Eo86",
     },
     {
         path: "/snake.png",
         imgPath: "python.png",
         title: "Snake Game",
         description: "A simple snake game for entertainment.",
-        preview:"https://drive.google.com/file/d/19HMT8yM_S0MIlejURcX-h3oMCnkATqaA/view?usp=sharing",
+        preview:
+            "https://drive.google.com/file/d/19HMT8yM_S0MIlejURcX-h3oMCnkATqaA/view?usp=sharing",
         source: "https://github.com/kanishy/python_sanke_game",
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 8],
@@ -317,30 +335,39 @@ export const projects = [
         imgPath: "python.png",
         title: "Pong Game",
         description: "A very basic pong game for entertainment.",
-        preview:"https://drive.google.com/file/d/1ATw2c-7cYGu2LuZNI6b2M2QhR7aWjN3Q/view?usp=sharing",
+        preview:
+            "https://drive.google.com/file/d/1ATw2c-7cYGu2LuZNI6b2M2QhR7aWjN3Q/view?usp=sharing",
         source: "https://github.com/kanishy/python_pong_game",
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 8],
+        youtube:
+            "https://www.youtube.com/embed/TBQ7NexslZM?si=_hy1f4xEnGe4O7Mj",
     },
     {
         path: "/calculator.png",
         imgPath: "python.png",
         title: "Calculator",
         description: "A simple calculator for basic arithmetic operations.",
-        preview:"https://drive.google.com/file/d/17Df8luCi8nESApRvUkZ2ud7U576xFLMN/view?usp=sharing",
+        preview:
+            "https://drive.google.com/file/d/17Df8luCi8nESApRvUkZ2ud7U576xFLMN/view?usp=sharing",
         source: "https://github.com/kanishy/python_calculator",
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 7],
+        youtube:
+            "https://www.youtube.com/embed/EzQTjPA8BdI?si=lt-xmVFz2NBUe4jg",
     },
     {
         path: "/tiktactoe.png",
         imgPath: "python.png",
         title: "TikTacToe",
         description: "A simple tik-tac-toe game for entertainment.",
-        preview:"https://drive.google.com/file/d/1t2kFUbytpsgmoSXsXWaZvnngjdkuBvZJ/view?usp=sharing",
+        preview:
+            "https://drive.google.com/file/d/1t2kFUbytpsgmoSXsXWaZvnngjdkuBvZJ/view?usp=sharing",
         source: "https://github.com/kanishy/python_tik_tac_toe_game",
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 7],
+        youtube:
+            "https://www.youtube.com/embed/9_rcsyU6Lfg?si=Lorcw1M7L04qyF7d",
     },
 ];
 

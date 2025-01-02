@@ -12,8 +12,18 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
+import { FaPlay } from "react-icons/fa";
 
 const Projects = () => {
+    const [activeProject, setActiveProject] = useState(projects[0].title);
     const [page, setPage] = useState(1);
     const nofPorojects = projects.length;
     const pages = Math.ceil(nofPorojects / 9);
@@ -113,6 +123,8 @@ const Projects = () => {
                                 <ProjectCard
                                     key={index}
                                     project={project}
+                                    active={project.title === activeProject}
+                                    setActiveIndex={setActiveProject}
                                     setProject={setProject}
                                 />
                             ))}
@@ -136,7 +148,7 @@ const Projects = () => {
                             ))}
                     </div>
                 </div>
-                <Card className="hide-y-scrollbar max-h-[350px] col-start-9 col-span-full row-start-1 row-end-8 border rounded-xl bg-primary/5 overflow-auto" >
+                <Card className="no-scrollbar max-h-[350px] col-start-9 col-span-full row-start-1 row-end-8 border rounded-xl bg-primary/5 overflow-auto">
                     <CardHeader>
                         <CardTitle>Project details</CardTitle>
                         <CardDescription>
@@ -182,26 +194,45 @@ const Projects = () => {
                         <div>
                             <h2>Tech Stack</h2>
                             <div className="flex gap-1 flex-wrap">
-                                {
-                                    project.technologies.map((tech, index) => (
-                                        <a href={technologies[tech].documentation} target="_blank" key={index} className="bg-primary/10 hover:ring-1 text-sm hover:ring-primary text-primary px-2 rounded-md">
-                                            {technologies[tech].name}
-                                        </a>
-                                    ))
-                                }
+                                {project.technologies.map((tech, index) => (
+                                    <a
+                                        href={technologies[tech].documentation}
+                                        target="_blank"
+                                        key={index}
+                                        className="bg-primary/10 hover:ring-1 text-sm hover:ring-primary text-primary px-2 rounded-md"
+                                    >
+                                        {technologies[tech].name}
+                                    </a>
+                                ))}
                             </div>
                         </div>
                     </CardContent>
                 </Card>
-                <iframe
-                    className="col-start-9 col-span-full w-full h-full row-start-8 row-span-full rounded-xl overflow-hidden border"
-                    src="https://www.youtube-nocookie.com/embed/ldcE7OepHbc?si=gV2y6KsVfuMf_7nY"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                ></iframe>
+                <div className="col-start-9 border-primary border-1 col-span-full w-full h-full row-start-8 row-span-full rounded-xl overflow-hidden border flex-col-center justify-center">
+                    <Dialog>
+                        <DialogTrigger className="inline-flex p-3 px-4 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent outline outline-2 outline-primary text-primary hover:bg-primary hover:text-black h-10 w-[60px]">
+                            <FaPlay />
+                        </DialogTrigger>
+                        <DialogContent className="max-w-screen w-fit">
+                            <DialogHeader >
+                                <DialogTitle>Video preview</DialogTitle>
+                                <DialogDescription>
+                                    this vides shows the project in action.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <iframe
+                                className="rounded-xl h-[70vh] aspect-[16/9] border"
+                                src={project.youtube}
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                            ></iframe>
+                        </DialogContent>
+                    </Dialog>
+                    <p className="mt-4 text-gray-500">Video preview</p>
+                </div>
             </div>
         </section>
     );

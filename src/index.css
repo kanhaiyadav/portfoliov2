@@ -15,34 +15,38 @@
     .flex-col-center{
         @apply flex flex-col items-center;
     }
-    .hide-y-scrollbar {
+    .scrollbar {
         overflow-y: auto; /* Enables vertical scrolling */
     }
 
-    .hide-y-scrollbar::-webkit-scrollbar {
+    .scrollbar::-webkit-scrollbar {
         width: 5px; /* Define scrollbar width */
     }
 
-    .hide-y-scrollbar::-webkit-scrollbar-thumb {
-        background-color: hsl(var(--primary)); /* Thumb color */
-        border-radius: 5px; /* Round the scrollbar thumb */
+    .scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-primary/50 rounded-xl hover:bg-primary
     }
 
-    .hide-y-scrollbar::-webkit-scrollbar-track {
+    .scrollbar::-webkit-scrollbar-track {
         @apply bg-primary/10
+    }
+
+    .no-scrollbar {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
     }
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    /* --background: 53.33 9.09% 80.59%; */
+    /* --background: 0 0% 100%; */
+    --background: 53.33 9.09% 80.59%;
     --foreground: 255, 10%, 8%;
-    --card: 0 0% 100%;
+    --card: 53.33 9.09% 80.59%;
     --card-foreground: 255, 10%, 8%;
-    --popover: 0 0% 100%;
+    --popover: 53.33 9.09% 80.59%;
     --popover-foreground: 255, 10%, 8%;
-    --primary: 158 99% 50%; /* Updated to #01fca2 */
+    --primary: 221.2 83.2% 53.3%; /* Updated to #01fca2 */
     --primary-foreground: 60 9.1% 97.8%;
     --secondary: 60 4.8% 95.9%;
     --secondary-foreground: 24 9.8% 10%;
@@ -70,7 +74,7 @@
     --card-foreground: 60 9.1% 97.8%;
     --popover: 255 10% 8%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 158 99% 50%;
+    --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 24 9.8% 10%;
     --secondary: 12 6.5% 15.1%;
     --secondary-foreground: 60 9.1% 97.8%;
