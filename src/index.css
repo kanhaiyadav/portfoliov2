@@ -35,6 +35,11 @@
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE 10+ */
     }
+    .shadow-card{
+        box-shadow: 0 0 0 5px hsl(var(--background)), 0 0 5px 3px rgba(0,0,0,0.6), 0 5px 10px rgba(0,0,0,0.5);
+    }
+
+    
 }
 
 @layer base {

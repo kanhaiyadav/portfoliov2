@@ -54,6 +54,8 @@ module.exports = {
             fontFamily: {
                 sans: ["Ubuntu", "sans-serif"],
             },
+            boxShadow: {
+            }
         },
     },
     plugins: [require("tailwindcss-animate")],

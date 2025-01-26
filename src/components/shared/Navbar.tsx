@@ -22,19 +22,24 @@ const Navbar = () => {
     const {theme, setTheme} = useTheme();
     
     return (
-        <nav className="absolute top-0 left-0 w-full flex items-center justify-between px-[120px] py-6 bg-background">
+        <nav className="absolute top-0 left-0 w-full flex items-center justify-between px-[120px] py-6 bg-background rounded-[5px] dark:shadow-none shadow-card border-gray-400 border-2 dark:border-none ring-1 ring-transparent border-dashed border-l-0 border-r-0 border-t-0">
             <div className="flex items-center space-x-4">
-                <Button size={"icon"} variant={'outline'}
+                <Button
+                    size={"icon"}
+                    variant={"outline"}
                     onClick={() => {
                         setTheme(theme === "dark" ? "light" : "dark");
                     }}
+                    className="shadow-md border-[#8e8d87]"
                 >
-                    {
-                        theme === 'dark'? <LuSun className="scale-105 hover:rotate-90"/> : <LuMoon />
-                    }
+                    {theme === "dark" ? (
+                        <LuSun className="scale-105 hover:rotate-90" />
+                    ) : (
+                        <LuMoon />
+                    )}
                 </Button>
                 <Select onValueChange={(value) => changePrimaryColor(value)}>
-                    <SelectTrigger className="w-[180px]">
+                    <SelectTrigger className="w-[180px] shadow-md">
                         <SelectValue placeholder="Color Theme" />
                     </SelectTrigger>
                     <SelectContent>

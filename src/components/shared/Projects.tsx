@@ -114,8 +114,8 @@ const Projects = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <div className="h-full w-full grid grid-cols-12 grid-rows-12 gap-4 ">
-                <div className=" bg-primary/5 col-start-1 col-end-9 rounded-xl row-span-full border overflow-hidden flex-col-between py-4">
+            <div className="h-full w-full grid grid-cols-12 grid-rows-12 gap-4">
+                <div className=" bg-primary/5 col-start-1 col-end-9 rounded-xl row-span-full border overflow-hidden flex-col-between py-4 ">
                     <div className="flex gap-4 flex-wrap p-4 justify-evenly">
                         {projects
                             .slice((page - 1) * 9, page * 9)
@@ -148,7 +148,7 @@ const Projects = () => {
                             ))}
                     </div>
                 </div>
-                <Card className="no-scrollbar max-h-[350px] col-start-9 col-span-full row-start-1 row-end-8 border rounded-xl bg-primary/5 overflow-auto">
+                <Card className="no-scrollbar h-full col-start-9 col-span-full row-start-1 row-end-13 border rounded-xl bg-primary/5 overflow-auto">
                     <CardHeader>
                         <CardTitle>Project details</CardTitle>
                         <CardDescription>
@@ -192,7 +192,7 @@ const Projects = () => {
                             </a>
                         </div>
                         <div>
-                            <h2>Tech Stack</h2>
+                            <h2 className="mb-1">Tech Stack</h2>
                             <div className="flex gap-1 flex-wrap">
                                 {project.technologies.map((tech, index) => (
                                     <a
@@ -206,33 +206,38 @@ const Projects = () => {
                                 ))}
                             </div>
                         </div>
+                        <div>
+                            <h2 className="mt-1 mb-1">Video preview</h2>
+                            <div className="border-primary border-1 w-full h-full rounded-xl overflow-hidden border flex-col-center justify-center py-10 ">
+                                <Dialog>
+                                    <DialogTrigger className="inline-flex p-3 px-4 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent outline outline-2 outline-primary text-primary hover:bg-primary hover:text-black h-10 w-[60px]">
+                                        <FaPlay />
+                                    </DialogTrigger>
+                                    <DialogContent className="max-w-screen w-fit">
+                                        <DialogHeader>
+                                            <DialogTitle>
+                                                Video preview
+                                            </DialogTitle>
+                                            <DialogDescription>
+                                                this vides shows the project in
+                                                action.
+                                            </DialogDescription>
+                                        </DialogHeader>
+                                        <iframe
+                                            className="rounded-xl h-[70vh] aspect-[16/9] border"
+                                            src={project.youtube}
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin"
+                                            allowfullscreen
+                                        ></iframe>
+                                    </DialogContent>
+                                </Dialog>
+                            </div>
+                        </div>
                     </CardContent>
                 </Card>
-                <div className="col-start-9 border-primary border-1 col-span-full w-full h-full row-start-8 row-span-full rounded-xl overflow-hidden border flex-col-center justify-center">
-                    <Dialog>
-                        <DialogTrigger className="inline-flex p-3 px-4 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent outline outline-2 outline-primary text-primary hover:bg-primary hover:text-black h-10 w-[60px]">
-                            <FaPlay />
-                        </DialogTrigger>
-                        <DialogContent className="max-w-screen w-fit">
-                            <DialogHeader >
-                                <DialogTitle>Video preview</DialogTitle>
-                                <DialogDescription>
-                                    this vides shows the project in action.
-                                </DialogDescription>
-                            </DialogHeader>
-                            <iframe
-                                className="rounded-xl h-[70vh] aspect-[16/9] border"
-                                src={project.youtube}
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin"
-                                allowfullscreen
-                            ></iframe>
-                        </DialogContent>
-                    </Dialog>
-                    <p className="mt-4 text-gray-500">Video preview</p>
-                </div>
             </div>
         </section>
     );
