@@ -112,3 +112,8 @@
 .h{
     color: #edebea;
 }
+
+#root::-webkit-scrollbar{
+    width: 0px;
+    display: none;
+}

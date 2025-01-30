@@ -190,6 +190,10 @@ const Contact = () => {
                                         loop
                                         autoplay
                                         className="h-[350px]"
+                                        renderConfig={{
+                                            autoResize: true,
+                                            devicePixelRatio: 2,
+                                        }}
                                     />
                                 </motion.div>
                             ) : (
