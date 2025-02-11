@@ -7,6 +7,7 @@ import Education from "./components/shared/Education";
 import Skills from "./components/shared/Skills/Skills";
 import Projects from "./components/shared/Projects";
 import Contact from "./components/shared/Contact";
+import Achievements from "./components/shared/Achievements";
 
 function App() {
    
@@ -36,6 +37,8 @@ function App() {
                 <Navbar />
                 <Home />
             </div>
+            <Divider />
+            <Achievements />
             <Divider />
             <Education />
             <Divider />
