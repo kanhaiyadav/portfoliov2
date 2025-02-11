@@ -17,7 +17,7 @@ const Skills = () => {
     };
 
     return (
-        <section className="w-full h-screen px-[100px] flex flex-col gap-4 py-4">
+        <section id="skills" className="w-full h-screen px-[100px] flex flex-col gap-4 py-4">
             <motion.div
                 className="flex gap-8 items-center ml-auto"
                 initial={{ x: 100, opacity: 0 }} // Start off-screen to the left and invisible

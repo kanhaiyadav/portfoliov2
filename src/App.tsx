@@ -7,11 +7,14 @@ import Education from "./components/shared/Education";
 import Skills from "./components/shared/Skills/Skills";
 import Projects from "./components/shared/Projects";
 import Contact from "./components/shared/Contact";
+import Skills2 from "./components/shared/Skills/Skills2";
 
 function App() {
+   
+    
     return (
         <div className="relative w-full flex flex-col justify-center items-center overflow-hidden gap-[100px]">
-            <div className="w-full relative">
+            <div id="home" className="w-full relative">
                 <div className="absolute w-full h-full left-0 top-[-5px] z-0 dark:block hidden">
                     <svg
                         id="visual"

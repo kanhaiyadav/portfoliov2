@@ -34,14 +34,14 @@ const ProjectCard = ({
                 setActiveIndex(project.title);
             }}
         >
-            <div className="dark:bg-black/60 bg-black/40 hover:bg-black/40 h-full w-full flex flex-col justify-end p-4 gap-2 rounded-lg">
+            <div className="h-full w-full flex flex-col justify-end p-4 gap-2 rounded-lg bg-gradient-to-t from-black to-transparent">
                 <div className="flex-between gap-2 w-fit">
                     <img
                         src={`/${project.imgPath}`}
                         alt="project icon"
                         className="w-[40px]"
                     />
-                    <h2 className=" text-xl text-white">{project.title}</h2>
+                    <h2 className="text-xl text-white">{project.title}</h2>
                 </div>
             </div>
         </div>

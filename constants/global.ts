@@ -192,10 +192,23 @@ export const webDev = [
 
 export const programmingLanguages = [
     {
+        imgPath: "js.png",
+        name: "JavaScript",
+        progress: 75,
+        documentation:
+            "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
+    {
         imgPath: "python.png",
         name: "Python",
         progress: 90,
         documentation: "https://docs.python.org/3/",
+    },
+    {
+        imgPath: "typescript.png",
+        name: "TypeScript",
+        progress: 70,
+        documentation: "https://www.typescriptlang.org/docs/",
     },
     {
         imgPath: "c-.png",
@@ -208,19 +221,6 @@ export const programmingLanguages = [
         name: "C",
         progress: 95,
         documentation: "https://en.cppreference.com/w/c",
-    },
-    {
-        imgPath: "js.png",
-        name: "JavaScript",
-        progress: 75,
-        documentation:
-            "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    },
-    {
-        imgPath: "typescript.png",
-        name: "TypeScript",
-        progress: 70,
-        documentation: "https://www.typescriptlang.org/docs/",
     },
 ];
 

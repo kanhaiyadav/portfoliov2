@@ -58,17 +58,17 @@ const   SkillCard = ({
             href={documentation}
             target="_blank"
             rel="noreferrer"
-            className="shrink-0 bg-background hover:ring-primary ring-1 ring-transparent border-dashed dark:border-solid dark:border-border border-gray-400 border-2 dark:border-[1px] dark:shadow-[0_0_15px_5px_rgba(255,255,255,0.02)] shadow-card h-fit skill-card flex flex-col items-center gap-1 p-3 rounded-lg w-[100px] sm:w-[150px] md:w-[180px]"
+            className="shrink-0 dark:bg-black/5 bg-background hover:ring-primary ring-1 ring-transparent border-dashed dark:border-solid dark:border-border border-gray-400 border-2 dark:border-[1px] dark:shadow-[0_0_15px_5px_rgba(255,255,255,0.02)] shadow-card h-fit skill-card flex items-center gap-4 p-3 pt-4 rounded-lg w-[100px] sm:w-[150px] md:w-[180px]"
             {...otherProps}
         >
             <div
-                className="h-[60px] w-[60px] sm:h-[80px] sm:w-[80px] md:h-[80px] md:w-[80px]"
+                className="h-[60px] w-[60px] sm:h-[80px] sm:w-[80px] md:h-[60px] md:w-[60px]"
                 style={imgStyle}
             >
                 <img
                     src={imgPath}
                     alt={name}
-                    className="h-full w-full rounded-xl"
+                    className="h-full w-full rounded-lg"
                 />
             </div>
             <div className="flex-1 flex flex-col justify-between w-full text-center">

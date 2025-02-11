@@ -1,65 +1,136 @@
 import SkillCard from "../SkillCard/SkillCard";
 import "./SkillDirectory.styles.css";
-import { webDev, programmingLanguages, languages } from "../../../../constants/global";
-import { useState } from "react";
+import {
+    webDev,
+    programmingLanguages,
+    languages,
+} from "../../../../constants/global";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import {
+    ChartConfig,
+    ChartContainer,
+    ChartTooltip,
+    ChartTooltipContent,
+} from "@/components/ui/chart";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+
+const chartData2 = [
+    { name: "Hindi", progress: 186 },
+    { name: "English", progress: 305 },
+    { name: "Bengali", progress: 237 },
+];
+const chartConfig = {
+    desktop: {
+        label: "progress",
+        color: "hsl(var(--primary))",
+    },
+} satisfies ChartConfig;
 
 const SkillDirectory = () => {
-    const AllSkills = [webDev, programmingLanguages, languages];
-    const [count, setCount] = useState(0);
-    const skills = AllSkills[count % 3];
     return (
-        <div className="flex-1 flex flex-col p-4 mt-[-80px]">
-            <div className="flex mx-[50px]">
-                <span
-                    className={`p-4 cursor-default rounded-t-xl  ${
-                        count === 0 ? "bg-primary/5 border border-b-none" : "border"
-                    }`}
-                    onClick={() => setCount(0)}
-                >
-                    Frameworks/Tools
-                </span>
-                <span
-                    className={`p-4 cursor-default rounded-t-xl  ${
-                        count === 1 ? "bg-primary/5 border border-b-none" : "border"
-                    }`}
-                    onClick={() => setCount(1)}
-                >
-                    Programming Languages
-                </span>
-                <span
-                    className={`p-4 cursor-default rounded-t-xl  ${
-                        count === 2 ? "bg-primary/5 border border-b-none" : "border"
-                    }`}
-                    onClick={() => setCount(2)}
-                >
-                    Spoken Languages
-                </span>
+        <div className="flex gap-8">
+            <Card>
+                <CardHeader>
+                    <CardTitle>Frameworks/Tools</CardTitle>
+                    <CardDescription>January - June 2024</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <div className="skill-directory w-full flex justify-center items-start flex-wrap gap-4">
+                        {webDev.map(
+                            (
+                                skill: {
+                                    imgPath?: string;
+                                    name?: string;
+                                    progress: number;
+                                    imgStyle?: {
+                                        borderRadius: string;
+                                        border: string;
+                                    };
+                                    documentation?: string;
+                                },
+                                index: number
+                            ) => (
+                                <SkillCard key={index} {...skill} />
+                            )
+                        )}
+                    </div>
+                </CardContent>
+            </Card>
+            <div className="flex flex-col gap-4 w-fit">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Programming Languages</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ChartContainer
+                            config={chartConfig}
+                            className="w-[300px]"
+                        >
+                            <BarChart accessibilityLayer data={programmingLanguages}>
+                                <CartesianGrid vertical={false} />
+                                <XAxis
+                                    dataKey="name"
+                                    tickLine={false}
+                                    tickMargin={10}
+                                    axisLine={false}
+                                />
+                                <ChartTooltip
+                                    cursor={false}
+                                    content={<ChartTooltipContent hideLabel />}
+                                />
+                                <Bar
+                                    dataKey="progress"
+                                    fill="var(--color-desktop)"
+                                    radius={8}
+                                />
+                            </BarChart>
+                        </ChartContainer>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Spoken Languages</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ChartContainer
+                            config={chartConfig}
+                            className="w-[300px]"
+                        >
+                            <BarChart
+                                accessibilityLayer
+                                data={languages}
+                                layout="vertical"
+                                margin={{
+                                    left: -10,
+                                }}
+                            >
+                                <XAxis type="number" dataKey="progress" hide />
+                                <YAxis
+                                    dataKey="name"
+                                    type="category"
+                                    tickLine={false}
+                                    axisLine={false}
+                                />
+                                <ChartTooltip
+                                    cursor={false}
+                                    content={<ChartTooltipContent hideLabel />}
+                                />
+                                <Bar
+                                    dataKey="progress"
+                                    fill="var(--color-desktop)"
+                                    radius={5}
+                                />
+                            </BarChart>
+                        </ChartContainer>
+                    </CardContent>
+                </Card>
             </div>
-
-            <div className="h-full rounded-b-xl mx-[50px] p-10 bg-primary/5 border">
-                <div className="skill-directory w-full flex justify-center items-start flex-wrap gap-8">
-                    {skills.map((skill: {
-                        imgPath?: string;
-                        name?: string;
-                        progress: number;
-                        imgStyle?: { borderRadius: string; border: string };
-                        documentation?: string;
-                    }, index: number) => (
-                        <SkillCard key={index} {...skill} />
-                    ))}
-                </div>
-            </div>
-            {/* <div className="h-1 flex justify-between  gap-3">
-                {AllSkills.map((skill, index) => (
-                    <span
-                        key={index}
-                        className={`flex-1 cursor-pointer w-[10px] rounded-full ${
-                            index == count % 3 ? "bg-[#c54d20]" : "bg-white"
-                        }`}
-                        onClick={() => setCount(index)}
-                    ></span>
-                ))}
-            </div> */}
         </div>
     );
 };

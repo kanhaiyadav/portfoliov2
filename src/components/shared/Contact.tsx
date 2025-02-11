@@ -29,14 +29,18 @@ const Contact = () => {
     };
 
     return (
-        <section className="w-full h-screen px-[150px] overflow-hidden flex flex-col flex-between gap-4 py-4">
+        <section
+            id="contact"
+            className="w-full h-screen px-[150px] overflow-hidden flex flex-col flex-between gap-4 py-4"
+        >
             <motion.div
-                className="flex gap-8 items-center ml-auto"
-                initial={{ x: 100, opacity: 0 }} // Start off-screen to the left and invisible
-                whileInView={{ x: 0, opacity: 1 }} // Animate to its original position and fully visible
+                className="flex gap-8 items-center m-auto"
+                initial={{ y: 50, opacity: 0 }} // Start off-screen to the left and invisible
+                whileInView={{ y: 0, opacity: 1 }} // Animate to its original position and fully visible
                 viewport={{ once: true }} // Trigger animation only once when it comes into view
                 transition={{ type: "tween", duration: 0.5, delay: 0.3 }}
             >
+                <hr className="w-[150px] border-2 border-primary" />
                 <motion.svg
                     className={`w-[600px]`}
                     width="969"
@@ -111,7 +115,9 @@ const Contact = () => {
                         src="/me.png"
                         alt=""
                         className="w-[250px] m-auto my-[10px] outline outline-4 outline-offset-4 outline-gray-500 rounded-full border-4 border-gray-500"
-                        onClick={() => {setSubmitting(!submitting)}}
+                        onClick={() => {
+                            setSubmitting(!submitting);
+                        }}
                     />
                     <div className="text-center">
                         <h1 className="text-3xl font-semibold text-gray-500 dark:text-gray-400">
