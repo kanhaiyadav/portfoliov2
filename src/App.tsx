@@ -7,7 +7,6 @@ import Education from "./components/shared/Education";
 import Skills from "./components/shared/Skills/Skills";
 import Projects from "./components/shared/Projects";
 import Contact from "./components/shared/Contact";
-import Skills2 from "./components/shared/Skills/Skills2";
 
 function App() {
    
