@@ -55,6 +55,25 @@ module.exports = {
                 sans: ["Ubuntu", "sans-serif"],
             },
             boxShadow: {
+            },
+            keyframes: {
+                bounce: {
+                    "20%, 50%, 80%, to": {
+                        transform: "scale(1,1)"
+                    },
+                    "40%, 45%": {
+                        transform: "scale(1.75,0.65)"
+                    },
+                    "60%": {
+                        transform: "scale(1.25,0.75)"
+                    },
+                    "90%": {
+                        transform: "scale(1.15,0.85)"
+                    }
+                }
+            },
+            animation: {
+                bounce: "bounce 1s linear"
             }
         },
     },

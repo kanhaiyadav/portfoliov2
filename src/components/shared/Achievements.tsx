@@ -1,7 +1,35 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+export const achievements = [
+    {
+        images: ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg"],
+        title: "Hackathon Win",
+        description:
+            "Won the 2nd prize in the hackathon organized by Heritage Institute of Technology.",
+        date: "October 2024",
+    },
+    {
+        images: ["/img7.jpg", "/img8.jpg", "/img3.jpg"],
+        title: "Intra College Quiz Competition",
+        description:
+            "Secured 2nd position in the Intra College Quiz Competition.",
+        date: "October 2024",
+    },
+];
 
 const Achievements = () => {
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % achievements.length);
+        }, 6000);
+        
+        return () => clearInterval(interval);
+
+    }, [current]);
+
     const pathVariants = {
         hidden: {
             strokeDasharray: 1200, // Total length of the motion.path
@@ -15,8 +43,26 @@ const Achievements = () => {
             },
         },
     };
+
+    const slideVariants = {
+        hidden: { y: "-10%", opacity: 0 },
+        visible: {
+            y: "0%",
+            opacity: 1,
+            transition: { duration: 0.8, ease: "easeOut" },
+        },
+        exit: {
+            y: "20%",
+            opacity: 0,
+            transition: { duration: 0.8, ease: "easeIn" },
+        },
+    };
+
     return (
-        <div>
+        <section
+            id="achievements"
+            className="w-screen h-screen px-[100px] flex flex-col"
+        >
             <motion.div
                 className="flex gap-8 items-center"
                 initial={{ x: -100, opacity: 0 }} // Start off-screen to the left and invisible
@@ -93,7 +139,49 @@ const Achievements = () => {
                     />
                 </motion.svg>
             </motion.div>
-        </div>
+            <div className="flex">
+                <AnimatePresence mode="wait">
+                    <motion.main
+                        key={current}
+                        className="flex gap-10 w-full mt-[20px] flex-1"
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        variants={slideVariants}
+                    >
+                        <div className="grid grid-cols-2 grid-row-2 w-full gap-6 h-[90%] flex-1">
+                            {achievements[current].images.map((img, index) => (
+                                <img
+                                    src={img}
+                                    key={index}
+                                    alt=""
+                                    className="border rounded-xl h-[270px] max-w-[600px] w-full object-cover"
+                                />
+                            ))}
+                        </div>
+                        <div className="w-[450px]">
+                            <h1 className="text-4xl font-bold text-primary">
+                                {achievements[current].title}
+                            </h1>
+                            <p className="mt-4 text-lg text-gray-500">
+                                {achievements[current].description}
+                            </p>
+                        </div>
+                    </motion.main>
+                </AnimatePresence>
+                <div className="flex flex-col gap-2 items-center justify-center w-fit">
+                    {achievements.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`w-4 h-4 rounded-full ${
+                                index === current ? "bg-primary" : "bg-gray-300"
+                            }`}
+                            onClick={() => setCurrent(index)}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 };
 

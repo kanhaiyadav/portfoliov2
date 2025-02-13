@@ -459,3 +459,28 @@ export const technologies = [
         documentation: "https://www.cplusplus.com",
     },
 ];
+
+export const achievements = [
+    {
+        images: [
+            "/img1.jpg",
+            "/img2.jpg",
+            "/img3.jpg",
+            "/img4.jpg",
+        ],
+        title: "Hackthon Win",
+        description:
+            "Won the 2nd prize in the hackathon organized by Heritage Institute of Technology.",
+        date: "October 2024",
+    },
+    {
+        images: [
+            "/img7.jpg",
+            "/img8.jpg",
+            "/img3.jpg",
+        ],
+        title: "Intra College Quiz Competition",
+        description: "Secured 2nd position in the Intra College Quiz Competition.",
+        date: "October 2024",
+    }
+]
