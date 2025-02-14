@@ -34,7 +34,7 @@ export const navItems = [
 
 const Footer = () => {
     return (
-        <div className="w-full">
+        <div className="w-full border-none shadow-none">
             <svg
                 id="visual"
                 className="w-full"

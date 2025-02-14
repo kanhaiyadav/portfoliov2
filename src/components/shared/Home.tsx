@@ -34,13 +34,12 @@ const Home = () => {
     return (
         <div className="flex justify-center items-center w-full px-[100px] h-screen m-auto relative">
             <div className="w-fit flex flex-col items-center mt-[-100px] h-fit">
-                <h1 className="text-6xl">Hello I'm</h1>
-                <h1 className="text-primary/90 text-7xl ">Kanhaiya Yadav,</h1>
+                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl">Hello I'm</h1>
+                <h1 className="text-primary/90 text-4xl md:text-6xl lg:text-7xl ">Kanhaiya Yadav,</h1>
                 <motion.svg
-                    className={"w-[700px]"}
+                    className={"w-[350px] md:w-[500px] lg:w-[700px] my-4 md:my-6 lg:my-8"}
                     //   id="new-logo"
                     width="1206"
-                    height="112"
                     viewBox="0 0 1206 112"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +155,7 @@ const Home = () => {
                         stiffness: 120,
                     }}
                 >
-                    <p className="text-gray-500 w-full">
+                    <p className="text-gray-500 w-full text-center">
                         I am immersed in the world of web development,
                         specializing in the MERN stack (MongoDB, Express.js,
                         React, Node.js).

@@ -23,7 +23,7 @@ const ProjectCard = ({
 }) => {
     return (
         <div
-            className={`h-[150px] aspect-[16/9] bg-cover bg-center rounded-lg hover:ring-2 ring-primary/60 cursor-pointer ${
+            className={`h-[80px] sm:h-[100px] lg:h-[150px]  aspect-[16/9] bg-cover bg-center rounded-lg hover:ring-2 ring-primary/60 cursor-pointer ${
                 active ? "ring-2 ring-primary" : ""
             }`}
             style={{
@@ -34,14 +34,14 @@ const ProjectCard = ({
                 setActiveIndex(project.title);
             }}
         >
-            <div className="h-full w-full flex flex-col justify-end p-4 gap-2 rounded-lg bg-gradient-to-t from-black to-transparent">
+            <div className="h-full w-full flex flex-col justify-end p-2 md:p-4 gap-2 rounded-lg bg-gradient-to-t from-black to-transparent">
                 <div className="flex-between gap-2 w-fit">
                     <img
                         src={`/${project.imgPath}`}
                         alt="project icon"
-                        className="w-[40px]"
+                        className="w-[25px] sm:w-[30px] lg:w-[40px]"
                     />
-                    <h2 className="text-xl text-white">{project.title}</h2>
+                    <h2 className="text-md sm:text-lg lg:text-xl text-white whitespace-nowrap max-w-[100px] text-ellipsis overflow-hidden">{project.title}</h2>
                 </div>
             </div>
         </div>

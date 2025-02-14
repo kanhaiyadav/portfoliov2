@@ -52,20 +52,19 @@ const Achievements = () => {
     return (
         <section
             id="achievements"
-            className="w-screen h-screen px-[100px] flex flex-col"
+            className="w-screen min-h-screen px-[15px] md:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col"
         >
             <motion.div
-                className="flex gap-8 items-center"
+                className="flex gap-8 items-center md:justify-start justify-end"
                 initial={{ x: -100, opacity: 0 }} // Start off-screen to the left and invisible
                 whileInView={{ x: 0, opacity: 1 }} // Animate to its original position and fully visible
                 viewport={{ once: true }} // Trigger animation only once when it comes into view
                 transition={{ type: "tween", duration: 0.5, delay: 0.3 }} // Smooth tween transition over 0.8 seconds
             >
-                <hr className="w-[150px] border-2 border-primary" />
+                <hr className="w-[150px] border-2 border-primary md:block hidden" />
                 <motion.svg
-                    className="w-[650px]"
+                    className="w-[300px] md:w-[650px] my-4 md:my-6 xl:my-8"
                     width="1090"
-                    height="115"
                     viewBox="0 0 1090 115"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -134,28 +133,28 @@ const Achievements = () => {
                 <AnimatePresence mode="wait">
                     <motion.main
                         key={current}
-                        className="flex gap-10 w-full mt-[20px] flex-1"
+                        className="flex flex-col lg:flex-row gap-10 w-full mt-[20px] flex-1"
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                         variants={slideVariants}
                     >
-                        <div className="grid grid-cols-2 grid-row-2 w-full gap-6 h-[90%] flex-1">
+                        <div className="grid grid-cols-2 grid-row-2 w-full gap-2 md:gap-6 h-[90%] flex-1">
                             {achievements[current].images.map((img, index) => (
                                 <img
                                     src={img}
                                     key={index}
                                     alt=""
-                                    className="border rounded-xl h-[270px] max-w-[600px] w-full object-cover"
+                                    className="border rounded-xl h-[130px] md:h-[270px] max-w-[600px] w-full object-cover"
                                 />
                             ))}
                         </div>
                         <div className="w-[450px]">
-                            <h1 className="text-4xl font-bold text-primary">
+                            <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-primary">
                                 {achievements[current].title}
                             </h1>
                             <div
-                                className="text-md mt-4"
+                                className="text-sm md:text-md mt-4 w-[80%] md:w-[90%]"
                                 dangerouslySetInnerHTML={{
                                     __html: achievements[
                                         current

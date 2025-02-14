@@ -35,7 +35,7 @@ const Education = () => {
     return (
         <section
             id="education"
-            className="w-full h-screen px-[100px] flex flex-col gap-4 py-4"
+            className="w-full min-h-screen px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
         >
             <motion.div
                 className="flex gap-8 items-center"
@@ -46,9 +46,8 @@ const Education = () => {
             >
                 <hr className="w-[150px] border-2 border-primary" />
                 <motion.svg
-                    className={`w-[500px]`}
+                    className={`w-[500px] my-4 md:my-6 xl:my-8`}
                     width="860"
-                    height="112"
                     viewBox="0 0 860 112"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -103,9 +102,9 @@ const Education = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <div className="flex-1 flex items-center justify-between gap-4">
+            <div className="flex-1 flex flex-col lg:flex-row items-center justify-between gap-4">
                 <div
-                    className={` h-full w-full flex-1 bg-cover bg-center rounded-xl`}
+                    className={` h-full w-full min-h-[200px] flex-1 bg-cover bg-center rounded-xl`}
                     style={{
                         backgroundImage: `url(${education[current].bg})`,
                     }}
@@ -117,10 +116,10 @@ const Education = () => {
                                 <img
                                     src={`/${education[current].icon}`}
                                     alt="institue Icon"
-                                    className=" h-[100px]"
+                                    className="h-[40px] sm:lg:h-[60px] lg:h-[80px] xl:h-[100px]"
                                 />
                             )}
-                            <h1 className="text-white text-5xl font-semibold">
+                            <h1 className="text-white text-lg sm:text-xl lg:text-3xl xl:text-5xl lg:font-semibold">
                                 {education[current].name}
                             </h1>
                         </div>
@@ -135,7 +134,7 @@ const Education = () => {
                         )}
                     </div>
                 </div>
-                <Card className="h-full max-w-[400px] bg-primary/5 relative">
+                <Card className="h-full max-w-[400px] w-full sm:w-auto bg-primary/5 relative">
                     <div className="h-full aspect-[2/3]">
                         <svg
                             id="visual"
@@ -216,41 +215,41 @@ const Education = () => {
                     </div>
                     <div className="absolute top-0 left-0">
                         <CardHeader>
-                            <CardTitle>Details</CardTitle>
-                            <CardDescription>
+                            <CardTitle className="text-lg md:text-2xl">Details</CardTitle>
+                            <CardDescription className="text-sm md:text-md">
                                 neccessary details about the institution,
                                 degree.
                             </CardDescription>
                         </CardHeader>
-                        <CardContent className="flex flex-col gap-4 z-10">
+                        <CardContent className="flex flex-col gap-2 md:gap-4 z-10">
                             <div>
-                                <h2>Degree/Standard</h2>
-                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-sm">
+                                <h2 className="text-md md:text-lg">Degree/Standard</h2>
+                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs sm:text-sm">
                                     {education[current].degree}
                                 </p>
                             </div>
                             <div>
-                                <h2>CGPA/Percentage</h2>
-                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-sm">
+                                <h2 className="text-md md:text-lg">CGPA/Percentage</h2>
+                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs sm:text-sm">
                                     {education[current].score}
                                 </p>
                             </div>
 
                             <div>
-                                <h2>Duration</h2>
-                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-sm">
+                                <h2 className="text-md md:text-lg">Duration</h2>
+                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs sm:text-sm">
                                     {education[current].duration}
                                 </p>
                             </div>
                             <div>
-                                <h2>Location</h2>
-                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-sm">
+                                <h2 className="text-md md:text-lg">Location</h2>
+                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs sm:text-sm">
                                     {education[current].location}
                                 </p>
                             </div>
                             {education[current].officialWebsite && (
                                 <div>
-                                    <h2>Official website</h2>
+                                    <h2 className="text-md md:text-lg">Official website</h2>
                                     <a
                                         href="https://www.heritageit.edu/"
                                         target="_blank"

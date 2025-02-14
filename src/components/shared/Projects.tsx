@@ -46,7 +46,7 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="w-full h-screen px-[100px] flex flex-col gap-4 py-4"
+            className="w-full min-h-screen px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
         >
             <motion.div
                 className="flex gap-8 items-center"
@@ -57,9 +57,8 @@ const Projects = () => {
             >
                 <hr className="w-[150px] border-2 border-primary" />
                 <motion.svg
-                    className={`w-[500px]`}
+                    className={`w-[500px] my-4 md:my-6 xl:my-8`}
                     width="754"
-                    height="112"
                     viewBox="0 0 754 112"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -117,9 +116,9 @@ const Projects = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <div className="h-full w-full flex gap-4 pb-[10px]">
-                <div className=" bg-primary/5 col-start-1 col-end-9 rounded-xl row-span-full border overflow-hidden flex-col-between py-4 w-[75%]">
-                    <div className="flex gap-4 flex-wrap p-4 justify-evenly">
+            <div className="h-full w-full flex flex-col lg:flex-row gap-4 pb-[10px]">
+                <div className=" bg-primary/5 rounded-xl row-span-full border overflow-hidden flex-col-between py-4 w-full lg:w-[75%]">
+                    <div className="flex gap-2 lg:gap-4 flex-wrap p-2 md:p-4 justify-evenly max-h-[300px] sm:max-h-screen overflow-auto">
                         {projects
                             .slice((page - 1) * 9, page * 9)
                             .map((project, index) => (
@@ -132,22 +131,20 @@ const Projects = () => {
                                 />
                             ))}
                     </div>
-                    <div>
+                    <div className="mt-4">
                         {pages > 1 &&
                             Array.from({ length: pages }, (_, i) => (
-                                <Button
+                                <button
                                     key={i}
-                                    className={`p-2 mx-1 ${
+                                    className={`px-2 py-1 sm:px-4 sm:py-2 text-sm mx-1 rounded-sm outline-primary outline outline-2 ${
                                         page === i + 1
                                             ? "bg-primary text-primary-foreground"
-                                            : "bg-primary/10 text-primary"
+                                            : "bg-primary/10 text-primary hover:bg-primary/30"
                                     }`}
                                     onClick={() => setPage(i + 1)}
-                                    variant={"custom"}
-                                    size={"icon"}
                                 >
                                     {i + 1}
-                                </Button>
+                                </button>
                             ))}
                     </div>
                 </div>

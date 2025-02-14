@@ -34,14 +34,14 @@ const chartConfig = {
 
 const SkillDirectory = () => {
     return (
-        <div className="flex gap-4">
+        <div className="flex flex-col lg:flex-row gap-4">
             <Card>
                 <CardHeader>
                     <CardTitle>Frameworks/Tools</CardTitle>
                     <CardDescription>January - June 2024</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <div className="skill-directory w-full flex justify-center items-start flex-wrap gap-4">
+                    <div className="w-full flex justify-center items-start flex-wrap gap-2 md:gap-4 max-h-[400px] overflow-auto md:overflow-hidden">
                         {webDev.map(
                             (
                                 skill: {

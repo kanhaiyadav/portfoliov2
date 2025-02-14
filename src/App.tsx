@@ -239,12 +239,13 @@ function App() {
                 )}
             </AnimatePresence>
             <div
-                className="relative w-full flex flex-col justify-center items-center overflow-hidden gap-[100px]">
+                className="relative w-full flex flex-col justify-center items-center overflow-hidden gap-[20px] md:gap-[50px] xl:gap-[100px]">
                 <section id="home" className="w-full relative">
-                    <div className="absolute w-full h-full left-0 top-[-5px] z-0 dark:block hidden">
+                    <div className="absolute w-full h-full left-0 top-[-5px] z-0 dark:flex dark:flex-col hidden">
+                        <div className="bg-primary flex-1 max-h-[110px] sm:max-h-[90px] lg:max-h-[50px] xl:max-h-[30px]"></div>
                         <svg
                             id="visual"
-                            className="w-full h-full"
+                            className="w-full"
                             viewBox="0 0 960 540"
                             xmlns="http://www.w3.org/2000/svg"
                             version="1.1"

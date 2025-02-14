@@ -17,7 +17,7 @@ const Skills = () => {
     };
 
     return (
-        <section id="skills" className="w-full h-screen px-[100px] flex flex-col gap-4 py-4">
+        <section id="skills" className="w-full min-h-screen px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4">
             <motion.div
                 className="flex gap-8 items-center ml-auto"
                 initial={{ x: 100, opacity: 0 }} // Start off-screen to the left and invisible
@@ -26,9 +26,8 @@ const Skills = () => {
                 transition={{ type: "tween", duration: 0.5, delay: 0.3 }} // Smooth tween transition over 0.8 seconds
             >
                 <motion.svg
-                    className={`w-[350px]`}
+                    className={`w-[170px] lg:w-[350px] my-4 md:my-6 xl:my-8`}
                     width="507"
-                    height="112"
                     viewBox="0 0 507 112"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +78,7 @@ const Skills = () => {
                         variants={pathVariants}
                     />
                 </motion.svg>
-                <hr className="w-[150px] border-2 border-primary" />
+                <hr className="w-[150px] border-2 border-primary sm:block hidden" />
             </motion.div>
             <SkillDirectory />
         </section>

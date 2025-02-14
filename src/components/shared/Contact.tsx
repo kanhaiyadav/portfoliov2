@@ -31,7 +31,7 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="w-full h-screen px-[150px] overflow-hidden flex flex-col flex-between gap-4 py-4"
+            className="w-full h-screen px-[20px] lg:px-[80px] xl:px-[150px] overflow-hidden flex flex-col flex-between gap-4 py-4"
         >
             <motion.div
                 className="flex gap-8 items-center m-auto"
@@ -40,11 +40,10 @@ const Contact = () => {
                 viewport={{ once: true }} // Trigger animation only once when it comes into view
                 transition={{ type: "tween", duration: 0.5, delay: 0.3 }}
             >
-                <hr className="w-[150px] border-2 border-primary" />
+                <hr className="w-[150px] border-2 border-primary sm:block hidden" />
                 <motion.svg
-                    className={`w-[600px]`}
+                    className={`w-[300px] md:w-[600px]`}
                     width="969"
-                    height="112"
                     viewBox="0 0 969 112"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -107,9 +106,9 @@ const Contact = () => {
                         variants={pathVariants}
                     />
                 </motion.svg>
-                <hr className="w-[150px] border-2 border-primary" />
+                <hr className="w-[150px] border-2 border-primary sm:block hidden" />
             </motion.div>
-            <div className="h-[80%] w-full flex justify-between px-[100px]">
+            <div className="md:h-[80%] w-full flex flex-col md:flex-row justify-between sm:px-[20px] lg:px-[50px] xl:px-[100px]">
                 <div className="h-full w-[400px] flex flex-col gap-[20px]">
                     <img
                         src="/me.png"
