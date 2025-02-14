@@ -4,7 +4,7 @@ import {
     webDev,
     programmingLanguages,
     languages,
-} from "../../../../constants/global";
+} from "../../../../constants/global.ts";
 import {
     Card,
     CardContent,
@@ -34,7 +34,7 @@ const chartConfig = {
 
 const SkillDirectory = () => {
     return (
-        <div className="flex gap-8">
+        <div className="flex gap-4">
             <Card>
                 <CardHeader>
                     <CardTitle>Frameworks/Tools</CardTitle>

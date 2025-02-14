@@ -1,34 +1,25 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-export const achievements = [
-    {
-        images: ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg"],
-        title: "Hackathon Win",
-        description:
-            "Won the 2nd prize in the hackathon organized by Heritage Institute of Technology.",
-        date: "October 2024",
-    },
-    {
-        images: ["/img7.jpg", "/img8.jpg", "/img3.jpg"],
-        title: "Intra College Quiz Competition",
-        description:
-            "Secured 2nd position in the Intra College Quiz Competition.",
-        date: "October 2024",
-    },
-];
+import { achievements } from "../../../constants/global";
+import { FaRegCirclePlay } from "react-icons/fa6";
+import { FaRegCirclePause } from "react-icons/fa6";
 
 const Achievements = () => {
     const [current, setCurrent] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
 
     useEffect(() => {
+
+        if (isPaused) {
+            return;
+        }
+        
         const interval = setInterval(() => {
             setCurrent((prev) => (prev + 1) % achievements.length);
         }, 6000);
-        
-        return () => clearInterval(interval);
 
-    }, [current]);
+        return () => clearInterval(interval);
+    }, [current, isPaused]);
 
     const pathVariants = {
         hidden: {
@@ -139,7 +130,7 @@ const Achievements = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <div className="flex">
+            <div className="flex gap-4">
                 <AnimatePresence mode="wait">
                     <motion.main
                         key={current}
@@ -163,18 +154,35 @@ const Achievements = () => {
                             <h1 className="text-4xl font-bold text-primary">
                                 {achievements[current].title}
                             </h1>
-                            <p className="mt-4 text-lg text-gray-500">
-                                {achievements[current].description}
-                            </p>
+                            <div
+                                className="text-md mt-4"
+                                dangerouslySetInnerHTML={{
+                                    __html: achievements[
+                                        current
+                                    ].descriptions.join("<br/><br/>"),
+                                }}
+                            />
                         </div>
                     </motion.main>
                 </AnimatePresence>
                 <div className="flex flex-col gap-2 items-center justify-center w-fit">
+                    <button
+                        className={`w-4 h-4 rounded-full }`}
+                        onClick={() => setIsPaused(!isPaused)}
+                    >
+                        {isPaused ? (
+                            <FaRegCirclePlay />
+                        ) : (
+                            <FaRegCirclePause />
+                        )}
+                    </button>
                     {achievements.map((_, index) => (
                         <button
                             key={index}
                             className={`w-4 h-4 rounded-full ${
-                                index === current ? "bg-primary" : "bg-gray-300"
+                                index === current
+                                    ? "bg-primary"
+                                    : "bg-primary/20"
                             }`}
                             onClick={() => setCurrent(index)}
                         />

@@ -117,8 +117,8 @@ const Projects = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <div className="h-full w-full grid grid-cols-12 grid-rows-12 gap-4 gap-x-10">
-                <div className=" bg-primary/5 col-start-1 col-end-9 rounded-xl row-span-full border overflow-hidden flex-col-between py-4 ">
+            <div className="h-full w-full flex gap-4 pb-[10px]">
+                <div className=" bg-primary/5 col-start-1 col-end-9 rounded-xl row-span-full border overflow-hidden flex-col-between py-4 w-[75%]">
                     <div className="flex gap-4 flex-wrap p-4 justify-evenly">
                         {projects
                             .slice((page - 1) * 9, page * 9)

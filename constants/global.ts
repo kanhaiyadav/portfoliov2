@@ -1,3 +1,5 @@
+
+
 export const colors = [
     {
         name: "Default",
@@ -462,25 +464,23 @@ export const technologies = [
 
 export const achievements = [
     {
-        images: [
-            "/img1.jpg",
-            "/img2.jpg",
-            "/img3.jpg",
-            "/img4.jpg",
-        ],
+        images: ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg"],
         title: "Hackthon Win",
-        description:
-            "Won the 2nd prize in the hackathon organized by Heritage Institute of Technology.",
+        descriptions: [
+            "Our team, <span class='text-primary font-semibold'>Code Connectors</span>, earned the 2nd runner-up position at HackSpire-2024, one of the top offline hackathons organized by the <span class='text-primary font-semibold'>FIEM ACM Student Chapter</span>. 🚀",
+            "Out of nearly 2000 participants, our team from <a href='#education' class='text-primary font-semibold'>Heritage Institute of Technology</a> placed 3rd among 250+ brilliant finalists from across India. We built <a href='#projects' class='text-primary font-semibold'>KisaanSetu</a>, a MERN stack platform that connects farmers and consumers, integrating image classification to streamline the process.",
+            "This hackathon was an incredible learning experience, where I enhanced my skills in web development, teamwork, collaboration, and working under tight deadlines to create a project from scratch. 🛠️💡",
+        ],
         date: "October 2024",
     },
     {
-        images: [
-            "/img7.jpg",
-            "/img8.jpg",
-            "/img3.jpg",
-        ],
+        images: ["/img7.jpg", "/img8.jpg", "/img3.jpg"],
         title: "Intra College Quiz Competition",
-        description: "Secured 2nd position in the Intra College Quiz Competition.",
+        descriptions: [
+            "Secured 2nd runner up position in the Intra College Quiz Competition, <span class='text-primary font-semibold'>Quiztopher</span>. 🏆",
+            "The quiz was organized by the <a href='#education' class='text-primary font-semibold'>Heritage Institute of Technology</a> ACM Student Chapter, where I competed against 50+ participants in a series of rounds testing our knowledge in various domains, such as sports, history, technology, and general awareness.",
+            "This competition was a great opportunity to showcase my knowledge and learn from my peers, and I look forward to participating in more such events in the future. 🧠🌟",
+        ],
         date: "October 2024",
-    }
-]
+    },
+];

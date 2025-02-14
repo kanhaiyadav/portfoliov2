@@ -11,9 +11,8 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { education } from "../../../constants/global.ts";
+import { education } from "../../../constants/global";
 import { useState } from "react";
-import { Element } from "react-scroll";
 
 const Education = () => {
     const [current, setCurrent] = useState(2);
@@ -104,7 +103,7 @@ const Education = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <div className="flex-1 flex items-center justify-between gap-10">
+            <div className="flex-1 flex items-center justify-between gap-4">
                 <div
                     className={` h-full w-full flex-1 bg-cover bg-center rounded-xl`}
                     style={{
