@@ -148,7 +148,7 @@ const Projects = () => {
                             ))}
                     </div>
                 </div>
-                <Card className="no-scrollbar h-full col-start-9 col-span-full row-start-1 row-end-13 border rounded-xl bg-primary/5 overflow-auto relative">
+                <Card className="overflow-hidden no-scrollbar h-full col-start-9 col-span-full row-start-1 row-end-13 border rounded-xl bg-primary/5 relative">
                     <div className="h-full aspect-[2/3]">
                         <svg
                             id="visual"
@@ -227,31 +227,37 @@ const Projects = () => {
                             </path>
                         </svg>
                     </div>
-                    <div className="absolute h-full w-full left-0 top-0">
+                    <div className="absolute h-auto md:h-full w-full left-0 top-0">
                         <CardHeader>
-                            <CardTitle>Project details</CardTitle>
-                            <CardDescription>
+                            <CardTitle className="text-lg md:text-2xl">
+                                Project details
+                            </CardTitle>
+                            <CardDescription className="text-sm md:text-md">
                                 neccessary details about the select project.
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2">
                             <div className="flex-center gap-8">
                                 <div>
-                                    <h2>Name</h2>
-                                    <p className="dark:text-[#a8a29e] text-[#6b7280] text-sm">
+                                    <h2 className="text-md md:text-lg">Name</h2>
+                                    <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs md:text-sm">
                                         {project.title}
                                     </p>
                                 </div>
                                 <div>
-                                    <h2>Time-span</h2>
-                                    <p className="dark:text-[#a8a29e] text-[#6b7280] text-sm">
+                                    <h2 className="text-md md:text-lg">
+                                        Time-span
+                                    </h2>
+                                    <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs md:text-sm">
                                         {project.timeSpan}
                                     </p>
                                 </div>
                             </div>
                             <div>
-                                <h2>Description</h2>
-                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-sm">
+                                <h2 className="text-md md:text-lg">
+                                    Description
+                                </h2>
+                                <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs md:text-sm">
                                     {project.description}
                                 </p>
                             </div>
@@ -259,19 +265,21 @@ const Projects = () => {
                             <div className="flex-center gap-8">
                                 <a
                                     href={project.source}
-                                    className="text-primary flex-center gap-1 hover:underline"
+                                    className="text-primary flex-center gap-1 hover:underline whitespace-nowrap text-sm md:text-md"
                                 >
                                     Source Code <HiOutlineExternalLink />
                                 </a>
                                 <a
                                     href={project.preview}
-                                    className="text-primary flex-center gap-1 hover:underline"
+                                    className="text-primary flex-center gap-1 hover:underline whitespace-nowrap text-sm md:text-md"
                                 >
                                     Production Deploy <HiOutlineExternalLink />
                                 </a>
                             </div>
                             <div>
-                                <h2 className="mb-1">Tech Stack</h2>
+                                <h2 className="mb-1 text-md md:text-lg">
+                                    Tech Stack
+                                </h2>
                                 <div className="flex gap-1 flex-wrap">
                                     {project.technologies.map((tech, index) => (
                                         <a
@@ -280,7 +288,7 @@ const Projects = () => {
                                             }
                                             target="_blank"
                                             key={index}
-                                            className="bg-primary/10 hover:ring-1 text-sm hover:ring-primary text-primary px-2 rounded-md"
+                                            className="bg-primary/10 hover:ring-1 text-xs md:text-sm hover:ring-primary text-primary px-2 rounded-md"
                                         >
                                             {technologies[tech].name}
                                         </a>
@@ -288,7 +296,9 @@ const Projects = () => {
                                 </div>
                             </div>
                             <div>
-                                <h2 className="mt-1 mb-2">Video preview</h2>
+                                <h2 className="mt-1 mb-2 text-md md:text-lg">
+                                    Video preview
+                                </h2>
                                 <div className="">
                                     <Dialog>
                                         <DialogTrigger className="inline-flex p-3 px-4 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent outline outline-2 outline-primary text-primary hover:bg-primary hover:text-black h-10 w-[60px]">

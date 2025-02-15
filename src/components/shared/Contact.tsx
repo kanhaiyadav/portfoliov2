@@ -31,7 +31,7 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="w-full h-screen px-[20px] lg:px-[80px] xl:px-[150px] overflow-hidden flex flex-col flex-between gap-4 py-4"
+            className="w-full min-h-screen overflow-hidden px-[15px] sm:px-[40px] lg:px-[80px] xl:px-[150px] flex flex-col flex-between gap-4 py-4"
         >
             <motion.div
                 className="flex gap-8 items-center m-auto"
@@ -108,70 +108,102 @@ const Contact = () => {
                 </motion.svg>
                 <hr className="w-[150px] border-2 border-primary sm:block hidden" />
             </motion.div>
-            <div className="md:h-[80%] w-full flex flex-col md:flex-row justify-between sm:px-[20px] lg:px-[50px] xl:px-[100px]">
-                <div className="h-full w-[400px] flex flex-col gap-[20px]">
+            <div className="md:h-[80%] h-auto w-[95%] sm:w-auto flex flex-col-reverse md:flex-row justify-between sm:px-[20px] lg:px-[50px] xl:px-[100px]">
+                <div className="h-full w-full sm:w-[400px] flex flex-col gap-[20px]">
                     <img
                         src="/me.png"
                         alt=""
-                        className="w-[250px] m-auto my-[10px] outline outline-4 outline-offset-4 outline-gray-500 rounded-full border-4 border-gray-500"
+                        className="w-[250px] m-auto my-[10px] outline outline-4 outline-offset-4 outline-gray-500 rounded-full border-4 border-gray-500 md:block hidden"
                         onClick={() => {
                             setSubmitting(!submitting);
                         }}
                     />
                     <div className="text-center">
-                        <h1 className="text-3xl font-semibold text-gray-500 dark:text-gray-400">
+                        <h1 className="hidden md:block text-3xl font-semibold text-gray-500 dark:text-gray-400">
                             My Socials
                         </h1>
-                        <hr className="w-[100px] mb-8 mt-4 bg-gray-500 dark:bg-gray-400 h-1 mx-auto" />
-                        <div className="flex-between w-full">
-                            <div className="bg-gray-500 dark:bg-gray-400 p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
-                                <FaLinkedinIn className="text-3xl text-background" />
+                        <hr className="hidden md:block  w-[100px] mb-8 mt-4 bg-gray-500 dark:bg-gray-400 h-1 mx-auto" />
+                        <div className="flex items-center md:justify-between justify-around w-full">
+                            <div className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
+                                <FaLinkedinIn className="text-xl sm:text-2xl lg:text-3xl text-background" />
                             </div>
-                            <div className="bg-gray-500 dark:bg-gray-400 p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
-                                <LuGithub className="text-3xl text-background" />
+                            <div className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
+                                <LuGithub className="text-xl sm:text-2xl lg:text-3xl text-background" />
                             </div>
-                            <div className="bg-gray-500 dark:bg-gray-400 p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
-                                <RiTwitterXLine className="text-3xl text-background" />
+                            <div className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
+                                <RiTwitterXLine className="text-xl sm:text-2xl lg:text-3xl text-background" />
                             </div>
-                            <div className="bg-gray-500 dark:bg-gray-400 p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
-                                <FaFacebookF className="text-3xl text-background" />
+                            <div className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
+                                <FaFacebookF className="text-xl sm:text-2xl lg:text-3xl text-background" />
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className="m-auto">
                         <div className="flex-center gap-4 mb-2">
-                            <MdOutlineMail className="text-3xl text-gray-500" />
-                            <span className="text-gray-400 text-xl">
+                            <MdOutlineMail className="text-lg sm:text-xl md:text-3xl text-gray-500" />
+                            <span className="text-gray-400 text-sm sm:text-lg md:text-xl">
                                 Email:
                             </span>
-                            <span className="text-xl text-primary hover:underline">
+                            <span className="text-sm sm:text-lg md:text-xl text-primary hover:underline">
                                 <a href="mailto:kanhaiyadav.me@gmail.com">
                                     kanhaiyadav.me@gmail.com
                                 </a>
                             </span>
                         </div>
                         <div className="flex-center gap-4 mb-2">
-                            <FaPhoneAlt className="text-2xl text-gray-500" />
-                            <span className="text-gray-400 text-xl">
+                            <FaPhoneAlt className="text-md sm:text-xl md:text-2xl text-gray-500" />
+                            <span className="text-gray-400 text-sm sm:text-lg md:text-xl">
                                 Phone:
                             </span>
-                            <span className="text-xl text-primary hover:underline">
+                            <span className="text-sm sm:text-lg md:text-xl text-primary hover:underline">
                                 7439466535
                             </span>
                         </div>
                         <div className="flex-center gap-4">
-                            <FaRegAddressCard className="text-3xl text-gray-500" />
-                            <span className="text-gray-400 text-xl">
+                            <FaRegAddressCard className="text-lg sm:text-xl md:text-3xl text-gray-500" />
+                            <span className="text-gray-400 text-sm sm:text-lg md:text-xl">
                                 Address:
                             </span>
-                            <span className="text-xl text-primary hover:underline">
+                            <span className="text-sm sm:text-lg md:text-xl text-primary hover:underline">
                                 Howrah, West Bengal, India
                             </span>
                         </div>
                     </div>
                 </div>
-                <div className="flex-1 relative flex-grow-0 flex-between w-fit h-full border bg-primary/10 rounded-xl">
-                    <div className="absolute w-full h-full top-0 left-0 flex justify-center mt-[70px]">
+                <motion.form
+                    key="form"
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{
+                        y: 0,
+                        opacity: 1,
+                        transition: { duration: 1 },
+                    }}
+                    exit={{
+                        y: -50,
+                        opacity: 0,
+                        transition: { duration: 0.5 },
+                    }}
+                    action=""
+                    className="max-w-[300px] max-h-[600px] w-full flex md:hidden mb-8 m-auto flex-col gap-2"
+                >
+                    <Input type="text" placeholder="Name" />
+                    <Input type="email" placeholder="Email" />
+                    <textarea
+                        rows={5}
+                        placeholder="Your message..."
+                        className={`p-2 md:p-3 px-3 md:px-4 max-h-[120px] md:max-h-[200px] text-md sm:text-lg md:text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600 `}
+                    />
+                    <Button
+                        className="text-lg"
+                        onClick={() => {
+                            setSubmitting(true);
+                        }}
+                    >
+                        Send Message
+                    </Button>
+                </motion.form>
+                <div className="flex-1 relative flex-grow-0 hidden md:flex-between w-full md:w-fit h-auto md:h-full border bg-primary/10 rounded-xl">
+                    <div className="absolute w-full h-full top-0 left-0 flex justify-center mt-[30px] sm:mt-[40px] lg:mt-[70px]">
                         <AnimatePresence mode="wait">
                             {submitting ? (
                                 <motion.div
@@ -216,14 +248,14 @@ const Contact = () => {
                                         transition: { duration: 0.5 },
                                     }}
                                     action=""
-                                    className="max-w-[300px] max-h-[600px] w-full flex flex-col gap-4"
+                                    className="max-w-[280px] md:max-w-[300px] max-h-[600px] w-full flex flex-col gap-4"
                                 >
                                     <Input type="text" placeholder="Name" />
                                     <Input type="email" placeholder="Email" />
                                     <textarea
                                         rows={5}
                                         placeholder="Your message..."
-                                        className={`p-2 max-h-[200px] px-4 text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600`}
+                                        className={`p-2 md:p-3 px-3 md:px-4 max-h-[120px] md:max-h-[200px] text-md sm:text-lg md:text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600 `}
                                     />
                                     <Button
                                         className="text-lg"
@@ -237,7 +269,7 @@ const Contact = () => {
                             )}
                         </AnimatePresence>
                     </div>
-                    <div className="h-full aspect-[2/3]">
+                    <div className="w-full md:w-auto h-auto md:h-full aspect-[2/3]">
                         <svg
                             id="visual"
                             className="h-full rounded-xl"
@@ -245,7 +277,6 @@ const Contact = () => {
                             // width="600"
                             // height="900"
                             xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
                             version="1.1"
                         >
                             <path className="dark:fill-primary/60 fill-primary/15">
@@ -316,6 +347,14 @@ const Contact = () => {
                         </svg>
                     </div>
                 </div>
+                <img
+                    src="/me.png"
+                    alt=""
+                    className="w-[250px] block md:hidden my-6 m-auto outline outline-4 outline-offset-4 outline-gray-500 rounded-full border-4 border-gray-500"
+                    onClick={() => {
+                        setSubmitting(!submitting);
+                    }}
+                />
             </div>
         </section>
     );

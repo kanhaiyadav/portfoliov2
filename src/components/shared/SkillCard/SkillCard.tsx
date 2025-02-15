@@ -62,7 +62,7 @@ const   SkillCard = ({
             {...otherProps}
         >
             <div
-                className="h-[60px] w-[60px] sm:h-[80px] sm:w-[80px] md:h-[60px] md:w-[60px]"
+                className="h-[50px] w-[50px] xs:h-[60px] xs:w-[60px] sm:h-[80px] sm:w-[80px] md:h-[60px] md:w-[60px]"
                 style={imgStyle}
             >
                 <img
@@ -72,7 +72,7 @@ const   SkillCard = ({
                 />
             </div>
             <div className="flex-1 flex flex-col justify-between w-full text-center">
-                <h2 className="text-lg sm:text-xl md:text-xl font-normal sm:font-medium mt-[-12px] mb-[2px] sm:mb-0 sm:mt-0">
+                <h2 className="text-sm xs:text-lg sm:text-xl md:text-xl font-normal sm:font-medium mt-[-12px] mb-[2px] sm:mb-0 sm:mt-0">
                     {name}
                 </h2>
                 <div

@@ -4,22 +4,42 @@ import { achievements } from "../../../constants/global";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { FaRegCirclePause } from "react-icons/fa6";
 
-const Achievements = () => {
+const Achievements = ({setOpen}) => {
     const [current, setCurrent] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const [mobile, setMobile] = useState(false);
+
+    const [touchStart, setTouchStart] = useState({ x: 0, y: 0 });
+        const [touchEnd, setTouchEnd] = useState({ x: 0, y: 0 });
+    
+        const minSwipeDistance = 60; // Minimum horizontal swipe distance
+        const maxVerticalThreshold = 40; // Prevents vertical swipes from being detected
 
     useEffect(() => {
-
         if (isPaused) {
             return;
         }
-        
+
         const interval = setInterval(() => {
             setCurrent((prev) => (prev + 1) % achievements.length);
         }, 6000);
 
         return () => clearInterval(interval);
     }, [current, isPaused]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setMobile(true);
+            } else {
+                setMobile(false);
+            }
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const pathVariants = {
         hidden: {
@@ -49,10 +69,53 @@ const Achievements = () => {
         },
     };
 
+    const slideVariantsMobile = {
+        hidden: { y: "-10%", opacity: 0 },
+        visible: {
+            x: "0%",
+            opacity: 1,
+            transition: { duration: 0.3, ease: "easeOut" },
+        },
+        exit: {
+            x: "-20%",
+            opacity: 0,
+            transition: { duration: 0.3, ease: "easeIn" },
+        },
+    };
+
+
+    const onTouchStart = (e) => {
+        setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        setTouchEnd({ x: e.touches[0].clientX, y: e.touches[0].clientY }); // Reset touch end
+    };
+
+    const onTouchMove = (e) => {
+        setTouchEnd({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+    };
+
+    const onTouchEnd = () => {
+        const deltaX = touchStart.x - touchEnd.x;
+        const deltaY = Math.abs(touchStart.y - touchEnd.y);
+
+        if (
+            Math.abs(deltaX) > minSwipeDistance &&
+            deltaY < maxVerticalThreshold
+        ) {
+            if (deltaX > 0) {
+                if (current === 0) setCurrent(achievements.length - 1);
+                else setCurrent(() => (current + 1) % achievements.length);
+            } else {
+                setOpen(true);
+            }
+        } 
+        setTouchStart({x:0, y:0}); // Reset touch start
+        setTouchEnd({x:0, y: 0}); // Reset touch end
+    };
+
     return (
         <section
             id="achievements"
-            className="w-screen min-h-screen px-[15px] md:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col"
+            className="w-screen min-h-screen px-[15px] md:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-2"
         >
             <motion.div
                 className="flex gap-8 items-center md:justify-start justify-end"
@@ -129,15 +192,20 @@ const Achievements = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <div className="flex gap-4">
+            <div
+                className="flex flex-col md:flex-row gap-2 md:gap-4"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+            >
                 <AnimatePresence mode="wait">
                     <motion.main
                         key={current}
-                        className="flex flex-col lg:flex-row gap-10 w-full mt-[20px] flex-1"
+                        className="flex flex-col lg:flex-row gap-10 w-full mt-[70px] md:mt-[20px] flex-1"
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        variants={slideVariants}
+                        variants={mobile ? slideVariantsMobile : slideVariants}
                     >
                         <div className="grid grid-cols-2 grid-row-2 w-full gap-2 md:gap-6 h-[90%] flex-1">
                             {achievements[current].images.map((img, index) => (
@@ -150,11 +218,11 @@ const Achievements = () => {
                             ))}
                         </div>
                         <div className="w-[450px]">
-                            <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-primary">
+                            <h1 className="w-[95%] text-2xl md:text-3xl xl:text-4xl font-bold text-primary">
                                 {achievements[current].title}
                             </h1>
                             <div
-                                className="text-sm md:text-md mt-4 w-[80%] md:w-[90%]"
+                                className="text-sm md:text-md mt-4 w-[75%] xs:w-[80%] md:w-[90%]"
                                 dangerouslySetInnerHTML={{
                                     __html: achievements[
                                         current
@@ -164,16 +232,12 @@ const Achievements = () => {
                         </div>
                     </motion.main>
                 </AnimatePresence>
-                <div className="flex flex-col gap-2 items-center justify-center w-fit">
+                <div className="flex flex-row md:flex-col gap-2 items-center justify-center w-full md:w-fit">
                     <button
                         className={`w-4 h-4 rounded-full }`}
                         onClick={() => setIsPaused(!isPaused)}
                     >
-                        {isPaused ? (
-                            <FaRegCirclePlay />
-                        ) : (
-                            <FaRegCirclePause />
-                        )}
+                        {isPaused ? <FaRegCirclePlay /> : <FaRegCirclePause />}
                     </button>
                     {achievements.map((_, index) => (
                         <button

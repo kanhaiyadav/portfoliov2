@@ -95,6 +95,41 @@ function App() {
         }
     };
 
+    const [touchStart, setTouchStart] = React.useState({ x: 0, y: 0 });
+    const [touchEnd, setTouchEnd] = React.useState({ x: 0, y: 0 });
+
+    const minSwipeDistance = 60; // Minimum horizontal swipe distance
+    const maxVerticalThreshold = 40; // Prevents vertical swipes from being detected
+
+    const onTouchStart = (e) => {
+        setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        setTouchEnd({ x: e.touches[0].clientX, y: e.touches[0].clientY }); // Reset touch end
+    };
+
+    const onTouchMove = (e) => {
+        setTouchEnd({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+    };
+
+    const onTouchEnd = () => {
+         const deltaX = touchStart.x - touchEnd.x;
+         const deltaY = Math.abs(touchStart.y - touchEnd.y);
+    
+        if (
+            Math.abs(deltaX) > minSwipeDistance &&
+            deltaY < maxVerticalThreshold
+        ) {
+            if (deltaX > 0) {
+                console.log("Swiped Left!");
+                setOpen(false);
+            } else {
+                console.log("Swiped Right!");
+                setOpen(true);
+            }
+        }
+        setTouchStart({x:0, y:0}); // Reset touch start
+        setTouchEnd({x:0, y: 0}); // Reset touch end
+    };
+
     React.useEffect(() => {
         const sections = document.querySelectorAll("section");
 
@@ -117,13 +152,19 @@ function App() {
     }, []);
 
     return (
-        <div className="flex">
-
+        <div
+            className="flex"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+        >
             <div>
-                <TbLayoutSidebar className=" fixed top-6 left-4 text-foreground text-2xl z-10" onClick={() => setOpen(!open)} />
+                <TbLayoutSidebar
+                    className=" fixed top-6 left-4 text-foreground text-2xl z-10"
+                    onClick={() => setOpen(!open)}
+                />
             </div>
-            
-            
+
             {open && (
                 <div
                     className="bg-black/60 w-screen fixed h-screen z-50 top-0 left-0"
@@ -229,7 +270,7 @@ function App() {
                                     </>
                                 ) : (
                                     <>
-                                            <LuMoon />
+                                        <LuMoon />
                                         Dark Theme
                                     </>
                                 )}
@@ -238,11 +279,10 @@ function App() {
                     </motion.nav>
                 )}
             </AnimatePresence>
-            <div
-                className="relative w-full flex flex-col justify-center items-center overflow-hidden gap-[20px] md:gap-[50px] xl:gap-[100px]">
+            <div className="relative w-full flex flex-col justify-center items-center overflow-hidden gap-[20px] md:gap-[50px] xl:gap-[100px]">
                 <section id="home" className="w-full relative">
                     <div className="absolute w-full h-full left-0 top-[-5px] z-0 dark:flex dark:flex-col hidden">
-                        <div className="bg-primary flex-1 max-h-[110px] sm:max-h-[90px] lg:max-h-[50px] xl:max-h-[30px]"></div>
+                        <div className="bg-primary flex-1 max-h-[80px] xs:max-h-[110px] sm:max-h-[90px] lg:max-h-[50px] xl:max-h-[30px]"></div>
                         <svg
                             id="visual"
                             className="w-full"
@@ -264,9 +304,9 @@ function App() {
                     <Home />
                 </section>
                 <Divider />
-                <Achievements />
+                <Achievements setOpen={setOpen} />
                 <Divider />
-                <Skills /> 
+                <Skills />
                 <Divider />
                 <Projects />
                 <Divider />

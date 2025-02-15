@@ -34,10 +34,16 @@ const Home = () => {
     return (
         <div className="flex justify-center items-center w-full px-[100px] h-screen m-auto relative">
             <div className="w-fit flex flex-col items-center mt-[-100px] h-fit">
-                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl">Hello I'm</h1>
-                <h1 className="text-primary/90 text-4xl md:text-6xl lg:text-7xl ">Kanhaiya Yadav,</h1>
+                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
+                    Hello I'm
+                </h1>
+                <h1 className="text-primary/90 text-4xl md:text-6xl lg:text-7xl ">
+                    Kanhaiya Yadav,
+                </h1>
                 <motion.svg
-                    className={"w-[350px] md:w-[500px] lg:w-[700px] my-4 md:my-6 lg:my-8"}
+                    className={
+                        "w-[320px] xs:w-[350px] md:w-[500px] lg:w-[700px] my-4 md:my-6 lg:my-8"
+                    }
                     //   id="new-logo"
                     width="1206"
                     viewBox="0 0 1206 112"
@@ -145,7 +151,7 @@ const Home = () => {
                     />
                 </motion.svg>
                 <motion.div
-                    className="max-w-[900px] flex flex-col gap-8"
+                    className="max-w-[900px] flex flex-col gap-6 xs:gap-8"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
@@ -155,19 +161,19 @@ const Home = () => {
                         stiffness: 120,
                     }}
                 >
-                    <p className="text-gray-500 w-full text-center">
+                    <p className="text-gray-500 w-full text-center text-xs xs:text-sm">
                         I am immersed in the world of web development,
-                        specializing in the MERN stack (MongoDB, Express.js,
-                        React, Node.js).
+                        specializing in the MERN stack. I enjoy building
+                        dynamic, scalable, and user-friendly applications
                         <br /> My enthusiasm for exploring and mastering new
                         technologies drives me to constantly expand my skill
                         set. Currently, I am delving into the powerful
                         capabilities of Next.js to further elevate my
                         development expertise.
                     </p>
-                    <div className="flex justify-center gap-4 items-center">
+                    <div className="flex justify-center gap-2 xs:gap-4 items-center">
                         <Dialog>
-                            <DialogTrigger className="inline-flex p-3 px-4 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent outline outline-2 outline-primary text-primary hover:bg-primary hover:text-black">
+                            <DialogTrigger className="flex items-center gap-2 py-2 xs:py-3 px-4 xs:px-6 outline outline-2 outline-primary bg-transparent hover:bg-primary text-primary rounded-sm">
                                 <IoDocumentTextOutline />
                                 My Resume
                             </DialogTrigger>
@@ -185,49 +191,39 @@ const Home = () => {
                                 ></iframe>
                             </DialogContent>
                         </Dialog>
-                        <Button size={"lg"} className="py-6 px-10">
+                        <button className="py-2 xs:py-3 px-6 xs:px-8 outline outline-2 outline-primary bg-primary rounded-sm">
                             Hire Me
-                        </Button>
+                        </button>
                     </div>
                     <div className="m-auto flex items-center gap-4">
-                        <SocialButton text="LinkedIn">
-                            <Button
-                                variant={"custom"}
-                                size={"icon"}
-                                className="z-10 bg-background"
-                            >
-                                <FaLinkedinIn />
-                            </Button>
-                        </SocialButton>
-                        <SocialButton text="Github">
-                            <Button
-                                variant={"custom"}
-                                size={"icon"}
-                                className="z-10 bg-background"
-                            >
-                                <LuGithub />
-                            </Button>
-                        </SocialButton>
-
-                        <SocialButton text="Facebook">
-                            <Button
-                                variant={"custom"}
-                                size={"icon"}
-                                className="z-10 bg-background"
-                            >
-                                <FaFacebookF />
-                            </Button>
-                        </SocialButton>
-
-                        <SocialButton text="Twitter">
-                            <Button
-                                variant={"custom"}
-                                size={"icon"}
-                                className="z-10 bg-background"
-                            >
-                                <RiTwitterXLine />
-                            </Button>
-                        </SocialButton>
+                        <Button
+                            variant={"custom"}
+                            size={"icon"}
+                            className="z-10 bg-background"
+                        >
+                            <FaLinkedinIn />
+                        </Button>
+                        <Button
+                            variant={"custom"}
+                            size={"icon"}
+                            className="z-10 bg-background"
+                        >
+                            <LuGithub />
+                        </Button>
+                        <Button
+                            variant={"custom"}
+                            size={"icon"}
+                            className="z-10 bg-background"
+                        >
+                            <FaFacebookF />
+                        </Button>
+                        <Button
+                            variant={"custom"}
+                            size={"icon"}
+                            className="z-10 bg-background"
+                        >
+                            <RiTwitterXLine />
+                        </Button>
                     </div>
                 </motion.div>
             </div>
