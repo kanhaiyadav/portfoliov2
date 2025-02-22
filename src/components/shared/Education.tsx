@@ -35,16 +35,15 @@ const Education = () => {
     return (
         <section
             id="education"
-            className="w-full min-h-screen px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
+            className="w-full h-screen px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
         >
             <motion.div
-                className="flex gap-8 items-center"
-                initial={{ x: -100, opacity: 0 }} // Start off-screen to the left and invisible
-                whileInView={{ x: 0, opacity: 1 }} // Animate to its original position and fully visible
-                viewport={{ once: true }} // Trigger animation only once when it comes into view
-                transition={{ type: "tween", duration: 0.5, delay: 0.3 }} // Smooth tween transition over 0.8 seconds
+                className="flex gap-8 items-center ml-auto"
+                initial={{ x: 100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "tween", duration: 0.5, delay: 0.3 }}
             >
-                <hr className="w-[150px] border-2 border-primary" />
                 <motion.svg
                     className={`w-[500px] my-4 md:my-6 xl:my-8`}
                     width="860"
@@ -101,6 +100,7 @@ const Education = () => {
                         variants={pathVariants}
                     />
                 </motion.svg>
+                <hr className="w-[150px] border-2 border-primary" />
             </motion.div>
             <div className="flex-1 flex flex-col lg:flex-row items-center justify-between gap-4">
                 <div
@@ -119,7 +119,7 @@ const Education = () => {
                                     className="h-[40px] sm:lg:h-[60px] lg:h-[80px] xl:h-[100px]"
                                 />
                             )}
-                            <h1 className="text-white text-lg sm:text-xl lg:text-3xl xl:text-5xl lg:font-semibold">
+                            <h1 className="text-white text-lg sm:text-xl lg:text-3xl xl:text-4xl lg:font-medium">
                                 {education[current].name}
                             </h1>
                         </div>
@@ -143,7 +143,6 @@ const Education = () => {
                             // width="600"
                             // height="900"
                             xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
                             version="1.1"
                         >
                             <path className="dark:fill-primary/60 fill-primary/15">
@@ -215,7 +214,9 @@ const Education = () => {
                     </div>
                     <div className="absolute top-0 left-0">
                         <CardHeader>
-                            <CardTitle className="text-lg md:text-2xl">Details</CardTitle>
+                            <CardTitle className="text-lg md:text-2xl">
+                                Details
+                            </CardTitle>
                             <CardDescription className="text-sm md:text-md">
                                 neccessary details about the institution,
                                 degree.
@@ -223,13 +224,17 @@ const Education = () => {
                         </CardHeader>
                         <CardContent className="flex flex-col gap-2 md:gap-4 z-10">
                             <div>
-                                <h2 className="text-md md:text-lg">Degree/Standard</h2>
+                                <h2 className="text-md md:text-lg">
+                                    Degree/Standard
+                                </h2>
                                 <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs sm:text-sm">
                                     {education[current].degree}
                                 </p>
                             </div>
                             <div>
-                                <h2 className="text-md md:text-lg">CGPA/Percentage</h2>
+                                <h2 className="text-md md:text-lg">
+                                    CGPA/Percentage
+                                </h2>
                                 <p className="dark:text-[#a8a29e] text-[#6b7280] text-xs sm:text-sm">
                                     {education[current].score}
                                 </p>
@@ -249,7 +254,9 @@ const Education = () => {
                             </div>
                             {education[current].officialWebsite && (
                                 <div>
-                                    <h2 className="text-md md:text-lg">Official website</h2>
+                                    <h2 className="text-md md:text-lg">
+                                        Official website
+                                    </h2>
                                     <a
                                         href="https://www.heritageit.edu/"
                                         target="_blank"

@@ -13,7 +13,6 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import SocialButton from "./SocialButton";
 
 const Home = () => {
     const pathVariants = {
@@ -161,7 +160,7 @@ const Home = () => {
                         stiffness: 120,
                     }}
                 >
-                    <p className="text-gray-500 w-full text-center text-xs xs:text-sm">
+                    <p className="text-gray-500 w-full md:w-[80%] m-auto text-center text-xs xs:text-sm md:text-base">
                         I am immersed in the world of web development,
                         specializing in the MERN stack. I enjoy building
                         dynamic, scalable, and user-friendly applications
@@ -173,7 +172,7 @@ const Home = () => {
                     </p>
                     <div className="flex justify-center gap-2 xs:gap-4 items-center">
                         <Dialog>
-                            <DialogTrigger className="flex items-center gap-2 py-2 xs:py-3 px-4 xs:px-6 outline outline-2 outline-primary bg-transparent hover:bg-primary text-primary rounded-sm">
+                            <DialogTrigger className="flex items-center gap-2 py-2 xs:py-3 px-4 xs:px-6 outline outline-2 outline-primary bg-transparent hover:bg-primary text-primary hover:text-white rounded-sm">
                                 <IoDocumentTextOutline />
                                 My Resume
                             </DialogTrigger>

@@ -4,8 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
 import Navbar from "./components/shared/Navbar";
 import Home from "./components/shared/Home";
-import Divider from "./components/shared/Divider";
-import Education from "./components/shared/Education";
+// import Education from "./components/shared/Education";
 import Skills from "./components/shared/Skills/Skills";
 import Projects from "./components/shared/Projects";
 import Contact from "./components/shared/Contact";
@@ -30,6 +29,7 @@ import { BsTools } from "react-icons/bs";
 import { GrAchievement } from "react-icons/gr";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { GrProjects } from "react-icons/gr";
+import Education2 from "./components/shared/Education2";
 
 const navItems = [
     {
@@ -101,19 +101,29 @@ function App() {
     const minSwipeDistance = 60; // Minimum horizontal swipe distance
     const maxVerticalThreshold = 40; // Prevents vertical swipes from being detected
 
-    const onTouchStart = (e) => {
-        setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
-        setTouchEnd({ x: e.touches[0].clientX, y: e.touches[0].clientY }); // Reset touch end
+    interface TouchCoordinates {
+        x: number;
+        y: number;
+    }
+
+    const onTouchStart = (e: React.TouchEvent<HTMLDivElement>): void => {
+        const touchCoordinates: TouchCoordinates = {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY,
+        };
+        setTouchStart(touchCoordinates);
+        setTouchEnd(touchCoordinates); // Reset touch end
     };
 
-    const onTouchMove = (e) => {
+
+    const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
         setTouchEnd({ x: e.touches[0].clientX, y: e.touches[0].clientY });
     };
 
     const onTouchEnd = () => {
-         const deltaX = touchStart.x - touchEnd.x;
-         const deltaY = Math.abs(touchStart.y - touchEnd.y);
-    
+        const deltaX = touchStart.x - touchEnd.x;
+        const deltaY = Math.abs(touchStart.y - touchEnd.y);
+
         if (
             Math.abs(deltaX) > minSwipeDistance &&
             deltaY < maxVerticalThreshold
@@ -126,8 +136,8 @@ function App() {
                 setOpen(true);
             }
         }
-        setTouchStart({x:0, y:0}); // Reset touch start
-        setTouchEnd({x:0, y: 0}); // Reset touch end
+        setTouchStart({ x: 0, y: 0 }); // Reset touch start
+        setTouchEnd({ x: 0, y: 0 }); // Reset touch end
     };
 
     React.useEffect(() => {
@@ -153,7 +163,7 @@ function App() {
 
     return (
         <div
-            className="flex"
+            className="flex flex-col"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
@@ -279,9 +289,10 @@ function App() {
                     </motion.nav>
                 )}
             </AnimatePresence>
-            <div className="relative w-full flex flex-col justify-center items-center overflow-hidden gap-[20px] md:gap-[50px] xl:gap-[100px]">
+            {/* <div className="w-full overflow-y-auto bg-red-500/50 flex flex-col justify-center items-center gap-[20px] md:gap-[50px] xl:gap-[100px]"> */}
+
                 <section id="home" className="w-full relative">
-                    <div className="absolute w-full h-full left-0 top-[-5px] z-0 dark:flex dark:flex-col hidden">
+                    <div className="absolute w-full h-full left-0 top-[-5px] z-0 flex flex-col">
                         <div className="bg-primary flex-1 max-h-[80px] xs:max-h-[110px] sm:max-h-[90px] lg:max-h-[50px] xl:max-h-[30px]"></div>
                         <svg
                             id="visual"
@@ -303,18 +314,21 @@ function App() {
                     <Navbar />
                     <Home />
                 </section>
-                <Divider />
+
                 <Achievements setOpen={setOpen} />
-                <Divider />
+
                 <Skills />
-                <Divider />
+
+
                 <Projects />
-                <Divider />
-                <Education />
-                <Divider />
+
+                <Education2 />
+                {/* <Education /> */}
+
                 <Contact />
+                
                 <Footer />
-            </div>
+            {/* </div> */}
         </div>
     );
 }

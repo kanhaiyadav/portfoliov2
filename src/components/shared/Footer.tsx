@@ -1,4 +1,3 @@
-import React from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
@@ -34,13 +33,12 @@ export const navItems = [
 
 const Footer = () => {
     return (
-        <div className="w-full border-none shadow-none">
+        <div className="w-full border-none shadow-none mt-[50px] md:mt-0">
             <svg
                 id="visual"
                 className="w-full"
                 viewBox="0 0 960 150"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
                 version="1.1"
             >
                 <path
@@ -57,7 +55,7 @@ const Footer = () => {
                 ></path>
             </svg>
             <div className="flex flex-col gap-2 justify-center items-center h-48 bg-primary/65 text-gray-300 font-light">
-                <div className="flex gap-4 mb-4">
+                <div className="flex flex-wrap gap-4 mb-4">
                     <a href="#">
                         <FaLinkedin className="text-2xl" />
                     </a>
@@ -73,7 +71,7 @@ const Footer = () => {
                 </div>
                 <div className="flex gap-4">
                     {navItems.map((item, index) => (
-                        <a key={index} href={item.href} className="text-sm hover:underline">
+                        <a key={index} href={item.href} className="text-xs md:text-sm hover:underline whitespace-nowrap">
                             {item.name}
                         </a>
                     ))}

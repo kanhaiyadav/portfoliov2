@@ -23,9 +23,8 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-export function Component({ progres, name, imgPath }: {
+export function Component({ progres, imgPath }: {
     progres: number;
-    name: string;
     imgPath: string;
 }) {
     return (
@@ -71,8 +70,8 @@ export function Component({ progres, name, imgPath }: {
                                                 {/* Image */}
                                                 <image
                                                     href={imgPath}
-                                                    x={viewBox.cx - 25} // Center the image
-                                                    y={viewBox.cy - 25}
+                                                    x={(viewBox.cx ?? 0) - 25} // Center the image
+                                                    y={(viewBox.cy ?? 0) - 25}
                                                     className="w-12 h-12"
                                                 />
                                             </g>

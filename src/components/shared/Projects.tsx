@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { projects, technologies } from "../../../constants/global";
 import ProjectCard from "./ProjectCard";
 import { useState } from "react";
-import { Button } from "../ui/button";
 import {
     Card,
     CardContent,
@@ -46,18 +45,18 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="w-full min-h-screen px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
+            className="w-full min-h-screen md:min-h-min md:h-screen  px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
         >
             <motion.div
-                className="flex gap-8 items-center"
+                className="flex gap-8 items-center m-auto md:m-0"
                 initial={{ x: -100, opacity: 0 }} // Start off-screen to the left and invisible
                 whileInView={{ x: 0, opacity: 1 }} // Animate to its original position and fully visible
                 viewport={{ once: true }} // Trigger animation only once when it comes into view
                 transition={{ type: "tween", duration: 0.5, delay: 0.3 }} // Smooth tween transition over 0.8 seconds
             >
-                <hr className="w-[150px] border-2 border-primary" />
+                <hr className="w-[150px] border-2 border-primary hidden md:block" />
                 <motion.svg
-                    className={`w-[500px] my-4 md:my-6 xl:my-8`}
+                    className={`w-[240px] md:w-[350px] xl:w-[450px] my-4 md:my-6 xl:my-6`}
                     width="754"
                     viewBox="0 0 754 112"
                     fill="none"
@@ -117,8 +116,8 @@ const Projects = () => {
                 </motion.svg>
             </motion.div>
             <div className="h-full w-full flex flex-col lg:flex-row gap-4 pb-[10px]">
-                <div className=" bg-primary/5 rounded-xl row-span-full border overflow-hidden flex-col-between py-4 w-full lg:w-[75%]">
-                    <div className="flex gap-2 lg:gap-4 flex-wrap p-2 md:p-4 justify-evenly max-h-[300px] sm:max-h-screen overflow-auto">
+                <div className=" bg-primary/5 rounded-xl border overflow-hidden flex-col-between py-4 w-full lg:w-[75%]">
+                    <div className="flex gap-2 lg:gap-4 flex-wrap p-2 md:p-4 justify-evenly h-[300px] md:h-auto sm:max-h-screen overflow-auto">
                         {projects
                             .slice((page - 1) * 9, page * 9)
                             .map((project, index) => (
@@ -148,7 +147,7 @@ const Projects = () => {
                             ))}
                     </div>
                 </div>
-                <Card className="overflow-hidden no-scrollbar h-full col-start-9 col-span-full row-start-1 row-end-13 border rounded-xl bg-primary/5 relative">
+                <Card className="overflow-hidden no-scrollbar h-full border rounded-xl bg-primary/5 relative">
                     <div className="h-full aspect-[2/3]">
                         <svg
                             id="visual"
@@ -157,7 +156,6 @@ const Projects = () => {
                             // width="600"
                             // height="900"
                             xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
                             version="1.1"
                         >
                             <path className="dark:fill-primary/60 fill-primary/15">
@@ -318,10 +316,9 @@ const Projects = () => {
                                                 className="rounded-xl h-[70vh] aspect-[16/9] border"
                                                 src={project.youtube}
                                                 title="YouTube video player"
-                                                frameborder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                referrerpolicy="strict-origin-when-cross-origin"
-                                                allowfullscreen
+                                                referrerPolicy="strict-origin-when-cross-origin"
+                                                allowFullScreen
                                             ></iframe>
                                         </DialogContent>
                                     </Dialog>

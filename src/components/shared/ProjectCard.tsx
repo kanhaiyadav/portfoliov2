@@ -17,7 +17,7 @@ const ProjectCard = ({
     setActiveIndex,
 }: {
     project: ProjectType;
-    setProject: (project: ProjectType) => void;
+    setProject: React.Dispatch<React.SetStateAction<ProjectType>>;
     active: boolean;
     setActiveIndex: (project: string) => void;
 }) => {
@@ -41,7 +41,9 @@ const ProjectCard = ({
                         alt="project icon"
                         className="w-[25px] sm:w-[30px] lg:w-[40px]"
                     />
-                    <h2 className="text-md sm:text-lg lg:text-xl text-white whitespace-nowrap max-w-[100px] text-ellipsis overflow-hidden">{project.title}</h2>
+                    <h2 className="text-md sm:text-lg lg:text-xl text-white whitespace-nowrap max-w-[100px] text-ellipsis overflow-hidden">
+                        {project.title}
+                    </h2>
                 </div>
             </div>
         </div>

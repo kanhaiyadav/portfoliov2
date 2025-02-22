@@ -19,7 +19,7 @@ const Skills = () => {
     return (
         <section id="skills" className="w-full min-h-screen px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4">
             <motion.div
-                className="flex gap-8 items-center ml-auto"
+                className="flex gap-8 items-center m-auto md:m-0 md:ml-auto mt-8"
                 initial={{ x: 100, opacity: 0 }} // Start off-screen to the left and invisible
                 whileInView={{ x: 0, opacity: 1 }} // Animate to its original position and fully visible
                 viewport={{ once: true }} // Trigger animation only once when it comes into view

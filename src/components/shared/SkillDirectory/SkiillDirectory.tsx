@@ -20,11 +20,11 @@ import {
 } from "@/components/ui/chart";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
-const chartData2 = [
-    { name: "Hindi", progress: 186 },
-    { name: "English", progress: 305 },
-    { name: "Bengali", progress: 237 },
-];
+// const chartData2 = [
+//     { name: "Hindi", progress: 186 },
+//     { name: "English", progress: 305 },
+//     { name: "Bengali", progress: 237 },
+// ];
 const chartConfig = {
     desktop: {
         label: "progress",

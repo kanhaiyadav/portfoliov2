@@ -31,7 +31,7 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="w-full min-h-screen overflow-hidden px-[15px] sm:px-[40px] lg:px-[80px] xl:px-[150px] flex flex-col flex-between gap-4 py-4"
+            className="w-full h-screen overflow-hidden px-[15px] sm:px-[40px] lg:px-[80px] xl:px-[150px] flex flex-col flex-between gap-4 py-4"
         >
             <motion.div
                 className="flex gap-8 items-center m-auto"
@@ -108,7 +108,7 @@ const Contact = () => {
                 </motion.svg>
                 <hr className="w-[150px] border-2 border-primary sm:block hidden" />
             </motion.div>
-            <div className="md:h-[80%] h-auto w-[95%] sm:w-auto flex flex-col-reverse md:flex-row justify-between sm:px-[20px] lg:px-[50px] xl:px-[100px]">
+            <div className="md:h-[80%] h-auto w-[95%] sm:w-auto flex flex-col-reverse md:flex-row justify-between sm:px-[20px] lg:px-[50px] xl:px-[100px] md:gap-[100px]">
                 <div className="h-full w-full sm:w-[400px] flex flex-col gap-[20px]">
                     <img
                         src="/me.png"

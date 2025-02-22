@@ -1,6 +1,5 @@
 import "./SkillCard.styles.css";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 
 const   SkillCard = ({
     imgPath,
@@ -81,7 +80,7 @@ const   SkillCard = ({
                     style={{
                         "--progress-width": `${progress}%`,
                         "--progress-color": progressColor,
-                    }}
+                    } as React.CSSProperties}
                 ></div>
             </div>
         </a>

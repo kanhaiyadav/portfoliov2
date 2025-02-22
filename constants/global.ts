@@ -38,6 +38,7 @@ export const education = [
         bg: "/svv.jpg",
         name: "Salkia Vikram Vidyalaya",
         score: "73% (Class 10)",
+        icon: "/saraswatipng.png",
         location: "Salkia, Howrah, West Bengal - 711106",
         degree: "Secondary Education",
         duration: "5 years (2015-2020)",
@@ -75,7 +76,7 @@ export const webDev = [
         imgPath: "react.png",
         name: "React",
         progress: 85,
-        imgStyle: { borderRadius: "13px", border: "2px solid #00d8ff" },
+        imgStyle: { borderRadius: "8px", border: "2px solid #00d8ff" },
         documentation: "https://reactjs.org/docs/getting-started.html",
     },
     {
@@ -84,7 +85,7 @@ export const webDev = [
         progress: 75,
         imgStyle: {
             backgroundColor: "white",
-            borderRadius: "20px",
+            borderRadius: "10px",
             border: "3px solid #026e00",
             padding: "5px",
         },
@@ -95,7 +96,7 @@ export const webDev = [
         name: "Express",
         progress: 70,
         imgStyle: {
-            borderRadius: "22px",
+            borderRadius: "11px",
             backgroundColor: "#343434",
             paddingTop: "5px",
             border: "2px solid #fff",
@@ -106,7 +107,7 @@ export const webDev = [
         imgPath: "nextjs.png",
         name: "Next.js",
         progress: 40,
-        imgStyle: { borderRadius: "13px", border: "3px solid #000" },
+        imgStyle: { borderRadius: "8px", border: "3px solid #000" },
         documentation: "https://nextjs.org/",
     },
     {
@@ -115,7 +116,7 @@ export const webDev = [
         progress: 80,
         imgStyle: {
             backgroundColor: "white",
-            borderRadius: "20px",
+            borderRadius: "10px",
             border: "3px solid #01618b",
             padding: "2px",
         },
@@ -133,7 +134,7 @@ export const webDev = [
         progress: 70,
         imgStyle: {
             backgroundColor: "white",
-            borderRadius: "20px",
+            borderRadius: "10px",
             padding: "5px",
             border: "2px solid #e10098",
         },
@@ -145,7 +146,7 @@ export const webDev = [
         progress: 85,
         imgStyle: {
             backgroundColor: "white",
-            borderRadius: "20px",
+            borderRadius: "10px",
             padding: "5px",
             border: "3px solid black",
         },
@@ -155,14 +156,14 @@ export const webDev = [
         imgPath: "tailwind.jpg",
         name: "Tailwind",
         progress: 80,
-        imgStyle: { borderRadius: "13px", border: "3px solid #00d8ff" },
+        imgStyle: { borderRadius: "8px", border: "3px solid #00d8ff" },
         documentation: "https://tailwindcss.com/docs",
     },
     {
         imgPath: "shadcn.png",
         name: "Shadcn/ui",
         progress: 80,
-        imgStyle: { borderRadius: "13px", border: "1px solid #fff" },
+        imgStyle: { borderRadius: "8px", border: "1px solid #fff" },
         documentation: "https://ui.shadcn.com/",
     },
     {
@@ -467,7 +468,7 @@ export const achievements = [
         images: ["/img1.jpg", "/img2.jpg", "/img3.jpg", "/img4.jpg"],
         title: "Hackthon Win",
         descriptions: [
-            "Our team, <span class='text-primary font-semibold'>Code Connectors</span>, earned the 2nd runner-up position at HackSpire-2024, one of the top offline hackathons organized by the <span class='text-primary font-semibold'>FIEM ACM Student Chapter</span>. 🚀",
+            "Our team, <span class='text-primary font-semibold'>Code Connectors</span>, earned 2nd runner-up position at HackSpire-2024, one of the top offline hackathons organized by the <span class='text-primary font-semibold'>FIEM ACM Student Chapter</span>. 🚀",
             "Out of nearly 2000 participants, our team from <a href='#education' class='text-primary font-semibold'>Heritage Institute of Technology</a> placed 3rd among 250+ brilliant finalists from across India. We built <a href='#projects' class='text-primary font-semibold'>KisaanSetu</a>, a MERN stack platform that connects farmers and consumers, integrating image classification to streamline the process.",
             "This hackathon was an incredible learning experience, where I enhanced my skills in web development, teamwork, collaboration, and working under tight deadlines to create a project from scratch. 🛠️💡",
         ],
