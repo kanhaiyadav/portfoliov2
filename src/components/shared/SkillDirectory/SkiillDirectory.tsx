@@ -1,33 +1,46 @@
 import SkillCard from "../SkillCard/SkillCard";
-import "./SkillDirectory.styles.css";
 import {
     webDev,
     programmingLanguages,
     languages,
 } from "../../../../constants/global.ts";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
     ChartConfig,
     ChartContainer,
     ChartTooltip,
-    ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
-// const chartData2 = [
-//     { name: "Hindi", progress: 186 },
-//     { name: "English", progress: 305 },
-//     { name: "Bengali", progress: 237 },
-// ];
+// Custom tooltip component
+interface CustomTooltipProps {
+    active?: boolean;
+    payload?: { payload?: { name?: string; short?: string; value?: number }, value?:number }[];
+}
+
+const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
+    if (active && payload && payload.length) {
+        return (
+            <div className="rounded-lg border bg-background p-2 shadow-sm flex">
+                <div className="w-[5px] h-[35px] rounded-full bg-primary mr-2"/>
+                    <div className="flex flex-col w-[100px]">
+                        <span className="text-[0.70rem] uppercase text-muted-foreground">
+                            {payload[0]?.payload?.name ||
+                                payload[0]?.payload?.short}
+                        </span>
+                        <span className="font-bold">
+                            {`${payload[0]?.value}%`}
+                        </span>
+                    </div>
+            </div>
+        );
+    }
+    return null;
+};
+
 const chartConfig = {
     desktop: {
-        label: "progress",
+        label: "name",
         color: "hsl(var(--primary))",
     },
 } satisfies ChartConfig;
@@ -37,11 +50,12 @@ const SkillDirectory = () => {
         <div className="flex flex-col lg:flex-row gap-4">
             <Card>
                 <CardHeader>
-                    <CardTitle>Frameworks/Tools</CardTitle>
-                    <CardDescription>January - June 2024</CardDescription>
+                    <CardTitle className="text-xl sm:text-2xl">
+                        Frameworks/Tools
+                    </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <div className="w-full flex justify-center items-start flex-wrap gap-2 md:gap-4 max-h-[400px] overflow-auto md:overflow-hidden">
+                    <div className="w-full flex justify-center items-start flex-wrap gap-2 md:gap-4 max-h-[400px] overflow-auto no-scrollbar pt-[10px]">
                         {webDev.map(
                             (
                                 skill: {
@@ -62,27 +76,29 @@ const SkillDirectory = () => {
                     </div>
                 </CardContent>
             </Card>
-            <div className="flex flex-col gap-4 w-fit">
-                <Card>
+            <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-col gap-4 w-full">
+                <Card className="w-full">
                     <CardHeader>
-                        <CardTitle>Programming Languages</CardTitle>
+                        <CardTitle className="text-xl sm:text-2xl">
+                            Programming Languages
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <ChartContainer
-                            config={chartConfig}
-                            className="w-[300px]"
-                        >
-                            <BarChart accessibilityLayer data={programmingLanguages}>
+                        <ChartContainer config={chartConfig} className="w-full">
+                            <BarChart
+                                accessibilityLayer
+                                data={programmingLanguages}
+                            >
                                 <CartesianGrid vertical={false} />
                                 <XAxis
-                                    dataKey="name"
+                                    dataKey="short"
                                     tickLine={false}
                                     tickMargin={10}
                                     axisLine={false}
                                 />
                                 <ChartTooltip
                                     cursor={false}
-                                    content={<ChartTooltipContent hideLabel />}
+                                    content={<CustomTooltip />}
                                 />
                                 <Bar
                                     dataKey="progress"
@@ -95,12 +111,14 @@ const SkillDirectory = () => {
                 </Card>
                 <Card>
                     <CardHeader>
-                        <CardTitle>Spoken Languages</CardTitle>
+                        <CardTitle className="text-xl sm:text-2xl">
+                            Spoken Languages
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ChartContainer
                             config={chartConfig}
-                            className="w-[300px]"
+                            className="w-full min-w-[250px]"
                         >
                             <BarChart
                                 accessibilityLayer
@@ -119,7 +137,7 @@ const SkillDirectory = () => {
                                 />
                                 <ChartTooltip
                                     cursor={false}
-                                    content={<ChartTooltipContent hideLabel />}
+                                    content={<CustomTooltip />}
                                 />
                                 <Bar
                                     dataKey="progress"

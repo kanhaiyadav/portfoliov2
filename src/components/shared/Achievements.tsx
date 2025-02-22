@@ -137,9 +137,9 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                 viewport={{ once: true }} // Trigger animation only once when it comes into view
                 transition={{ type: "tween", duration: 0.5, delay: 0.3 }} // Smooth tween transition over 0.8 seconds
             >
-                <hr className="w-[150px] border-2 border-primary md:block hidden" />
+                <hr className="w-[100px] xl:w-[150px] border-2 border-primary md:block hidden" />
                 <motion.svg
-                    className="w-[230px] xs:w-[300px] md:w-[500px] xs:my-4 md:my-6 xl:my-8"
+                    className="w-[230px] xs:w-[300px] md:w-[400px] lg:w-[500px] xs:my-4 md:my-6 xl:my-8"
                     width="1090"
                     viewBox="0 0 1090 115"
                     fill="none"
@@ -220,18 +220,21 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                         exit="exit"
                         variants={mobile ? slideVariantsMobile : slideVariants}
                     >
-                        <div className="grid grid-cols-2 grid-row-2 w-fit gap-2 sm:gap-4 md:gap-6 h-fit">
+                        <div className="grid grid-cols-2 grid-row-2 m-auto lg:m-0 w-fit gap-2 sm:gap-4 md:gap-6 h-fit">
                             {achievements[current].images.map((img, index) => (
                                 <img
                                     src={img}
                                     key={index}
                                     alt=""
-                                    className="border rounded-xl h-[110px] xs:h-[130px] sm:h-[180px] lg:h-[230px] max-w-[350px] w-full object-cover"
+                                    className={`border rounded-xl h-[110px] xs:h-[130px] sm:h-[180px] 
+                                        lg:h-[230px] aspect-[16/9] max-w-[350px] w-full object-cover
+                                        
+                                        `}
                                 />
                             ))}
                         </div>
                         <div className="w-full lg:w-[475px]">
-                            <h1 className="w-[95%] text-xl xs:text-2xl md:text-3xl xl:text-4xl font-semibold whitespace-nowrap">
+                            <h1 className="w-[95%] text-xl xs:text-2xl md:text-3xl font-semibold whitespace-nowrap">
                                 {achievements[current].title}
                             </h1>
                             <div
@@ -245,7 +248,7 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                         </div>
                     </motion.main>
                 </AnimatePresence>
-                <div className="flex flex-row lg:flex-col gap-2 items-center justify-center w-full lg:w-fit mt-[-40px] xs:mt-[-20px] lg:mt-0">
+                <div className="flex flex-row lg:flex-col gap-2 items-center justify-center w-full lg:w-fit mt-[-40px] xs:mt-[-20px] md:mt-0">
                     <button
                         className={`w-4 h-4 rounded-full }`}
                         onClick={() => setIsPaused(!isPaused)}
