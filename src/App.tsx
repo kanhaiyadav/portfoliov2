@@ -292,12 +292,12 @@ function App() {
             {/* <div className="w-full overflow-y-auto bg-red-500/50 flex flex-col justify-center items-center gap-[20px] md:gap-[50px] xl:gap-[100px]"> */}
 
                 <section id="home" className="w-full relative">
-                    <div className="absolute w-full h-full left-0 top-[-5px] z-0 flex flex-col">
+                    <div className="absolute w-full h-full left-0 sm:top-[-35px] z-0 flex flex-col">
                         <div className="bg-primary flex-1 max-h-[80px] xs:max-h-[110px] sm:max-h-[90px] lg:max-h-[50px] xl:max-h-[30px]"></div>
                         <svg
                             id="visual"
                             className="w-full"
-                            viewBox="0 0 960 540"
+                            viewBox="0 0 960 530"
                             xmlns="http://www.w3.org/2000/svg"
                             version="1.1"
                         >

@@ -69,24 +69,32 @@ const Footer = () => {
                         <RiTwitterXLine className="text-2xl" />
                     </a>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-2 sm:gap-4">
                     {navItems.map((item, index) => (
-                        <a key={index} href={item.href} className="text-xs md:text-sm hover:underline whitespace-nowrap">
+                        <a
+                            key={index}
+                            href={item.href}
+                            className="text-xs md:text-sm hover:underline whitespace-nowrap"
+                        >
                             {item.name}
                         </a>
                     ))}
                 </div>
                 <p className="flex gap-1">
-                    <span>Check out previous version of my portfolio</span>{" "}
+                    <span className="text-xs xs:text-sm sm:text-lg">
+                        Check out previous version of my portfolio
+                    </span>{" "}
                     <a
                         href="https://kanhaiya.me"
-                        className="flex items-center font-bold hover:underline"
+                        className="flex items-center font-bold hover:underline text-xs xs:text-sm sm:text-lg"
                     >
                         <span>here</span>
                         <FiExternalLink />
                     </a>
                 </p>
-                <p>©2025 Kanhaiya Yadav &nbsp;|&nbsp; All rights reserved.</p>
+                <p className="text-xs xs:text-sm sm:text-lg">
+                    ©2025 Kanhaiya Yadav &nbsp;|&nbsp; All rights reserved.
+                </p>
             </div>
         </div>
     );

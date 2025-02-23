@@ -118,7 +118,7 @@ const SkillDirectory = () => {
                     <CardContent>
                         <ChartContainer
                             config={chartConfig}
-                            className="w-full min-w-[250px]"
+                            className="w-full "
                         >
                             <BarChart
                                 accessibilityLayer

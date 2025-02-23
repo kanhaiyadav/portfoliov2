@@ -38,7 +38,7 @@ export const education = [
         bg: "/svv.jpg",
         name: "Salkia Vikram Vidyalaya",
         score: "73% (Class 10)",
-        icon: "/saraswatipng.png",
+        icon: "/saraswati.png",
         location: "Salkia, Howrah, West Bengal - 711106",
         degree: "Secondary Education",
         duration: "5 years (2015-2020)",
@@ -63,7 +63,7 @@ export const education = [
         name: "Heritage Institute of Technology",
         location:
             "Chowbaga Road, Anandapur, East Kolkata Township, Kolkata 700107",
-        degree: "B.Tech in Computer Science and Engineering",
+        degree: "B.Tech in CSE(Data Sceince)",
         duration: "4 years (2022-2026)",
         joined: "16th August 2022",
         officialWebsite: "https://www.heritageit.edu",
