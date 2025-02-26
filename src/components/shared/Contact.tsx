@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "../ui/button";
 import Input from "./Input";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { LuGithub } from "react-icons/lu";
@@ -10,6 +10,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaRegAddressCard } from "react-icons/fa";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
     const [submitting, setSubmitting] = useState(false);
@@ -18,7 +19,7 @@ const Contact = () => {
         hidden: {
             strokeDasharray: 1200, // Total length of the motion.path
             strokeDashoffset: 1200, // Initially hidden
-            fill: "rgba(0,0,0,0)", // Transparent fill
+            fill: "rgba(0,0,0,0.1)", // Transparent fill
         },
         visible: {
             strokeDashoffset: 0, // Fully drawn
@@ -37,13 +38,72 @@ const Contact = () => {
         },
     };
 
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [value, setValue] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+    const form = useRef<HTMLFormElement>(null);
+    const reset = () => {
+        setValue({
+            name: "",
+            email: "",
+            message: "",
+        });
+    };
+
+    interface EmailResponse {
+        text: string;
+    }
+
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setSubmitted(true);
+        setLoading(true);
+        if (form.current) {
+            emailjs
+                .sendForm("service_yag3epj", "template_kt3b35t", form.current, {
+                    publicKey: "wNCVxZcsSZIrBIYco",
+                })
+                .then(
+                    () => {
+                        console.log("SUCCESS!");
+                        reset();
+                        setLoading(false);
+                        setSuccess(true);
+                    },
+                    (error: EmailResponse) => {
+                        console.log("FAILED...", error.text);
+                        setLoading(false);
+                    }
+                );
+        }
+    };
+
+    interface ChangeEvent {
+        target: {
+            name: string;
+            value: string;
+        };
+    }
+
+    const onChange = (e: ChangeEvent) => {
+        setValue({
+            ...value,
+            [e.target.name]: e.target.value,
+        });
+    };
+
     return (
         <section
             id="contact"
             className="w-full h-fit md:h-screen overflow-hidden px-[15px] sm:px-[40px] lg:px-[80px] xl:px-[150px] flex flex-col flex-between gap-4 py-4"
         >
             <motion.div
-                className="flex gap-8 items-center m-auto"
+                className="flex gap-8 items-center m-auto heading"
                 initial={{ y: 50, opacity: 0 }} // Start off-screen to the left and invisible
                 whileInView={{ y: 0, opacity: 1 }} // Animate to its original position and fully visible
                 viewport={{ once: true }} // Trigger animation only once when it comes into view
@@ -179,42 +239,115 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <motion.form
-                    key="form"
-                    initial={{ y: -50, opacity: 0 }}
-                    animate={{
-                        y: 0,
-                        opacity: 1,
-                        transition: { duration: 1 },
-                    }}
-                    exit={{
-                        y: -50,
-                        opacity: 0,
-                        transition: { duration: 0.5 },
-                    }}
-                    action=""
-                    className="max-w-[300px] max-h-[600px] w-full flex md:hidden mb-8 m-auto flex-col gap-2"
-                >
-                    <Input type="text" placeholder="Name" />
-                    <Input type="email" placeholder="Email" />
-                    <textarea
-                        rows={5}
-                        placeholder="Your message..."
-                        className={`p-2 md:p-3 px-3 md:px-4 max-h-[120px] md:max-h-[200px] text-md sm:text-lg md:text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600 `}
-                    />
-                    <Button
-                        className="text-lg"
-                        onClick={() => {
-                            setSubmitting(true);
+                {!(submitted && !loading) ? (
+                    <motion.form
+                        ref={form}
+                        key="form"
+                        initial={{ y: -50, opacity: 0 }}
+                        animate={{
+                            y: 0,
+                            opacity: 1,
+                            transition: { duration: 1 },
                         }}
+                        exit={{
+                            y: -50,
+                            opacity: 0,
+                            transition: { duration: 0.5 },
+                        }}
+                        action=""
+                        className="max-w-[300px] max-h-[600px] w-full flex md:hidden mb-8 m-auto flex-col gap-2"
+                        onSubmit={sendEmail}
                     >
-                        Send Message
-                    </Button>
-                </motion.form>
+                        <Input
+                            type="text"
+                            name="name"
+                            value={value.name}
+                            placeholder="Name"
+                            onChange={onChange}
+                            disabled={loading}
+                        />
+                        <Input
+                            disabled={loading}
+                            type="email"
+                            name="email"
+                            value={value.email}
+                            placeholder="Email"
+                            onChange={onChange}
+                        />
+                        <textarea
+                            rows={5}
+                            placeholder="Your message..."
+                            className={`p-2 md:p-3 px-3 md:px-4 max-h-[120px] md:max-h-[200px] text-md sm:text-lg md:text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600 `}
+                            name="message"
+                            value={value.message}
+                            onChange={onChange}
+                        />
+                        <Button
+                            className="text-lg"
+                            onClick={() => {
+                                setSubmitting(true);
+                            }}
+                            disabled={loading}
+                        >
+                            {
+                                loading ?
+                                    <span>Sending message...</span>
+                                    :
+                                    <span>Send Message</span>
+                            }
+                        </Button>
+                    </motion.form>
+                ) : (
+                    <motion.div
+                        className="w-full text-center mt-[-50px] block md:hidden mb-[50px]"
+                        initial={{ y: -50, opacity: 0 }}
+                        animate={{
+                            y: 0,
+                            opacity: 1,
+                            transition: { duration: 1 },
+                        }}
+                        exit={{
+                            y: -50,
+                            opacity: 0,
+                            transition: { duration: 0.5 },
+                        }}  
+                    >
+                        {success ? (
+                            <>
+                                <div className="m-auto w-[100px] h-[100px] animate-imgBounce mt-[80px]">
+                                    <img
+                                        src="/check.png"
+                                        alt="success"
+                                        className="w-full h-full"
+                                    />
+                                </div>
+                                <h2 className="text-green-500 text-lg mt-[20px]">
+                                    Your message has been sent
+                                    <br /> successfully!
+                                </h2>
+                            </>
+                        ) : (
+                            <>
+                                <div className="m-auto w-[100px] h-[100px] mt-[80px] animate-imgBounce">
+                                    <img
+                                        src="/error.png"
+                                        alt="success"
+                                        className="w-full h-full"
+                                    />
+                                </div>
+                                <h2 className="text-red-500 text-xl mt-[20px]">
+                                    An error has occured!
+                                    <br /> try again later
+                                </h2>
+                            </>
+                        )}
+                    </motion.div>
+                )}
+
                 <div className="flex-1 relative flex-grow-0 hidden md:flex-between w-full md:w-fit h-auto md:h-full border bg-primary/10 rounded-xl">
                     <div className="absolute w-full h-full top-0 left-0 flex justify-center mt-[30px] sm:mt-[40px] lg:mt-[70px]">
                         <AnimatePresence mode="wait">
-                            {submitting ? (
+                            {loading ? (
                                 <motion.div
                                     key="loader"
                                     initial={{ y: 100, opacity: 0, scale: 0.5 }}
@@ -243,8 +376,7 @@ const Contact = () => {
                                     />
                                 </motion.div>
                             ) : (
-                                <motion.form
-                                    key="form"
+                                <motion.div
                                     initial={{ y: -50, opacity: 0 }}
                                     animate={{
                                         y: 0,
@@ -256,25 +388,78 @@ const Contact = () => {
                                         opacity: 0,
                                         transition: { duration: 0.5 },
                                     }}
-                                    action=""
-                                    className="max-w-[280px] md:max-w-[300px] max-h-[600px] w-full flex flex-col gap-4"
                                 >
-                                    <Input type="text" placeholder="Name" />
-                                    <Input type="email" placeholder="Email" />
-                                    <textarea
-                                        rows={5}
-                                        placeholder="Your message..."
-                                        className={`p-2 md:p-3 px-3 md:px-4 max-h-[120px] md:max-h-[200px] text-md sm:text-lg md:text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600 `}
-                                    />
-                                    <Button
-                                        className="text-lg"
-                                        onClick={() => {
-                                            setSubmitting(true);
-                                        }}
-                                    >
-                                        Send Message
-                                    </Button>
-                                </motion.form>
+                                    {!submitted ? (
+                                        <form
+                                            onSubmit={sendEmail}
+                                            key="form"
+                                            className="max-w-[280px] md:max-w-[300px] max-h-[600px] w-full flex flex-col gap-4"
+                                        >
+                                            <Input
+                                                name="name"
+                                                value={value.name}
+                                                onChange={onChange}
+                                                type="text"
+                                                placeholder="Name"
+                                            />
+                                            <Input
+                                                name="email"
+                                                value={value.email}
+                                                onChange={onChange}
+                                                type="email"
+                                                placeholder="Email"
+                                            />
+                                            <textarea
+                                                name="message"
+                                                value={value.message}
+                                                onChange={onChange}
+                                                rows={5}
+                                                placeholder="Your message..."
+                                                className={`p-2 md:p-3 px-3 md:px-4 max-h-[120px] md:max-h-[200px] text-md sm:text-lg md:text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600 `}
+                                            />
+                                            <Button
+                                                className="text-lg"
+                                                onClick={() => {
+                                                    setSubmitting(true);
+                                                }}
+                                            >
+                                                Send Message
+                                            </Button>
+                                        </form>
+                                    ) : (
+                                        <div className="w-full text-center mt-[-50px]">
+                                            {success ? (
+                                                <>
+                                                    <div className="m-auto w-[150px] h-[150px] mt-10 animate-imgBounce">
+                                                        <img
+                                                            src="/check.png"
+                                                            alt="success"
+                                                            className="w-full h-full"
+                                                        />
+                                                    </div>
+                                                    <h2 className="text-green-500 text-2xl mt-[20px]">
+                                                        Your message has been
+                                                        sent successfully!
+                                                    </h2>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <div className="m-auto w-[150px] h-[150px] mt-10 animate-imgBounce">
+                                                        <img
+                                                            src="/error.png"
+                                                            alt="success"
+                                                            className="w-full h-full"
+                                                        />
+                                                    </div>
+                                                    <h2 className="text-red-500 text-2xl mt-[20px]">
+                                                        An error has occured!,
+                                                        try again later
+                                                    </h2>
+                                                </>
+                                            )}
+                                        </div>
+                                    )}
+                                </motion.div>
                             )}
                         </AnimatePresence>
                     </div>

@@ -49,7 +49,7 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
         hidden: {
             strokeDasharray: 1200, // Total length of the motion.path
             strokeDashoffset: 1200, // Initially hidden
-            fill: "rgba(0,0,0,0)", // Transparent fill
+            fill: "rgba(0,0,0,0.1)", // Transparent fill
         },
         visible: {
             strokeDashoffset: 0, // Fully drawn
@@ -131,7 +131,7 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
             className="w-screen min-h-screen px-[20px] sm:px-[30px] md:px-[80px] lg:px-[50px] xl:px-[100px] flex flex-col gap-2 pb-[20px]"
         >
             <motion.div
-                className="flex gap-8 items-center md:justify-start justify-center"
+                className="flex gap-8 items-center md:justify-start justify-center heading"
                 initial={{ x: -100, opacity: 0 }} // Start off-screen to the left and invisible
                 whileInView={{ x: 0, opacity: 1 }} // Animate to its original position and fully visible
                 viewport={{ once: true }} // Trigger animation only once when it comes into view

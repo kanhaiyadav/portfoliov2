@@ -57,10 +57,9 @@ const   SkillCard = ({
             href={documentation}
             target="_blank"
             rel="noreferrer"
-            className={`shrink-0 dark:bg-black/5 bg-background hover:ring-primary ring-1 
-                ring-transparent border-dashed dark:border-solid dark:border-border border-gray-400
-                border-2 dark:border-[1px] dark:shadow-[0_0_15px_5px_rgba(255,255,255,0.02)]
-                shadow-card h-fit skill-card flex flex-col sm:flex-row items-center gap-4 p-3 pt-4
+            className={`shrink-0 dark:bg-black/5 bg-background hover:ring-primary border-border 
+                border-[1px] shadow-[0_0_15px_5px_rgba(255,255,255,0.02)]
+                 h-fit skill-card flex flex-col sm:flex-row items-center gap-4 p-3 pt-4
                 rounded-lg min-w-[80px] xs:min-w-[90px]  sm:w-[150px] md:w-[180px]`}
             {...otherProps}
         >

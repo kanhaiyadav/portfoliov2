@@ -5,6 +5,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { LuGithub } from "react-icons/lu";
 import { RiTwitterXLine } from "react-icons/ri";
 import { motion } from "framer-motion";
+import { scrollToSection } from "@/lib/utils";
 import {
     Dialog,
     DialogContent,
@@ -190,7 +191,11 @@ const Home = () => {
                                 ></iframe>
                             </DialogContent>
                         </Dialog>
-                        <button className="py-2 xs:py-3 px-6 xs:px-8 outline outline-2 outline-primary bg-primary rounded-sm">
+                        <button className="py-2 xs:py-3 px-6 xs:px-8 outline outline-2 outline-primary bg-primary rounded-sm"
+                            onClick={() => { 
+                                scrollToSection('contact')
+                            }}
+                        >
                             Hire Me
                         </button>
                     </div>

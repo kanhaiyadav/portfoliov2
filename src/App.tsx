@@ -27,9 +27,10 @@ import { ImHome } from "react-icons/im";
 import { FaGraduationCap } from "react-icons/fa6";
 import { BsTools } from "react-icons/bs";
 import { GrAchievement } from "react-icons/gr";
-import { RiSendPlaneFill } from "react-icons/ri";
+import { HiUser } from "react-icons/hi2";
 import { GrProjects } from "react-icons/gr";
 import Education2 from "./components/shared/Education2";
+import { scrollToSection } from "./lib/utils";
 
 const navItems = [
     {
@@ -43,11 +44,6 @@ const navItems = [
         icon: <GrAchievement />,
     },
     {
-        name: "Education",
-        href: "#education",
-        icon: <FaGraduationCap />,
-    },
-    {
         name: "Skills",
         href: "#skills",
         icon: <BsTools />,
@@ -58,9 +54,14 @@ const navItems = [
         icon: <GrProjects />,
     },
     {
+        name: "Education",
+        href: "#education",
+        icon: <FaGraduationCap />,
+    },
+    {
         name: "Contact me",
         href: "#contact",
-        icon: <RiSendPlaneFill />,
+        icon: <HiUser />,
     },
 ];
 
@@ -88,12 +89,6 @@ function App() {
         document.documentElement.style.setProperty("--ring", color);
     }
 
-    const scrollToSection = (id: string) => {
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: "smooth" });
-        }
-    };
 
     const [touchStart, setTouchStart] = React.useState({ x: 0, y: 0 });
     const [touchEnd, setTouchEnd] = React.useState({ x: 0, y: 0 });
@@ -146,12 +141,14 @@ function App() {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
+                    
+                    console.log(entry);
                     if (entry.isIntersecting) {
                         setActiveSection(entry.target.id);
                     }
                 });
             },
-            { threshold: 0.6 } // Trigger when 60% of the section is visible
+            { threshold: 0.6} // Trigger when 60% of the section is visible
         );
 
         sections.forEach((section) => observer.observe(section));

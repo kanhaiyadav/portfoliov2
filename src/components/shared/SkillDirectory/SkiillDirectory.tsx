@@ -55,7 +55,7 @@ const SkillDirectory = () => {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <div className="w-full flex justify-center items-start flex-wrap gap-2 md:gap-4 max-h-[400px] overflow-auto no-scrollbar pt-[10px]">
+                    <div className="w-full flex justify-center items-start flex-wrap gap-2 md:gap-4 max-h-[400px] overflow-auto no-scrollbar py-[10px]">
                         {webDev.map(
                             (
                                 skill: {

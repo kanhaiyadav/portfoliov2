@@ -32,7 +32,7 @@ const Projects = () => {
         hidden: {
             strokeDasharray: 1200, // Total length of the motion.path
             strokeDashoffset: 1200, // Initially hidden
-            fill: "rgba(0,0,0,0)", // Transparent fill
+            fill: "rgba(0,0,0,0.1)", // Transparent fill
         },
         visible: {
             strokeDashoffset: 0, // Fully drawn
@@ -57,7 +57,7 @@ const Projects = () => {
             className="w-full mt-[50px] min-h-screen md:min-h-min md:h-screen  px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
         >
             <motion.div
-                className="flex gap-8 items-center m-auto md:m-0"
+                className="flex gap-8 items-center m-auto md:m-0 heading"
                 initial={{ x: -100, opacity: 0 }} // Start off-screen to the left and invisible
                 whileInView={{ x: 0, opacity: 1 }} // Animate to its original position and fully visible
                 viewport={{ once: true }} // Trigger animation only once when it comes into view
