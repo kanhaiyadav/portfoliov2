@@ -56,16 +56,32 @@ const Footer = () => {
             </svg>
             <div className="flex flex-col gap-2 justify-center items-center h-48 bg-primary/65 text-gray-300 font-light">
                 <div className="flex flex-wrap gap-4 mb-4">
-                    <a href="#">
+                    <a
+                        href="https://www.linkedin.com/in/kanhaiyadav/"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                    >
                         <FaLinkedin className="text-2xl" />
                     </a>
-                    <a href="#">
+                    <a
+                        href="https://www.facebook.com/profile.php?id=61563497158287"
+                        target="_blank"
+                        aria-label="Facebook"
+                    >
                         <FaFacebook className="text-2xl" />
                     </a>
-                    <a href="#">
+                    <a
+                        href="https://github.com/kanhaiyadav"
+                        target="_blank"
+                        aria-label="Github"
+                    >
                         <FaGithub className="text-2xl" />
                     </a>
-                    <a href="#">
+                    <a
+                        href="https://x.com/Kanhaiyadav04"
+                        target="_blank"
+                        aria-label="Twitter"
+                    >
                         <RiTwitterXLine className="text-2xl" />
                     </a>
                 </div>
@@ -85,7 +101,7 @@ const Footer = () => {
                         Check out previous version of my portfolio
                     </span>{" "}
                     <a
-                        href="https://kanhaiya.me"
+                        href="https://kanhaiyadav.netlify.app"
                         className="flex items-center font-bold hover:underline text-xs xs:text-sm sm:text-lg"
                     >
                         <span>here</span>

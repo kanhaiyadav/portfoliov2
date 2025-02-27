@@ -191,43 +191,62 @@ const Home = () => {
                                 ></iframe>
                             </DialogContent>
                         </Dialog>
-                        <button className="py-2 xs:py-3 px-6 xs:px-8 outline outline-2 outline-primary bg-primary rounded-sm"
-                            onClick={() => { 
-                                scrollToSection('contact')
+                        <button
+                            className="py-2 xs:py-3 px-6 xs:px-8 outline outline-2 outline-primary bg-primary rounded-sm"
+                            onClick={() => {
+                                scrollToSection("contact");
                             }}
                         >
                             Hire Me
                         </button>
                     </div>
                     <div className="m-auto flex items-center gap-4">
-                        <Button
-                            variant={"custom"}
-                            size={"icon"}
-                            className="z-10 bg-background"
+                        <a
+                            href="https://www.linkedin.com/in/kanhaiyadav/"
+                            target="_blank"
                         >
-                            <FaLinkedinIn />
-                        </Button>
-                        <Button
-                            variant={"custom"}
-                            size={"icon"}
-                            className="z-10 bg-background"
+                            <Button
+                                variant={"custom"}
+                                size={"icon"}
+                                className="z-10 bg-background"
+                                name="linkedin"
+                            >
+                                <FaLinkedinIn />
+                            </Button>
+                        </a>
+                        <a
+                            href="https://github.com/kanhaiyadav"
+                            target="_blank"
                         >
-                            <LuGithub />
-                        </Button>
-                        <Button
-                            variant={"custom"}
-                            size={"icon"}
-                            className="z-10 bg-background"
-                        >
-                            <FaFacebookF />
-                        </Button>
-                        <Button
-                            variant={"custom"}
-                            size={"icon"}
-                            className="z-10 bg-background"
-                        >
-                            <RiTwitterXLine />
-                        </Button>
+                            <Button
+                                variant={"custom"}
+                                size={"icon"}
+                                className="z-10 bg-background"
+                                name="github"
+                            >
+                                <LuGithub />
+                            </Button>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61563497158287" target="_blank">
+                            <Button
+                                variant={"custom"}
+                                size={"icon"}
+                                className="z-10 bg-background"
+                                name="facebook"
+                            >
+                                <FaFacebookF />
+                            </Button>
+                        </a>
+                        <a href="https://x.com/Kanhaiyadav04" target="_blank">
+                            <Button
+                                variant={"custom"}
+                                size={"icon"}
+                                className="z-10 bg-background"
+                                name="twitter"
+                            >
+                                <RiTwitterXLine />
+                            </Button>
+                        </a>
                     </div>
                 </motion.div>
             </div>

@@ -67,8 +67,9 @@ const Navbar = () => {
             className="w-full flex items-center justify-between px-[20px] sm:px-[50px] md:px-[100px] xl:px-[120px] py-6 bg-transparent rounded-[5px] shadow-none border-none relative"
         >
             <div className="ml-auto">
-                <ul className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2">
                     <Button
+                        name="theme"
                         size={"icon"}
                         variant={"outline"}
                         onClick={() => {
@@ -162,7 +163,7 @@ const Navbar = () => {
                     <Select
                         onValueChange={(value) => changePrimaryColor(value)}
                     >
-                        <SelectTrigger className="w-[120px] md:w-[180px] shadow-md dark:bg-black/50 bg-accent dark:border-none text-xs sm:text-sm ">
+                        <SelectTrigger name="Color theme" className="w-[120px] md:w-[180px] shadow-md dark:bg-black/50 bg-accent dark:border-none text-xs sm:text-sm ">
                             <SelectValue placeholder="Color Theme" />
                         </SelectTrigger>
                         <SelectContent>
@@ -191,7 +192,7 @@ const Navbar = () => {
                     {/* <Button className="dark:bg-black/20 text-white">
                         Hire me
                     </Button> */}
-                </ul>
+                </div>
             </div>
         </nav>
     );

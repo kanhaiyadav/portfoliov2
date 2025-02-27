@@ -27,7 +27,10 @@ const pathVariants = {
 
 const Education2 = () => {
     return (
-        <section id="education" className="container min-h-screen w-full mx-auto flex-col-center mt-[100px] flex-col-center">
+        <section
+            id="education"
+            className="container min-h-screen w-full mx-auto flex-col-center mt-[100px] flex-col-center"
+        >
             <motion.div
                 className="flex gap-8 items-center heading"
                 initial={{ x: -100, opacity: 0 }} // Start off-screen to the left and invisible
@@ -131,15 +134,18 @@ const Education2 = () => {
                                                 {institute.location}
                                             </p>
                                             <div className="flex flex-col sm:flex-row gap-1 md:gap-8 mt-1 overflow-hidden">
-                                                <a
-                                                    href={
-                                                        institute.officialWebsite
-                                                    }
-                                                    className="flex-center gap-1 hover:underline whitespace-nowrap text-xs xs:text-sm md:text-md cursor-pointer text-primary"
-                                                >
-                                                    Official Website{" "}
-                                                    <HiOutlineExternalLink />
-                                                </a>
+                                                {institute.officialWebsite && (
+                                                    <a
+                                                        href={
+                                                            institute.officialWebsite
+                                                        }
+                                                        className="flex-center gap-1 hover:underline whitespace-nowrap text-xs xs:text-sm md:text-md cursor-pointer text-primary"
+                                                    >
+                                                        Official Website{" "}
+                                                        <HiOutlineExternalLink />
+                                                    </a>
+                                                )}
+
                                                 <span className="flex-center gap-1 hover:underline whitespace-nowrap text-xs xs:text-sm md:text-md">
                                                     <span className="text-primary font-medium">
                                                         Score:

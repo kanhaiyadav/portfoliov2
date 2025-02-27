@@ -193,18 +193,38 @@ const Contact = () => {
                         </h1>
                         <hr className="hidden md:block  w-[100px] mb-8 mt-4 bg-gray-500 dark:bg-gray-400 h-1 mx-auto" />
                         <div className="flex items-center md:justify-between justify-around w-full">
-                            <div className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
+                            <a
+                                href="https://www.linkedin.com/in/kanhaiyadav/"
+                                target="_blank"
+                                aria-label="Linkedin logo"
+                                className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit"
+                            >
                                 <FaLinkedinIn className="text-xl sm:text-2xl lg:text-3xl text-background" />
-                            </div>
-                            <div className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
+                            </a>
+                            <a
+                                href="https://github.com/kanhaiyadav"
+                                target="_blank"
+                                aria-label="Github logo"
+                                className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit"
+                            >
                                 <LuGithub className="text-xl sm:text-2xl lg:text-3xl text-background" />
-                            </div>
-                            <div className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
+                            </a>
+                            <a
+                                href="https://x.com/Kanhaiyadav04"
+                                target="_blank"
+                                aria-label="Twitter logo"
+                                className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit"
+                            >
                                 <RiTwitterXLine className="text-xl sm:text-2xl lg:text-3xl text-background" />
-                            </div>
-                            <div className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit">
+                            </a>
+                            <a
+                                href="https://www.facebook.com/profile.php?id=61563497158287"
+                                target="_blank"
+                                aria-label="Facebook logo"
+                                className="bg-gray-500 dark:bg-gray-400 p-2 md:p-3 rounded-full outline outline-offset-2 outline-gray-500 dark:outline-gray-400 w-fit"
+                            >
                                 <FaFacebookF className="text-xl sm:text-2xl lg:text-3xl text-background" />
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div className="m-auto">
@@ -289,12 +309,11 @@ const Contact = () => {
                             }}
                             disabled={loading}
                         >
-                            {
-                                loading ?
-                                    <span>Sending message...</span>
-                                    :
-                                    <span>Send Message</span>
-                            }
+                            {loading ? (
+                                <span>Sending message...</span>
+                            ) : (
+                                <span>Send Message</span>
+                            )}
                         </Button>
                     </motion.form>
                 ) : (
@@ -310,7 +329,7 @@ const Contact = () => {
                             y: -50,
                             opacity: 0,
                             transition: { duration: 0.5 },
-                        }}  
+                        }}
                     >
                         {success ? (
                             <>
@@ -418,7 +437,7 @@ const Contact = () => {
                                                 className={`p-2 md:p-3 px-3 md:px-4 max-h-[120px] md:max-h-[200px] text-md sm:text-lg md:text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600 `}
                                             />
                                             <Button
-                                                className="text-lg"
+                                                className="text-lg text-white"
                                                 onClick={() => {
                                                     setSubmitting(true);
                                                 }}

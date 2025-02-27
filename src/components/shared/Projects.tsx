@@ -124,9 +124,9 @@ const Projects = () => {
                     />
                 </motion.svg>
             </motion.div>
-            <div className="h-full w-full flex flex-col lg:flex-row gap-4 pb-[10px]">
+            <div className="h-full w-full flex flex-col md:flex-row gap-4 pb-[10px]">
                 <div className=" bg-primary/5 rounded-xl border overflow-hidden flex-col-between py-4 w-full lg:w-[75%]">
-                    <div className="flex gap-2 lg:gap-4 flex-wrap p-2 md:p-4 justify-evenly h-[300px] md:h-auto sm:max-h-screen overflow-auto">
+                    <div className="flex gap-2 lg:gap-4 flex-wrap p-2 md:p-4 justify-evenly h-[300px] md:h-auto sm:max-h-screen overflow-auto no-scrollbar">
                         {projects
                             .slice((page - 1) * 9, page * 9)
                             .map((project, index) => (
@@ -149,14 +149,19 @@ const Projects = () => {
                                             ? "bg-primary text-primary-foreground"
                                             : "bg-primary/10 text-primary hover:bg-primary/30"
                                     }`}
-                                    onClick={() => setPage(i + 1)}
+                                    onClick={() => {
+                                        setPage(i + 1);
+                                    }}
                                 >
                                     {i + 1}
                                 </button>
                             ))}
                     </div>
                 </div>
-                <Card className="overflow-hidden no-scrollbar h-full border rounded-xl bg-primary/5 relative">
+                <Card
+                    id="project-details"
+                    className="overflow-hidden no-scrollbar h-full border rounded-xl bg-primary/5 relative"
+                >
                     <div className="h-full aspect-[2/3]">
                         <svg
                             id="visual"
@@ -311,18 +316,18 @@ const Projects = () => {
                                         <DialogTrigger className="inline-flex p-3 px-4 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-transparent outline outline-2 outline-primary text-primary hover:bg-primary hover:text-black h-10 w-[60px]">
                                             <FaPlay />
                                         </DialogTrigger>
-                                        <DialogContent className="max-w-screen w-fit">
+                                        <DialogContent className="max-w-screen w-fit p-2 sm:p-4">
                                             <DialogHeader>
                                                 <DialogTitle>
                                                     Video preview
                                                 </DialogTitle>
                                                 <DialogDescription>
-                                                    this vides shows the project
+                                                    this video shows the project
                                                     in action.
                                                 </DialogDescription>
                                             </DialogHeader>
                                             <iframe
-                                                className="rounded-xl h-[70vh] aspect-[16/9] border"
+                                                className="rounded-xl sm:h-[40vh] lg:h-[50vh] xl:h-[70vh] aspect-[16/9] border"
                                                 src={project.youtube}
                                                 title="YouTube video player"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

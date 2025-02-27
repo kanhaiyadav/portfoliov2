@@ -69,7 +69,7 @@ const   SkillCard = ({
             >
                 <img
                     src={imgPath}
-                    alt={name}
+                    alt=""
                     className="h-full w-full rounded-lg"
                 />
             </div>

@@ -252,6 +252,7 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                     <button
                         className={`w-4 h-4 rounded-full }`}
                         onClick={() => setIsPaused(!isPaused)}
+                        name="play-pause"
                     >
                         {isPaused ? <FaRegCirclePlay /> : <FaRegCirclePause />}
                     </button>
@@ -262,7 +263,8 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                                 index === current
                                     ? "bg-primary"
                                     : "bg-primary/20"
-                            }`}
+                                }`}
+                            name="current slide indicator"
                             onClick={() => setCurrent(index)}
                         />
                     ))}
