@@ -480,7 +480,7 @@ export const achievements = [
         date: "October 2024",
     },
     {
-        images: ["/img7.jpg", "/img8.jpg", "/img3.jpg"],
+        images: ["/img7.jpg", "/img8.jpg", "/img9.png", "img10.png"],
         title: "Intra College Quiz Competition",
         descriptions: [
             "Secured 2nd runner up position in the Intra College Quiz Competition, <span class='text-primary font-semibold'>Quiztopher</span>. 🏆",

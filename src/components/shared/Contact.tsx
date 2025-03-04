@@ -11,6 +11,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaRegAddressCard } from "react-icons/fa";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import emailjs from "@emailjs/browser";
+import { GrPowerReset } from "react-icons/gr";
 
 const Contact = () => {
     const [submitting, setSubmitting] = useState(false);
@@ -301,9 +302,14 @@ const Contact = () => {
                             name="message"
                             value={value.message}
                             onChange={onChange}
+                            disabled={loading}
                         />
                         <Button
-                            className="text-lg"
+                            className={`text-lg ${
+                                loading
+                                    ? "cursor-not-allowed"
+                                    : "cursor-pointer"
+                            }`}
                             onClick={() => {
                                 setSubmitting(true);
                             }}
@@ -342,7 +348,17 @@ const Contact = () => {
                                 </div>
                                 <h2 className="text-green-500 text-lg mt-[20px]">
                                     Your message has been sent
-                                    <br /> successfully!
+                                    <br />{" "}
+                                    <p
+                                        className="flex m-auto w-fit items-center gap-4"
+                                        onClick={() => {
+                                            setSubmitted(false);
+                                            setSuccess(false);
+                                        }}
+                                    >
+                                        <span className="">successfully!</span>{" "}
+                                        <GrPowerReset className="text-foreground cursor-pointer" />
+                                    </p>
                                 </h2>
                             </>
                         ) : (
@@ -356,7 +372,17 @@ const Contact = () => {
                                 </div>
                                 <h2 className="text-red-500 text-xl mt-[20px]">
                                     An error has occured!
-                                    <br /> try again later
+                                    <br />
+                                    <p
+                                        className="flex m-auto w-fit items-center gap-4"
+                                        onClick={() => {
+                                            setSubmitted(false);
+                                            setSuccess(false);
+                                        }}
+                                    >
+                                        <span className="">successfully!</span>{" "}
+                                        <GrPowerReset className="text-foreground cursor-pointer" />
+                                    </p>
                                 </h2>
                             </>
                         )}
@@ -449,30 +475,62 @@ const Contact = () => {
                                         <div className="w-full text-center mt-[-50px]">
                                             {success ? (
                                                 <>
-                                                    <div className="m-auto w-[150px] h-[150px] mt-10 animate-imgBounce">
+                                                    <div className="m-auto w-[120px] h-[120px] mt-10 animate-imgBounce">
                                                         <img
                                                             src="/check.png"
                                                             alt="success"
                                                             className="w-full h-full"
                                                         />
                                                     </div>
-                                                    <h2 className="text-green-500 text-2xl mt-[20px]">
+                                                    <h2 className="text-green-500 text-xl mt-[20px]">
                                                         Your message has been
-                                                        sent successfully!
+                                                        <br />{" "}
+                                                        <p
+                                                            className="flex m-auto w-fit items-center gap-4"
+                                                            onClick={() => {
+                                                                setSubmitted(
+                                                                    false
+                                                                );
+                                                                setSuccess(
+                                                                    false
+                                                                );
+                                                            }}
+                                                        >
+                                                            <span className="">
+                                                                successfully!
+                                                            </span>{" "}
+                                                            <GrPowerReset className="text-foreground cursor-pointer" />
+                                                        </p>
                                                     </h2>
                                                 </>
                                             ) : (
                                                 <>
-                                                    <div className="m-auto w-[150px] h-[150px] mt-10 animate-imgBounce">
+                                                    <div className="m-auto w-[120px] h-[120px] mt-10 animate-imgBounce">
                                                         <img
                                                             src="/error.png"
-                                                            alt="success"
+                                                            alt="error"
                                                             className="w-full h-full"
                                                         />
                                                     </div>
-                                                    <h2 className="text-red-500 text-2xl mt-[20px]">
+                                                    <h2 className="text-red-500 text-xl mt-[20px]">
                                                         An error has occured!,
-                                                        try again later
+                                                        <br />{" "}
+                                                        <p
+                                                            className="flex m-auto w-fit items-center gap-4"
+                                                            onClick={() => {
+                                                                setSubmitted(
+                                                                    false
+                                                                );
+                                                                setSuccess(
+                                                                    false
+                                                                );
+                                                            }}
+                                                        >
+                                                            <span className="">
+                                                                try again later
+                                                            </span>{" "}
+                                                            <GrPowerReset className="text-foreground cursor-pointer" />
+                                                        </p>
                                                     </h2>
                                                 </>
                                             )}
