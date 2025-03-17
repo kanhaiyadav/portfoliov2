@@ -1,16 +1,5 @@
 import { scrollToSection } from "@/lib/utils";
-
-interface ProjectType {
-    path: string;
-    imgPath: string;
-    title: string;
-    description: string;
-    preview?: string;
-    source: string;
-    timeSpan: string;
-    technologies: number[];
-    youtube?: string;
-}
+import type { ProjectType } from "@/types/index";
 
 const ProjectCard = ({
     project,
@@ -29,7 +18,7 @@ const ProjectCard = ({
                 active ? "ring-2 ring-primary" : ""
             }`}
             style={{
-                backgroundImage: `url(${project.path})`,
+                backgroundImage: `url(${project.thumbnail})`,
             }}
             onClick={() => {
                                         scrollToSection("project-details");
@@ -41,7 +30,7 @@ const ProjectCard = ({
             <div className="h-full w-full flex flex-col justify-end p-2 md:p-4 gap-2 rounded-lg bg-gradient-to-t from-black to-transparent">
                 <div className="flex-between gap-2 w-fit">
                     <img
-                        src={`/${project.imgPath}`}
+                        src={project.icon}
                         alt="project icon"
                         className="w-[25px] sm:w-[30px] lg:w-[40px]"
                     />

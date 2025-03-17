@@ -20,13 +20,14 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { FaPlay } from "react-icons/fa";
+import type { ProjectType } from "@/types/index";
 
 const Projects = () => {
     const [activeProject, setActiveProject] = useState(projects[0].title);
     const [page, setPage] = useState(1);
     const nofPorojects = projects.length;
     const pages = Math.ceil(nofPorojects / 9);
-    const [project, setProject] = useState(projects[0]);
+    const [project, setProject] = useState<ProjectType>(projects[0]);
 
     const pathVariants = {
         hidden: {
@@ -278,15 +279,27 @@ const Projects = () => {
                                 <a
                                     href={project.source}
                                     className="text-primary flex-center gap-1 hover:underline whitespace-nowrap text-sm md:text-md"
+                                    target="_blank"
                                 >
                                     Source Code <HiOutlineExternalLink />
                                 </a>
-                                <a
-                                    href={project.preview}
-                                    className="text-primary flex-center gap-1 hover:underline whitespace-nowrap text-sm md:text-md"
-                                >
-                                    Production Deploy <HiOutlineExternalLink />
-                                </a>
+                                {project.package ? (
+                                    <a
+                                        href={project.npm}
+                                        className="text-primary flex-center gap-1 hover:underline whitespace-nowrap text-sm md:text-md"
+                                        target="_blank"
+                                    >
+                                        NPM Package <HiOutlineExternalLink />
+                                    </a>
+                                ) : (
+                                    <a
+                                        href={project.preview}
+                                        className="text-primary flex-center gap-1 hover:underline whitespace-nowrap text-sm md:text-md"
+                                    >
+                                        Production Deploy{" "}
+                                        <HiOutlineExternalLink />
+                                    </a>
+                                )}
                             </div>
                             <div>
                                 <h2 className="mb-1 text-md md:text-lg">

@@ -1,4 +1,20 @@
-
+import invictusIcon from "../src/assets/projects/invictus/icon.png";
+import invictusThumbnail from "../src/assets/projects/invictus/thumbnail.png";
+import kisaansetuIcon from "../src/assets/projects/kisaansetu/icon.png";
+import kisaansetuThumbnail from "../src/assets/projects/kisaansetu/thumbnail.png";
+import todoAppIcon from "../src/assets/projects/yourCheckMate/icon.png";
+import todoAppThumbnail from "../src/assets/projects/yourCheckMate/thumbnail.png";
+import portfolioIcon from "../src/assets/projects/portfoliov1/icon.jpeg";
+import portfolioThumbnail from "../src/assets/projects/portfoliov1/thumbnail.png";
+import myPassThumbnail from "../src/assets/projects/myPass/thumbnail.png";
+import pomodoroThumbnail from "../src/assets/projects/pomodoro/thumbnail.png";
+import snakeThumbnail from "../src/assets/projects/snake/thumbnail.png";
+import pongThumbnail from "../src/assets/projects/pong/thumbnail.png";
+import calculatorThumbnail from "../src/assets/projects/calculator/thumbnail.png";
+import tikTacToeThumbnail from "../src/assets/projects/ttt/thumbnail.png";
+import converzaIcon from "../src/assets/projects/converza/icon.png";
+import converzaThumbnail from "../src/assets/projects/converza/thumbnail.png";
+import pythonIcon from "../src/assets/projects/python.png";
 
 export const colors = [
     {
@@ -252,61 +268,79 @@ export const languages = [
 
 export const projects = [
     {
-        path: "converza.png",
-        imgPath: "converza_icon.png",
+        thumbnail: converzaThumbnail,
+        icon: converzaIcon,
         title: "Converza",
         description:
             "A chat application with core features like message seen status, unread message tracking etc. It is a full stack project with a beautiful and responsive design.",
         preview: "https://converza.vercel.app/",
         source: "https://github.com/kanhaiyadav/Converza",
+        package: false,
         timeSpan: "July 2024 - October 2024",
         technologies: [5, 0, 1, 2, 3, 4],
         youtube:
             "https://www.youtube.com/embed/hS1kEGRxCWk?si=FQZCseS3NHMfTAcN",
     },
     {
-        path: "kisaanSetu.png",
-        imgPath: "kisaanSetu_icon.png",
+        thumbnail: kisaansetuThumbnail,
+        icon: kisaansetuIcon,
         title: "KisaanSetu",
         description:
             "A platform for farmers where they can sell their products directly to the customers. Even through it is a team project(for a hackathon) everything except the ML model and chatbot is done by me.",
         source: "https://github.com/kanishy/KisaanSetu",
         timeSpan: "Sep 2024 - Present",
+        package: false,
         technologies: [0, 1, 2, 3, 4, 5],
         youtube:
             "https://www.youtube.com/embed/VdaOQMOajNc?si=FrSfdgbwZ-KBV5Tr",
     },
     {
-        path: "todoApp.png",
-        imgPath: "icon.png",
+        thumbnail: invictusThumbnail,
+        icon: invictusIcon,
+        title: "invictus",
+        description:"Invictus is a powerful and easy-to-use CLI tool built with Node.js for securely managing passwords. It securely stores your passwords in the OS keychain using the keytar library and provides an intuitive web interface for managing passwords with a beautiful, responsive UI.",
+        source: "https://github.com/kanishy/invictus",
+        timeSpan: "March 8th to 16th 2025",
+        package: true,
+        npm: "https://www.npmjs.com/package/invictus",
+        technologies: [0, 1, 2],
+        youtube:
+            "https://www.youtube.com/embed/VdaOQMOajNc?si=FrSfdgbwZ-KBV5Tr",
+    },
+    {
+        thumbnail: todoAppThumbnail,
+        icon: todoAppIcon,
         title: "YourCheckMate",
         description:
             "This is one of my initial web dev project, a simple todo app with all necessary features. It is a full stack project with a beautiful and responsive design.",
         preview: "https://yourcheckmate.netlify.app/",
         source: "https://github.com/kanishy/todo_react",
+        package: false,
         timeSpan: "July 2024 - July 2024",
         technologies: [0, 1, 2, 3, 4],
         youtube:
             "https://www.youtube.com/embed/FvZDQBydzuQ?si=bOqi6idkaCJ5q3ZH",
     },
     {
-        path: "portfolio.png",
-        imgPath: "myLogo.jpeg",
+        thumbnail: portfolioThumbnail,
+        icon: portfolioIcon,
         title: "My Portfolio",
         description:
             "This is my first portfolio website with beautiful and responsive design.",
         source: "https://github.com/kanishy/Portfolio",
         timeSpan: "october 2024 - October 2024",
+        package: false,
         technologies: [0, 6],
     },
     {
-        path: "/mypass.png",
-        imgPath: "python.png",
+        thumbnail: myPassThumbnail,
+        icon: pythonIcon,
         title: "MyPass",
         description:
             "A simple password manager which generates and save your password.",
         preview:
             "https://drive.google.com/file/d/1AIb_gdepumq5fRTfRJBg_0_HJeEyuwOv/view?usp=sharing",
+        package: false,
         source: "https://github.com/kanishy/python_password_manager",
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 7],
@@ -314,13 +348,14 @@ export const projects = [
             "https://www.youtube.com/embed/Hi-g3dInSLg?si=wj7u8v8HTdelS1D6",
     },
     {
-        path: "/pomodoro.png",
-        imgPath: "python.png",
+        thumbnail: pomodoroThumbnail,
+        icon: pythonIcon,
         title: "Pomodoro",
         description:
             "A simple pomodoro timer for managing work and break time.",
         preview:
             "https://drive.google.com/file/d/18p-ybkm0llmPDIHfUISxcFxqoBMYI56V/view?usp=sharing",
+        package: false,
         source: "https://github.com/kanishy/python_pomodoro_app",
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 7],
@@ -328,50 +363,54 @@ export const projects = [
             "https://www.youtube.com/embed/DZPovvuUBeM?si=DjdDMglS0OB8Eo86",
     },
     {
-        path: "/snake.png",
-        imgPath: "python.png",
+        thumbnail: snakeThumbnail,
+        icon: pythonIcon,
         title: "Snake Game",
         description: "A simple snake game for entertainment.",
         preview:
             "https://drive.google.com/file/d/19HMT8yM_S0MIlejURcX-h3oMCnkATqaA/view?usp=sharing",
         source: "https://github.com/kanishy/python_sanke_game",
+        package: false,
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 8],
     },
     {
-        path: "/pong.png",
-        imgPath: "python.png",
+        thumbnail: pongThumbnail,
+        icon: pythonIcon,
         title: "Pong Game",
         description: "A very basic pong game for entertainment.",
         preview:
             "https://drive.google.com/file/d/1ATw2c-7cYGu2LuZNI6b2M2QhR7aWjN3Q/view?usp=sharing",
         source: "https://github.com/kanishy/python_pong_game",
+        package: false,
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 8],
         youtube:
             "https://www.youtube.com/embed/TBQ7NexslZM?si=_hy1f4xEnGe4O7Mj",
     },
     {
-        path: "/calculator.png",
-        imgPath: "python.png",
+        thumbnail: calculatorThumbnail,
+        icon: pythonIcon,
         title: "Calculator",
         description: "A simple calculator for basic arithmetic operations.",
         preview:
             "https://drive.google.com/file/d/17Df8luCi8nESApRvUkZ2ud7U576xFLMN/view?usp=sharing",
         source: "https://github.com/kanishy/python_calculator",
+        package: false,
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 7],
         youtube:
             "https://www.youtube.com/embed/EzQTjPA8BdI?si=lt-xmVFz2NBUe4jg",
     },
     {
-        path: "/tiktactoe.png",
-        imgPath: "python.png",
+        thumbnail: tikTacToeThumbnail,
+        icon: pythonIcon,
         title: "TikTacToe",
         description: "A simple tik-tac-toe game for entertainment.",
         preview:
             "https://drive.google.com/file/d/1t2kFUbytpsgmoSXsXWaZvnngjdkuBvZJ/view?usp=sharing",
         source: "https://github.com/kanishy/python_tik_tac_toe_game",
+        package: false,
         timeSpan: "2023(3rd Semester)",
         technologies: [6, 7],
         youtube:
