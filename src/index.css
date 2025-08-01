@@ -74,7 +74,7 @@
     }
 
     .dark {
-        --background: 255, 10%, 8%;
+        --background: 190 41.67% 14.12%;
         --foreground: 60 9.1% 97.8%;
         --card: 255 10% 8%;
         --card-foreground: 60 9.1% 97.8%;
@@ -140,11 +140,6 @@ body {
 
 .h {
     color: #edebea;
-}
-
-#root::-webkit-scrollbar {
-    width: 0px;
-    display: none;
 }
 
 

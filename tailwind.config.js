@@ -5,8 +5,8 @@ module.exports = {
     theme: {
         extend: {
             screens: {
-                xs: "365px",  
-            },            
+                xs: "365px",
+            },
             borderRadius: {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
@@ -56,28 +56,29 @@ module.exports = {
             },
             fontFamily: {
                 sans: ["Ubuntu", "sans-serif"],
+                pixel: ["VT323", "monospace"],
+                pixel_body: ["rainyhearts", "monospace"],
             },
-            boxShadow: {
-            },
+            boxShadow: {},
             keyframes: {
                 bounce: {
                     "20%, 50%, 80%, to": {
-                        transform: "scale(1,1)"
+                        transform: "scale(1,1)",
                     },
                     "40%, 45%": {
-                        transform: "scale(1.75,0.65)"
+                        transform: "scale(1.75,0.65)",
                     },
                     "60%": {
-                        transform: "scale(1.25,0.75)"
+                        transform: "scale(1.25,0.75)",
                     },
                     "90%": {
-                        transform: "scale(1.15,0.85)"
-                    }
-                }
+                        transform: "scale(1.15,0.85)",
+                    },
+                },
             },
             animation: {
-                bounce: "bounce 1s linear"
-            }
+                bounce: "bounce 1s linear",
+            },
         },
     },
     plugins: [require("tailwindcss-animate")],

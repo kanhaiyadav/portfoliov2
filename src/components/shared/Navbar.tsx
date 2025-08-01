@@ -11,6 +11,8 @@ import { FaCircle } from "react-icons/fa";
 import { colors } from "../../../constants/global";
 import { useTheme } from "@/Hooks/Theme";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { ParallaxLayer } from "@react-spring/parallax";
 
 const Navbar = () => {
 
@@ -18,6 +20,13 @@ const Navbar = () => {
         document.documentElement.style.setProperty("--primary", color);
         document.documentElement.style.setProperty("--ring", color);
     }
+
+    useEffect(() => {
+        const storedColor = localStorage.getItem("color");
+        if (storedColor) {
+            changePrimaryColor(storedColor);
+        }
+    }, []);
 
     const moonPath =
         "M600 400C600 510.457 510.457 600 400 600C289.543 600 200 510.457 200 400C200 289.543 289.543 200 400 200C237.5 379 432 540.5 600 400Z";
@@ -62,9 +71,11 @@ const Navbar = () => {
     const { theme, setTheme } = useTheme();
 
     return (
-        <nav
+        <ParallaxLayer
+            speed={1}
+            offset={0}
             id="navbar"
-            className="w-full flex items-center justify-between px-[20px] sm:px-[50px] md:px-[100px] xl:px-[120px] py-6 bg-transparent rounded-[5px] shadow-none border-none relative"
+            className="w-full flex justify-between px-[20px] sm:px-[50px] md:px-[100px] xl:px-[120px] py-6 bg-transparent rounded-[5px] shadow-none border-none relative z-[1000]"
         >
             <div className="ml-auto">
                 <div className="flex items-center space-x-2">
@@ -161,7 +172,10 @@ const Navbar = () => {
                         </motion.svg>
                     </Button>
                     <Select
-                        onValueChange={(value) => changePrimaryColor(value)}
+                        onValueChange={(value) => {
+                            changePrimaryColor(value)
+                            localStorage.setItem("color", value);
+                        }}
                     >
                         <SelectTrigger name="Color theme" className="w-[120px] md:w-[180px] shadow-md dark:bg-black/50 bg-accent dark:border-none text-xs sm:text-sm ">
                             <SelectValue placeholder="Color Theme" />
@@ -194,7 +208,7 @@ const Navbar = () => {
                     </Button> */}
                 </div>
             </div>
-        </nav>
+        </ParallaxLayer>
     );
 };
 

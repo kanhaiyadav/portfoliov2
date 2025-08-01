@@ -520,7 +520,7 @@ export const achievements = [
     },
     {
         images: ["/img7.jpg", "/img8.jpg", "/img9.png", "img10.png"],
-        title: "Intra College Quiz Competition",
+        title: "Quiz Competition",
         descriptions: [
             "Secured 2nd runner up position in the Intra College Quiz Competition, <span class='text-primary font-semibold'>Quiztopher</span>. 🏆",
             "The quiz was organized by the <a href='#education' class='text-primary font-semibold'>Heritage Institute of Technology</a> ACM Student Chapter, where I competed against 50+ participants in a series of rounds testing our knowledge in various domains, such as sports, history, technology, and general awareness.",

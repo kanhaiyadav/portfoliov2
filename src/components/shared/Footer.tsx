@@ -3,6 +3,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FiExternalLink } from "react-icons/fi";
+import { ParallaxLayer } from "@react-spring/parallax";
 
 export const navItems = [
     {
@@ -33,7 +34,10 @@ export const navItems = [
 
 const Footer = () => {
     return (
-        <div className="w-full border-none shadow-none mt-[50px] md:mt-0">
+        <ParallaxLayer
+            speed={0.5}
+            offset={6}
+            className="w-full border-none shadow-none mt-[50px] md:mt-0">
             <svg
                 id="visual"
                 className="w-full"
@@ -112,7 +116,7 @@ const Footer = () => {
                     ©2025 Kanhaiya Yadav &nbsp;|&nbsp; All rights reserved.
                 </p>
             </div>
-        </div>
+        </ParallaxLayer>
     );
 };
 

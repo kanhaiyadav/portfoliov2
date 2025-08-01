@@ -11,6 +11,8 @@ import {
     ChartTooltip,
 } from "@/components/ui/chart";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { motion } from "framer-motion";
+import Title from "../Title.tsx";
 
 // Custom tooltip component
 interface CustomTooltipProps {
@@ -47,11 +49,15 @@ const chartConfig = {
 
 const SkillDirectory = () => {
     return (
-        <div className="flex flex-col lg:flex-row gap-4">
+        <motion.div className="flex flex-col lg:flex-row gap-4"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4 } }}
+            viewport={{ once: true }}
+        >
             <Card>
                 <CardHeader>
                     <CardTitle className="text-xl sm:text-2xl">
-                        Frameworks/Tools
+                        <Title title="Frameworks/Tools"/>
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -80,7 +86,7 @@ const SkillDirectory = () => {
                 <Card className="w-full">
                     <CardHeader>
                         <CardTitle className="text-xl sm:text-2xl">
-                            Programming Languages
+                            <Title title="Programming Languages"/>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -112,7 +118,7 @@ const SkillDirectory = () => {
                 <Card>
                     <CardHeader>
                         <CardTitle className="text-xl sm:text-2xl">
-                            Spoken Languages
+                            <Title title="Spoken Languages"/>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -149,7 +155,7 @@ const SkillDirectory = () => {
                     </CardContent>
                 </Card>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
