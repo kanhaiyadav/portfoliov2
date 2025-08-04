@@ -15,6 +15,8 @@ import tikTacToeThumbnail from "../src/assets/projects/ttt/thumbnail.png";
 import converzaIcon from "../src/assets/projects/converza/icon.png";
 import converzaThumbnail from "../src/assets/projects/converza/thumbnail.png";
 import pythonIcon from "../src/assets/projects/python.png";
+import hackboxThumbnail from "../src/assets/projects/hackbox/thumbnail.png";
+import hackboxIcon from "../src/assets/projects/hackbox/icon.png";
 
 export const colors = [
     {
@@ -268,12 +270,26 @@ export const languages = [
 
 export const projects = [
     {
+        thumbnail: hackboxThumbnail,
+        icon: hackboxIcon,
+        title: "HackBox",
+        description:
+            "Ever felt like you needed a Swiss Army knife, but for the internet? Meet HackBox – the only web app that can boost your productivity, fix your life, and maybe even find your missing socks. (Okay, not the last one… yet.)",
+        preview: "https://hackbox.vercel.app",
+        source: "https://github.com/kanhaiyadav/HackBox",
+        package: false,
+        timeSpan: "July 2024 - October 2024",
+        technologies: [17, 18, 5, 3, 19, 21, 22, 20],
+        youtube:
+            "https://www.youtube.com/embed/hS1kEGRxCWk?si=FQZCseS3NHMfTAcN",
+    },
+    {
         thumbnail: converzaThumbnail,
         icon: converzaIcon,
         title: "Converza",
         description:
             "A chat application with core features like message seen status, unread message tracking etc. It is a full stack project with a beautiful and responsive design.",
-        preview: "https://converza.vercel.app/",
+        preview: "https://converza.vercel.app",
         source: "https://github.com/kanhaiyadav/Converza",
         package: false,
         timeSpan: "July 2024 - October 2024",
@@ -288,6 +304,7 @@ export const projects = [
         description:
             "A platform for farmers where they can sell their products directly to the customers. Even through it is a team project(for a hackathon) everything except the ML model and chatbot is done by me.",
         source: "https://github.com/kanishy/KisaanSetu",
+        preview: "https://kisaansetu.kanhaiya.me",
         timeSpan: "Sep 2024 - Present",
         package: false,
         technologies: [0, 1, 2, 3, 4, 5],
@@ -298,7 +315,8 @@ export const projects = [
         thumbnail: invictusThumbnail,
         icon: invictusIcon,
         title: "invictus",
-        description:"Invictus is a powerful and easy-to-use CLI tool built with Node.js for securely managing passwords. It securely stores your passwords in the OS keychain using the keytar library and provides an intuitive web interface for managing passwords with a beautiful, responsive UI.",
+        description:
+            "Invictus is a powerful and easy-to-use CLI tool built with Node.js for securely managing passwords. It securely stores your passwords in the OS keychain using the keytar library and provides an intuitive web interface for managing passwords with a beautiful, responsive UI.",
         source: "https://github.com/kanishy/invictus",
         timeSpan: "March 8th to 16th 2025",
         package: true,
@@ -505,6 +523,36 @@ export const technologies = [
         imgPath: "/c-.png",
         documentation: "https://www.cplusplus.com",
     },
+    {
+        name: "Next.js",
+        imgPath: "/nextjs.png",
+        documentation: "https://nextjs.org",
+    },
+    {
+        name: "TypeScript",
+        imgPath: "/typescript.png",
+        documentation: "https://www.typescriptlang.org",
+    },
+    {
+        name: "Auth.js",
+        imgPath: "/authjs.png",
+        documentation: "https://authjs.dev",
+    },
+    {
+        name: "Shadcn/ui",
+        imgPath: "/shadcn.png",
+        documentation: "https://ui.shadcn.com/",
+    },
+    {
+        name: "PayPal",
+        imgPath: "/paypal.png",
+        documentation: "https://www.paypal.com",
+    },
+    {
+        name: "Algolia",
+        imgPath: "/algolia.png",
+        documentation: "https://www.algolia.com",
+    }
 ];
 
 export const achievements = [

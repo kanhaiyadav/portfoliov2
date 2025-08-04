@@ -1,12 +1,8 @@
-import { education } from "../../../constants/global";
-import { HiOutlineExternalLink } from "react-icons/hi";
-import { ParallaxLayer } from "@react-spring/parallax";
 import SectionHeading from "./SectionHeading";
 
 const Education2 = () => {
     return (
-        <ParallaxLayer
-            offset={4}
+        <section
             id="education"
             className="container min-h-screen w-full mx-auto mt-[100px]"
         >
@@ -91,7 +87,7 @@ const Education2 = () => {
                     );
                 })}
             </ul> */}
-        </ParallaxLayer>
+        </section>
     );
 };
 

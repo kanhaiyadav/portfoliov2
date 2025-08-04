@@ -1,145 +1,102 @@
-// components/Projects.tsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'; // Example icons, add more as needed
-import { ParallaxLayer } from '@react-spring/parallax';
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import SectionHeading from "./SectionHeading";
+import { projects, technologies } from "../../../constants/global";
+import Title from "./Title";
+import { Badge } from "../ui/badge";
 
-const projects: Array<Project> = [
-    {
-        id: '1',
-        name: 'Quantum Realm Explorer',
-        screenshot: 'https://via.placeholder.com/600x400/1E1E1E/FFFFFF?text=Project+1', // Replace with actual image
-        techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-        description: 'An interactive web application exploring subatomic particles and their behaviors, featuring stunning 3D visualizations and real-time data integration.',
-        githubLink: 'https://github.com/yourusername/quantum-realm',
-        liveLink: 'https://quantumrealm.example.com',
-    },
-    {
-        id: '2',
-        name: 'Neural Network Simulator',
-        screenshot: 'https://via.placeholder.com/600x400/1E1E1E/FFFFFF?text=Project+2',
-        techStack: ['Python', 'Django', 'PostgreSQL', 'D3.js'],
-        description: 'A full-stack web platform for designing, training, and visualizing custom neural networks, allowing users to experiment with various architectures and datasets.',
-        githubLink: 'https://github.com/yourusername/neural-sim',
-    },
-    {
-        id: '3',
-        name: 'Celestial Body Tracker',
-        screenshot: 'https://via.placeholder.com/600x400/1E1E1E/FFFFFF?text=Project+3',
-        techStack: ['Next.js', 'GraphQL', 'Apollo Client', 'Stripe'],
-        description: 'A subscription-based service providing real-time tracking and detailed information about celestial bodies, with personalized alerts and interactive sky maps.',
-        liveLink: 'https://celestialtracker.example.com',
-    },
-];
+const AIFeaturesSection = () => {
+    const sectionRef = useRef(null);
 
-// Define interfaces for type safety
-interface Project {
-    id: string;
-    name: string;
-    screenshot: string; // URL to the project screenshot
-    techStack: string[];
-    description: string;
-    githubLink?: string;
-    liveLink?: string;
-}
-
-
-
-const Projects = () => {
-    // Animation variants for project cards
-    const cardVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-        hover: {
-            scale: 1.05,
-            rotate: 2,
-            transition: { type: 'spring', stiffness: 300, damping: 10 }
-        }
-    };
 
     return (
-        <ParallaxLayer
-            speed={0.5}
-            offset={3}
-            className="min-h-screen text-gray-100 py-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-                <motion.h2
-                    className="text-5xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    My Notable Projects
-                </motion.h2>
+        <section
+            className="min-h-[200vh] md:min-h-auto py-16 md:py-8 overflow-x-hidden"
+            ref={sectionRef}
+        >
+            <SectionHeading>
+                {`                ██████╗  ██████╗   ██████╗       ██╗ ███████╗  ██████╗ ████████╗ ███████╗
+                ██╔══██╗ ██╔══██╗ ██╔═══██╗      ██║ ██╔════╝ ██╔════╝ ╚══██╔══╝ ██╔════╝
+                ██████╔╝ ██████╔╝ ██║   ██║      ██║ █████╗   ██║         ██║    ███████╗
+                ██╔═══╝  ██╔══██╗ ██║   ██║ ██   ██║ ██╔══╝   ██║         ██║    ╚════██║
+                ██║      ██║  ██║ ╚██████╔╝ ╚█████╔╝ ███████╗ ╚██████╗    ██║    ███████║
+                ╚═╝      ╚═╝  ╚═╝  ╚═════╝   ╚════╝  ╚══════╝  ╚═════╝    ╚═╝    ╚══════╝
+            `}
+            </SectionHeading>
+            <div className="max-w-[1400px] mx-auto px-0 md:px-8 flex flex-col">
 
-                <div className="grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    {projects.map((project) => (
-                        <motion.div
-                            key={project.id}
-                            className="bg-gray-800 rounded-xl shadow-2xl overflow-hidden cursor-pointer relative group"
-                            variants={cardVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            whileHover="hover"
-                            viewport={{ once: true, amount: 0.3 }} // Animate when 30% of the item is in view
-                        >
-                            <div className="relative overflow-hidden h-60">
+                {projects.slice(0, 5).map((project, index) => (
+                    <motion.div
+                        key={project.title}
+                        initial={{ opacity: 0, scale: 0.70 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{
+                            once: false, 
+                            amount: 0.3
+                        }}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeOut",
+                            delay: index * 0.1
+                        }}
+                        className={`order-2 flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-6 md:gap-[72px] lg:gap-[72px] p-8 md:px-4 lg:px-0 md:py-8 pb-4 md:pb-[100px] lg:pb-[250px] overflow-x-auto md:overflow-x-visible scroll-smooth scrollbar-none w-full pr-0 md:pr-8 lg:pr-0`}
+                    >
+                        <div className="px-4 md:px-0 w-full flex flex-col justify-center items-center mt-[50px]">
+                            <div className={"relative w-auto min-w-[400px] max-w-[500px] lg:max-w-[603px] aspect-[700/402] rounded-2xl overflow-hidden mx-auto lg:mx-0"}>
                                 <img
-                                    src={project.screenshot}
-                                    alt={project.name}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    src={project.thumbnail}
+                                    alt={project.title}
+                                    className={`w-full h-full object-cover rounded-2xl transition-opacity duration-500 ease-in-out`}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-300"></div>
                             </div>
-
-                            <div className="p-6">
-                                <h3 className="text-3xl font-bold mb-3 text-purple-300">{project.name}</h3>
-                                <p className="text-gray-400 text-lg mb-4 line-clamp-3">{project.description}</p>
-
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {project.techStack.map((tech, i) => (
-                                        <span
-                                            key={i}
-                                            className="px-4 py-1 bg-purple-700 text-white text-sm rounded-full font-semibold opacity-90 hover:opacity-100 transition-opacity duration-200"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <div className="flex justify-end gap-4 mt-4">
-                                    {project.githubLink && (
-                                        <motion.a
-                                            href={project.githubLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-gray-300 hover:text-white transition-colors duration-300"
-                                            whileHover={{ scale: 1.2, rotate: 5 }}
-                                            whileTap={{ scale: 0.9 }}
-                                        >
-                                            <FaGithub size={30} />
-                                        </motion.a>
-                                    )}
-                                    {project.liveLink && (
-                                        <motion.a
-                                            href={project.liveLink}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-gray-300 hover:text-white transition-colors duration-300"
-                                            whileHover={{ scale: 1.2, rotate: -5 }}
-                                            whileTap={{ scale: 0.9 }}
-                                        >
-                                            <FaExternalLinkAlt size={30} />
-                                        </motion.a>
-                                    )}
-                                </div>
+                        </div>
+                        <div className="flex flex-col gap-4 md:gap-4 lg:gap-4 p-0 md:p-8 lg:p-8 rounded-2xl transition-all duration-300 justify-center bg-white/5 md:bg-transparent border border-white/10 md:border-0 backdrop-blur-[10px] md:backdrop-blur-0 snap-start mr-4 md:mr-0 last:mr-4 md:last:mr-0 max-w-[700px]">
+                            <div className="mb-2 flex gap-4 items-center">
+                                <img
+                                    src={project.icon}
+                                    alt="ai icon"
+                                    className="w-6 h-6 md:w-12 md:h-12"
+                                />
+                                <Title title={project.title} />
                             </div>
-                        </motion.div>
-                    ))}
-                </div>
+                            <p className="text-[0.9rem] md:text-[15px] lg:text-2xl m-0 max-w-full md:max-w-[90%]">
+                                {project.description}
+                            </p>
+                            <div className="flex flex-col gap-1">
+                                <p className="text-2xl">
+                                    <span>Live Demo: </span>
+                                    <a href={project.preview} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                        {project.preview}
+                                    </a>
+                                </p>
+                                <p className="text-2xl">
+                                    <span>Source Code: </span>
+                                    <a href={project.source} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                        {project.source}
+                                    </a>
+                                </p>
+                                <p className="text-2xl">
+                                    <span>Video Preview: </span>
+                                    <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                        {project.youtube}
+                                    </a>
+                                </p>
+                            </div>
+                            <div className="flex flex-wrap gap-2 mt-4">
+                                {
+                                    project.technologies.map((tech, index) => (
+                                        <Badge key={index} className="text-sm">
+                                            {technologies[tech]?.name}
+                                        </Badge>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
-        </ParallaxLayer>
+        </section>
     );
 };
 
-export default Projects;
+export default AIFeaturesSection;

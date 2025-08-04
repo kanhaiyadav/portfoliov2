@@ -1,8 +1,7 @@
 // import { useEffect } from "react";
-import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
-import Navbar from "./components/shared/Navbar";
+// import Navbar from "./components/shared/Navbar";
 import Home from "./components/shared/Home";
 // import Education from "./components/shared/Education";
 import Skills from "./components/shared/Skills/Skills";
@@ -17,9 +16,6 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { FaCircle } from "react-icons/fa";
-import { Button } from "./components/ui/button";
-import { useTheme } from "./Hooks/Theme";
-import { LuMoon, LuSun } from "react-icons/lu";
 import { TbLayoutSidebar } from "react-icons/tb";
 import Footer from "./components/shared/Footer";
 import { ImHome } from "react-icons/im";
@@ -31,7 +27,9 @@ import { GrProjects } from "react-icons/gr";
 import Education2 from "./components/shared/Education2";
 import { scrollToSection } from "./lib/utils";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import Projects from "./components/shared/Projects";
+import React from "react";
+import SectionHeading from "./components/shared/SectionHeading";
+import AIFeaturesSection from "./components/shared/ProjectsV2.tsx";
 
 const navItems = [
     {
@@ -69,7 +67,6 @@ const navItems = [
 function App() {
     const [open, setOpen] = React.useState(false);
     const [activeSection, setActiveSection] = React.useState("home");
-    const { theme, setTheme } = useTheme();
 
     const sidebarVariants = {
         hidden: { x: "-100%", opacity: 1 },
@@ -90,7 +87,6 @@ function App() {
         document.documentElement.style.setProperty("--ring", color);
     }
 
-
     const [touchStart, setTouchStart] = React.useState({ x: 0, y: 0 });
     const [touchEnd, setTouchEnd] = React.useState({ x: 0, y: 0 });
 
@@ -110,7 +106,6 @@ function App() {
         setTouchStart(touchCoordinates);
         setTouchEnd(touchCoordinates); // Reset touch end
     };
-
 
     const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
         setTouchEnd({ x: e.touches[0].clientX, y: e.touches[0].clientY });
@@ -142,7 +137,6 @@ function App() {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-
                     console.log(entry);
                     if (entry.isIntersecting) {
                         setActiveSection(entry.target.id);
@@ -161,7 +155,7 @@ function App() {
 
     return (
         <div
-            className="w-full h-screen overflow-y-auto thin-scrollbar"
+            className="w-full h-dvh"
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
@@ -260,44 +254,18 @@ function App() {
                                     )}
                                 </SelectContent>
                             </Select>
-
-                            <Button
-                                variant={"outline"}
-                                onClick={() => {
-                                    setTheme(
-                                        theme === "dark" ? "light" : "dark"
-                                    );
-                                }}
-                                className="shadow-md border-[#8e8d87] dark:border-none bg-accent flex w-full gap-2"
-                            >
-                                {theme === "dark" ? (
-                                    <>
-                                        <LuSun className="scale-105 hover:rotate-90" />
-                                        Light Theme
-                                    </>
-                                ) : (
-                                    <>
-                                        <LuMoon />
-                                        Dark Theme
-                                    </>
-                                )}
-                            </Button>
                         </div>
                     </motion.nav>
                 )}
             </AnimatePresence>
-            {/* <div className="w-full overflow-y-auto bg-red-500/50 flex flex-col justify-center items-center gap-[20px] md:gap-[50px] xl:gap-[100px]"> */}
 
-            <Parallax
-                pages={7}
-                style={{ top: 0, left: 0 }}
+            <Parallax pages={7.37} style={{ top: 0, left: 0 }}
+                className="thin-scrollbar"
             >
-
-                <section
-                    id="home" className="w-full h-full relative">
+                <section id="home" className="w-full h-full relative">
                     <ParallaxLayer
                         offset={0}
-                        speed={0.3}
+                        speed={0.5}
                         style={{
                             backgroundImage: `url('/bgLayer4.png')`,
                             backgroundSize: "contain"
@@ -314,7 +282,7 @@ function App() {
                     />
                     <ParallaxLayer
                         offset={0}
-                        speed={0.4}
+                        speed={0.1}
                         style={{
                             backgroundImage: `url('/bgLayer6.png')`,
                             backgroundSize: "contain"
@@ -322,7 +290,7 @@ function App() {
                     />
                     <ParallaxLayer
                         offset={0}
-                        speed={0.25}
+                        speed={0.1}
                         style={{
                             backgroundImage: `url('/bgLayer7.png')`,
                             backgroundSize: "contain"
@@ -346,7 +314,7 @@ function App() {
                     />
                     <ParallaxLayer
                         offset={0}
-                        speed={0.3}
+                        speed={0.5}
                         style={{
                             backgroundImage: `url('/bgLayer2.png')`,
                             backgroundSize: "contain"
@@ -354,32 +322,103 @@ function App() {
                     />
                     <ParallaxLayer
                         offset={0}
-                        speed={0.1}
+                        speed={0.8}
                         style={{
                             backgroundImage: `url('/bgLayer.png')`,
                             backgroundSize: "contain",
+                            position: "relative"
                         }}
-                    />
-                    <Navbar />
+                    >
+                        <div className="w-full h-[650px] bg-background absolute bottom-0 left-0 translate-y-[97.5%]"></div>
+                    </ParallaxLayer>
+                    {/* <Navbar /> */}
                     <Home />
                 </section>
 
-                <Achievements setOpen={setOpen} />
+                <ParallaxLayer
+                    offset={1}
+                    speed={0.4}
+                    factor={0.9}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
+                        zIndex: 1,
+                    }}
+                    className="flex-start mt-[-100px]"
+                >
+                    <div className="w-full h-[200px] bg-background absolute top-0 left-0 translate-y-[-97.5%]"></div>
+                    <div className="flex items-end">
+                        <SectionHeading position="center">
+                            {`██╗    ██╗ ██╗  ██╗  ██████╗       █████╗  ███╗   ███╗     ██╗
+██║    ██║ ██║  ██║ ██╔═══██╗     ██╔══██╗ ████╗ ████║     ██║
+██║ █╗ ██║ ███████║ ██║   ██║     ███████║ ██╔████╔██║     ██║
+██║███╗██║ ██╔══██║ ██║   ██║     ██╔══██║ ██║╚██╔╝██║     ██║
+╚███╔███╔╝ ██║  ██║ ╚██████╔╝     ██║  ██║ ██║ ╚═╝ ██║     ██║
+ ╚══╝╚══╝  ╚═╝  ╚═╝  ╚═════╝      ╚═╝  ╚═╝ ╚═╝     ╚═╝     ╚═╝
+`}
+                        </SectionHeading>
+                        <span className="text-[180px] leading-[180px] font-sans text-red-500">
+                            ?
+                        </span>
+                    </div>
+                    <div className="flex-1 px-[200px] py-[50px] text-3xl text-center">
+                        <p>Just your friendly neighborhood developer, <span className="text-[#ffff00]">Kanhaiya Yadav</span></p>
+                        <p>Student at <a href="https://heritageit.edu/" target="_blank" className="text-[#ffe100] hover:underline underline-offset-2">Heritage Institute of Technology</a>, pursuing bachelor's degree in Computer Science with specialization in Data Science.</p>
+                        <p>Web development is my playground, JavaScript is my frenemy, and chess is my forever obsession.</p>
 
-                <Skills />
+                    </div>
+
+                </ParallaxLayer>
+                <ParallaxLayer
+                    speed={0.8}
+                    offset={1.9}
+                    id="achievements"
+                >
+                    <Achievements setOpen={setOpen} />
+                </ParallaxLayer>
+
+                <ParallaxLayer
+                    offset={2.7} // Adjust based on your sections positioning
+                    speed={1.2} // speed={1} means no parallax effect - moves normally with scroll
+                >
+                    <Skills />
+                </ParallaxLayer>
+
+                <ParallaxLayer
+                    speed={0.8}
+                    offset={3}
+                >
+                    <AIFeaturesSection />
+                </ParallaxLayer>
+
+                {/* <ParallaxLayer
+                    offset={5.9}
+                >
+                    <Education2 />
+                </ParallaxLayer> */}
 
 
-                {/* <Projects /> */}
-                <Projects />
+                <ParallaxLayer
+                    speed={1}
+                    offset={6.2}
+                >
+                    <Contact />
+                </ParallaxLayer>
 
-                <Education2 />
-                {/* <Education /> */}
-
-                <Contact />
-
-                <Footer />
+                <ParallaxLayer
+                    offset={6.999}
+                    speed={0.5}
+                    factor={0.3}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'flex-start'
+                    }}
+                >
+                    <Footer />
+                </ParallaxLayer>
             </Parallax>
-            {/* </div> */}
         </div>
     );
 }

@@ -3,7 +3,6 @@ import { FaFacebook } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FiExternalLink } from "react-icons/fi";
-import { ParallaxLayer } from "@react-spring/parallax";
 
 export const navItems = [
     {
@@ -34,9 +33,7 @@ export const navItems = [
 
 const Footer = () => {
     return (
-        <ParallaxLayer
-            speed={0.5}
-            offset={6}
+        <section id="footer"
             className="w-full border-none shadow-none mt-[50px] md:mt-0">
             <svg
                 id="visual"
@@ -94,14 +91,14 @@ const Footer = () => {
                         <a
                             key={index}
                             href={item.href}
-                            className="text-xs md:text-sm hover:underline whitespace-nowrap"
+                            className="text-sm md:text-lg hover:underline whitespace-nowrap"
                         >
                             {item.name}
                         </a>
                     ))}
                 </div>
                 <p className="flex gap-1">
-                    <span className="text-xs xs:text-sm sm:text-lg">
+                    <span className="text-xs xs:text-sm sm:text-xl">
                         Check out previous version of my portfolio
                     </span>{" "}
                     <a
@@ -116,7 +113,7 @@ const Footer = () => {
                     ©2025 Kanhaiya Yadav &nbsp;|&nbsp; All rights reserved.
                 </p>
             </div>
-        </ParallaxLayer>
+        </section>
     );
 };
 

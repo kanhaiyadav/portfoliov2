@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { achievements } from "../../../constants/global";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { FaRegCirclePause } from "react-icons/fa6";
-import { ParallaxLayer } from "@react-spring/parallax";
 import Title from "./Title";
 import SectionHeading from "./SectionHeading";
 import { useModal } from "@/Hooks/useModal";
@@ -108,19 +107,17 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
     };
 
     return (
-        <ParallaxLayer
-            speed={0.5}
-            offset={1}
+        <section
             id="achievements"
             className="w-screen min-h-screen px-[20px] sm:px-[30px] md:px-[80px] lg:px-[50px] xl:px-[100px] flex flex-col gap-2 pb-[20px]"
         >
             <SectionHeading>
-                {` █████╗  ██████╗██╗  ██╗██╗███████╗██╗   ██╗███████╗███╗   ███╗███████╗███╗   ██╗████████╗███████╗
-██╔══██╗██╔════╝██║  ██║██║██╔════╝██║   ██║██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
-███████║██║     ███████║██║█████╗  ██║   ██║█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████╗
-██╔══██║██║     ██╔══██║██║██╔══╝  ╚██╗ ██╔╝██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
-██║  ██║╚██████╗██║  ██║██║███████╗ ╚████╔╝ ███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
-╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝╚══════╝  ╚═══╝  ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+                {` █████╗   ██████╗ ██╗  ██╗ ██╗ ███████╗ ██╗   ██╗ ███████╗ ███╗   ███╗ ███████╗ ███╗   ██╗ ████████╗ ███████╗ 
+██╔══██╗ ██╔════╝ ██║  ██║ ██║ ██╔════╝ ██║   ██║ ██╔════╝ ████╗ ████║ ██╔════╝ ████╗  ██║ ╚══██╔══╝ ██╔════╝
+███████║ ██║      ███████║ ██║ █████╗   ██║   ██║ █████╗   ██╔████╔██║ █████╗   ██╔██╗ ██║    ██║    ███████╗
+██╔══██║ ██║      ██╔══██║ ██║ ██╔══╝   ╚██╗ ██╔╝ ██╔══╝   ██║╚██╔╝██║ ██╔══╝   ██║╚██╗██║    ██║    ╚════██║
+██║  ██║ ╚██████╗ ██║  ██║ ██║ ███████╗  ╚████╔╝  ███████╗ ██║ ╚═╝ ██║ ███████╗ ██║ ╚████║    ██║    ███████║
+╚═╝  ╚═╝  ╚═════╝ ╚═╝  ╚═╝ ╚═╝ ╚══════╝   ╚═══╝   ╚══════╝ ╚═╝     ╚═╝ ╚══════╝ ╚═╝  ╚═══╝    ╚═╝    ╚══════╝
 `}
             </SectionHeading>
             <div
@@ -140,14 +137,16 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                     >
                         <div className="grid grid-cols-2 grid-row-2 m-auto lg:m-0 w-fit gap-2 sm:gap-4 md:gap-6 h-fit">
                             {achievements[current].images.map((img, index) => (
-                                <img
-                                    src={img}
+                                <div
                                     key={index}
-                                    alt=""
                                     className={`border rounded-xl h-[110px] xs:h-[130px] sm:h-[180px] 
-                                        lg:h-[230px] aspect-[16/9] max-w-[350px] w-full object-cover
-                                        
+                                        lg:h-[230px] aspect-[16/9] max-w-[350px] w-full bg-cover hover:bg-size-[120%]
                                         `}
+                                    style={{
+                                        backgroundImage: `url(${img})`,
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "center",
+                                    }}
                                     onClick={() => {
                                         console.log("Image clicked:", img);
                                         setType("image");
@@ -194,7 +193,7 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                     ))}
                 </div>
             </div>
-        </ParallaxLayer>
+        </section>
     );
 };
 

@@ -12,28 +12,29 @@ import {
 } from "@/components/ui/chart";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Title from "../Title.tsx";
 
 // Custom tooltip component
 interface CustomTooltipProps {
     active?: boolean;
-    payload?: { payload?: { name?: string; short?: string; value?: number }, value?:number }[];
+    payload?: { payload?: { name?: string; short?: string; value?: number }, value?: number }[];
 }
 
 const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
     if (active && payload && payload.length) {
         return (
             <div className="rounded-lg border bg-background p-2 shadow-sm flex">
-                <div className="w-[5px] h-[35px] rounded-full bg-primary mr-2"/>
-                    <div className="flex flex-col w-[100px]">
-                        <span className="text-[0.70rem] uppercase text-muted-foreground">
-                            {payload[0]?.payload?.name ||
-                                payload[0]?.payload?.short}
-                        </span>
-                        <span className="font-bold">
-                            {`${payload[0]?.value}%`}
-                        </span>
-                    </div>
+                <div className="w-[5px] h-[35px] rounded-full bg-primary mr-2" />
+                <div className="flex flex-col w-[100px]">
+                    <span className="text-[0.70rem] uppercase text-muted-foreground">
+                        {payload[0]?.payload?.name ||
+                            payload[0]?.payload?.short}
+                    </span>
+                    <span className="font-bold">
+                        {`${payload[0]?.value}%`}
+                    </span>
+                </div>
             </div>
         );
     }
@@ -48,16 +49,27 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const SkillDirectory = () => {
+    const [showCharts, setShowCharts] = useState(false);
+
+    const handleChartsInView = () => {
+        if (!showCharts) {
+            // Small delay to ensure animation triggers
+            setTimeout(() => {
+                setShowCharts(true);
+            }, 100);
+        }
+    };
+
     return (
-        <motion.div className="flex flex-col lg:flex-row gap-4"
+        <motion.div className="flex flex-col lg:flex-row gap-4 flex-1"
             initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4 } }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } }}
             viewport={{ once: true }}
         >
-            <Card>
+            <Card className="glass">
                 <CardHeader>
                     <CardTitle className="text-xl sm:text-2xl">
-                        <Title title="Frameworks/Tools"/>
+                        <Title title="Frameworks/Tools" />
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -82,18 +94,25 @@ const SkillDirectory = () => {
                     </div>
                 </CardContent>
             </Card>
-            <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-col gap-4 w-full">
-                <Card className="w-full">
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                onViewportEnter={handleChartsInView}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-col gap-4 w-full"
+            >
+                <Card className="w-full glass">
                     <CardHeader>
                         <CardTitle className="text-xl sm:text-2xl">
-                            <Title title="Programming Languages"/>
+                            <Title title="Programming Languages" />
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <ChartContainer config={chartConfig} className="w-full">
+                        <ChartContainer config={chartConfig} className="w-full max-h-[180px] text-base leading-[15px]">
                             <BarChart
                                 accessibilityLayer
-                                data={programmingLanguages}
+                                data={showCharts ? programmingLanguages : []}
                             >
                                 <CartesianGrid vertical={false} />
                                 <XAxis
@@ -110,28 +129,31 @@ const SkillDirectory = () => {
                                     dataKey="progress"
                                     fill="var(--color-desktop)"
                                     radius={8}
+                                    animationBegin={0}
+                                    animationDuration={1000}
+                                    animationEasing="ease-out"
                                 />
                             </BarChart>
                         </ChartContainer>
                     </CardContent>
                 </Card>
-                <Card>
+                <Card className="glass">
                     <CardHeader>
                         <CardTitle className="text-xl sm:text-2xl">
-                            <Title title="Spoken Languages"/>
+                            <Title title="Spoken Languages" />
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ChartContainer
                             config={chartConfig}
-                            className="w-full "
+                            className="w-full max-h-[180px] text-base leading-[15px]"
                         >
                             <BarChart
                                 accessibilityLayer
-                                data={languages}
+                                data={showCharts ? languages : []}
                                 layout="vertical"
                                 margin={{
-                                    left: -10,
+                                    left: 0,
                                 }}
                             >
                                 <XAxis type="number" dataKey="progress" hide />
@@ -143,18 +165,21 @@ const SkillDirectory = () => {
                                 />
                                 <ChartTooltip
                                     cursor={false}
-                                    content={<CustomTooltip />}
+                                    content={<CustomTooltip/>}
                                 />
                                 <Bar
                                     dataKey="progress"
                                     fill="var(--color-desktop)"
                                     radius={5}
+                                    animationBegin={0}
+                                    animationDuration={1000}
+                                    animationEasing="ease-out"
                                 />
                             </BarChart>
                         </ChartContainer>
                     </CardContent>
                 </Card>
-            </div>
+            </motion.div>
         </motion.div>
     );
 };

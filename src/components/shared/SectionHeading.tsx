@@ -7,7 +7,7 @@ const SectionHeading = ({ children, position }: {
   return (
       <pre style={{
           fontFamily: "'Lucida Console', monospace",
-          fontSize: "12px",
+          fontSize: "10px",
           lineHeight: "14px",
           whiteSpace: "pre",
           display: "block",

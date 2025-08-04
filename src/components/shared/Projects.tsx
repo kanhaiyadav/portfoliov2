@@ -21,7 +21,6 @@ import {
 import { FaPlay } from "react-icons/fa";
 import type { ProjectType } from "@/types/index";
 import SectionHeading from "./SectionHeading";
-import { ParallaxLayer } from "@react-spring/parallax";
 
 const Projects = () => {
     const [activeProject, setActiveProject] = useState(projects[0].title);
@@ -31,19 +30,17 @@ const Projects = () => {
     const [project, setProject] = useState<ProjectType>(projects[0]);
 
     return (
-        <ParallaxLayer
-            speed={0.5}
-            offset={3}
+        <section
             id="projects"
             className="w-full mt-[50px] min-h-screen md:min-h-min md:h-screen  px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
         >
             <SectionHeading>
-                {`██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗███████╗
-██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔════╝
-██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   ███████╗
-██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   ╚════██║
-██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   ███████║
-╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝
+                {`██████╗  ██████╗   ██████╗       ██╗ ███████╗  ██████╗ ████████╗ ███████╗
+██╔══██╗ ██╔══██╗ ██╔═══██╗      ██║ ██╔════╝ ██╔════╝ ╚══██╔══╝ ██╔════╝
+██████╔╝ ██████╔╝ ██║   ██║      ██║ █████╗   ██║         ██║    ███████╗
+██╔═══╝  ██╔══██╗ ██║   ██║ ██   ██║ ██╔══╝   ██║         ██║    ╚════██║
+██║      ██║  ██║ ╚██████╔╝ ╚█████╔╝ ███████╗ ╚██████╗    ██║    ███████║
+╚═╝      ╚═╝  ╚═╝  ╚═════╝   ╚════╝  ╚══════╝  ╚═════╝    ╚═╝    ╚══════╝
 `}
             </SectionHeading>
             <div className="h-full w-full flex flex-col md:flex-row gap-4 pb-[10px]">
@@ -276,7 +273,7 @@ const Projects = () => {
                     </div>
                 </Card>
             </div>
-        </ParallaxLayer>
+        </section>
     );
 };
 

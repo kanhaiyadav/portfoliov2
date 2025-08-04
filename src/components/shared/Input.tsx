@@ -8,7 +8,7 @@ const Input = (props: {
     disabled?: boolean
 }) => {
   return (
-      <input {...props} className={`p-2 md:p-3 px-3 md:px-4 text-md sm:text-lg md:text-xl dark:text-gray-800 rounded-lg bg-gray-300 dark:bg-gray-400 focus:bg-white dark:focus:bg-gray-300 border outline-none border-b-4 focus:border-primary placeholder:text-gray-500 dark:placeholder:text-gray-600`}/>
+      <input {...props} className={`glass p-2 px-3 text-md sm:text-lg md:text-xl text-white !rounded-lg focus:outline focust:outline-2 focus:outline-primary placeholder:text-gray-400 `}/>
   )
 }
 

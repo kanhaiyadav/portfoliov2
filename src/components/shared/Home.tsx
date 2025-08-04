@@ -176,7 +176,7 @@ const Home = () => {
                         stiffness: 120,
                     }}
                 >
-                    <p className="text-gray-800 m-auto text-center text-xs xs:text-sm md:text-xl">
+                    <p className="text-gray-900 m-auto text-center text-xs xs:text-sm md:text-2xl">
                         Building the web, end to end
                     </p>
                     <div className="flex justify-center gap-2 xs:gap-4 items-center">
