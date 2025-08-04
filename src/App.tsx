@@ -24,12 +24,11 @@ import { BsTools } from "react-icons/bs";
 import { GrAchievement } from "react-icons/gr";
 import { HiUser } from "react-icons/hi2";
 import { GrProjects } from "react-icons/gr";
-import Education2 from "./components/shared/Education2";
 import { scrollToSection } from "./lib/utils";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import React from "react";
-import SectionHeading from "./components/shared/SectionHeading";
 import AIFeaturesSection from "./components/shared/ProjectsV2.tsx";
+import WhoAmI from "./components/shared/WhoAmI.tsx";
 
 const navItems = [
     {
@@ -259,7 +258,7 @@ function App() {
                 )}
             </AnimatePresence>
 
-            <Parallax pages={7.37} style={{ top: 0, left: 0 }}
+            <Parallax pages={8.37} style={{ top: 0, left: 0 }}
                 className="thin-scrollbar"
             >
                 <section id="home" className="w-full h-full relative">
@@ -338,7 +337,7 @@ function App() {
                 <ParallaxLayer
                     offset={1}
                     speed={0.4}
-                    factor={0.9}
+                    factor={1.9}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -348,39 +347,18 @@ function App() {
                     }}
                     className="flex-start mt-[-100px]"
                 >
-                    <div className="w-full h-[200px] bg-background absolute top-0 left-0 translate-y-[-97.5%]"></div>
-                    <div className="flex items-end">
-                        <SectionHeading position="center">
-                            {`██╗    ██╗ ██╗  ██╗  ██████╗       █████╗  ███╗   ███╗     ██╗
-██║    ██║ ██║  ██║ ██╔═══██╗     ██╔══██╗ ████╗ ████║     ██║
-██║ █╗ ██║ ███████║ ██║   ██║     ███████║ ██╔████╔██║     ██║
-██║███╗██║ ██╔══██║ ██║   ██║     ██╔══██║ ██║╚██╔╝██║     ██║
-╚███╔███╔╝ ██║  ██║ ╚██████╔╝     ██║  ██║ ██║ ╚═╝ ██║     ██║
- ╚══╝╚══╝  ╚═╝  ╚═╝  ╚═════╝      ╚═╝  ╚═╝ ╚═╝     ╚═╝     ╚═╝
-`}
-                        </SectionHeading>
-                        <span className="text-[180px] leading-[180px] font-sans text-red-500">
-                            ?
-                        </span>
-                    </div>
-                    <div className="flex-1 px-[200px] py-[50px] text-3xl text-center">
-                        <p>Just your friendly neighborhood developer, <span className="text-[#ffff00]">Kanhaiya Yadav</span></p>
-                        <p>Student at <a href="https://heritageit.edu/" target="_blank" className="text-[#ffe100] hover:underline underline-offset-2">Heritage Institute of Technology</a>, pursuing bachelor's degree in Computer Science with specialization in Data Science.</p>
-                        <p>Web development is my playground, JavaScript is my frenemy, and chess is my forever obsession.</p>
-
-                    </div>
-
+                    <WhoAmI />
                 </ParallaxLayer>
                 <ParallaxLayer
                     speed={0.8}
-                    offset={1.9}
+                    offset={2.9}
                     id="achievements"
                 >
                     <Achievements setOpen={setOpen} />
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    offset={2.7} // Adjust based on your sections positioning
+                    offset={3.7} // Adjust based on your sections positioning
                     speed={1.2} // speed={1} means no parallax effect - moves normally with scroll
                 >
                     <Skills />
@@ -388,7 +366,7 @@ function App() {
 
                 <ParallaxLayer
                     speed={0.8}
-                    offset={3}
+                    offset={4}
                 >
                     <AIFeaturesSection />
                 </ParallaxLayer>
@@ -402,13 +380,13 @@ function App() {
 
                 <ParallaxLayer
                     speed={1}
-                    offset={6.2}
+                    offset={7.2}
                 >
                     <Contact />
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    offset={6.999}
+                    offset={7.999}
                     speed={0.5}
                     factor={0.3}
                     style={{
