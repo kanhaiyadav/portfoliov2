@@ -1,5 +1,3 @@
-import { Button } from "../ui/button";
-import { IoDocumentTextOutline } from "react-icons/io5";
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { LuGithub } from "react-icons/lu";
@@ -181,9 +179,10 @@ const Home = () => {
                     </p>
                     <div className="flex justify-center gap-2 xs:gap-4 items-center">
                         <Dialog>
-                            <DialogTrigger className="flex items-center gap-2 py-2 xs:py-3 px-4 xs:px-6 outline outline-2 outline-red-500 bg-transparent hover:bg-primary text-red-500  hover:text-white rounded-sm font-sans font-semibold">
-                                <IoDocumentTextOutline />
-                                My Resume
+                            <DialogTrigger className="flex items-center gap-2 py-2 xs:py-3 px-4 xs:px-6 text-base outline outline-3 outline-red-500 bg-transparent text-red-500  hover:text-white rounded-sm font-sans font-semibold horizontal-button relative">
+                                <span className="relative z-10">
+                                    My Resume
+                                </span>
                             </DialogTrigger>
                             <DialogContent className="w-[70vw] max-w-[90vw]">
                                 <DialogHeader>
@@ -214,47 +213,39 @@ const Home = () => {
                             href="https://www.linkedin.com/in/kanhaiyadav/"
                             target="_blank"
                         >
-                            <Button
-                                variant={"custom"}
-                                size={"icon"}
-                                className="z-10 outline-red-500 text-red-500"
+                            <button
+                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-red-500 text-red-500 social-button relative overflow-hidden group"
                                 name="linkedin"
                             >
-                                <FaLinkedinIn />
-                            </Button>
+                                <FaLinkedinIn className="relative z-10 transition-all duration-1000" />
+                            </button>
                         </a>
                         <a
                             href="https://github.com/kanhaiyadav"
                             target="_blank"
                         >
-                            <Button
-                                variant={"custom"}
-                                size={"icon"}
-                                className="z-10 outline-red-500 text-red-500"
+                            <button
+                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-red-500 text-red-500 social-button relative overflow-hidden group"
                                 name="github"
                             >
-                                <LuGithub />
-                            </Button>
+                                <LuGithub className="relative z-10 transition-all duration-1000" />
+                            </button>
                         </a>
                         <a href="https://www.facebook.com/profile.php?id=61563497158287" target="_blank">
-                            <Button
-                                variant={"custom"}
-                                size={"icon"}
-                                className="z-10 outline-red-500 text-red-500"
+                            <button
+                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-red-500 text-red-500 social-button relative overflow-hidden group"
                                 name="facebook"
                             >
-                                <FaFacebookF />
-                            </Button>
+                                <FaFacebookF className="relative z-10 transition-all duration-1000" />
+                            </button>
                         </a>
                         <a href="https://x.com/Kanhaiyadav04" target="_blank">
-                            <Button
-                                variant={"custom"}
-                                size={"icon"}
-                                className="z-10 outline-red-500 text-red-500"
+                            <button
+                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-red-500 text-red-500 social-button relative overflow-hidden group"
                                 name="twitter"
                             >
-                                <RiTwitterXLine />
-                            </Button>
+                                <RiTwitterXLine className="relative z-10 transition-all duration-1000" />
+                            </button>
                         </a>
                     </div>
                 </motion.div>

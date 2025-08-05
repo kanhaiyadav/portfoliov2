@@ -106,3 +106,37 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+.social-button::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: red;
+    transition: all 0.3s ease;
+}
+
+.social-button:hover::before {
+    height: 100%;
+}
+.social-button:hover svg {
+    transform: rotateY(360deg);
+    scale: 1.2;
+}
+
+.horizontal-button::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: red;
+    transition: all 0.3s ease;
+}
+
+.horizontal-button:hover::before {
+    width: 100%;
+}

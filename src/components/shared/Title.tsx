@@ -14,9 +14,10 @@ const TypewriterComponent = ({ title }: { title: string }) => {
     return <>{text}</>
 }
 
-const Title = ({ title, className }: {
+const Title = ({ title, className, big }: {
     title: string,
-    className?: string
+    className?: string,
+    big?: boolean
 }) => {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
@@ -36,13 +37,13 @@ const Title = ({ title, className }: {
         <h1
             ref={ref}
             className={cn(
-                `text-red-500 whitespace-nowrap text-xl xs:text-2xl md:text-4xl font-pixel`,
+                `text-red-500 whitespace-nowrap font-pixel ${big ? 'text-6xl text-primary' : 'text-xl xs:text-2xl md:text-4xl'} leading-tight`,
                 className
             )}
         >
-            <span className='text-white'>&lt;</span>
+            <span className={` ${big ? 'text-red-500' : 'text-white'}`}>&lt;</span>
             {shouldType && title ? <TypewriterComponent title={title} /> : ''}
-            <span className='text-white'>&gt;</span>
+            <span className={` ${big ? 'text-red-500' : 'text-white'}`}>&gt;</span>
         </h1>
     )
 }

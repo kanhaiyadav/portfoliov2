@@ -177,6 +177,9 @@ const Contact = () => {
                                     setSubmitting(true);
                                 }}
                                 disabled={loading}
+                                style={{
+                                    boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+                                }}
                             >
                                 {loading ? (
                                     <span>Sending message...</span>
