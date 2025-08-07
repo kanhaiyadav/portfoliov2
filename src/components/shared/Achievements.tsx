@@ -111,7 +111,9 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
             id="achievements"
             className="w-screen min-h-screen px-[20px] sm:px-[30px] md:px-[80px] lg:px-[50px] xl:px-[100px] flex flex-col gap-2 pb-[20px]"
         >
-            <SectionHeading>
+            <SectionHeading
+               className="text-[5px] sm:text-[8px] md:text-[10px]"
+            >
                 {` █████╗   ██████╗ ██╗  ██╗ ██╗ ███████╗ ██╗   ██╗ ███████╗ ███╗   ███╗ ███████╗ ███╗   ██╗ ████████╗ ███████╗ 
 ██╔══██╗ ██╔════╝ ██║  ██║ ██║ ██╔════╝ ██║   ██║ ██╔════╝ ████╗ ████║ ██╔════╝ ████╗  ██║ ╚══██╔══╝ ██╔════╝
 ███████║ ██║      ███████║ ██║ █████╗   ██║   ██║ █████╗   ██╔████╔██║ █████╗   ██╔██╗ ██║    ██║    ███████╗
@@ -158,10 +160,10 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                                 />
                             ))}
                         </div>
-                        <div className="w-full lg:w-[475px]">
+                        <div className="flex flex-col w-full lg:w-[475px] lg:max-h-[470px]">
                             <Title className="w-[95%] font-semibold whitespace-nowrap" title={achievements[current].title} />
                             <div
-                                className="text-xs xs:text-sm md:text-2xl mt-2 xs:mt-4 max-h-[180px] xs:max-h-[2000px] overflow-y-auto"
+                                className="flex-1 min-h-0 overflow-y-auto thin-scrollbar text-xs xs:text-xl md:text-2xl mt-2 xs:mt-4 max-h-[180px] xs:max-h-[2000px]"
                                 dangerouslySetInnerHTML={{
                                     __html: achievements[
                                         current

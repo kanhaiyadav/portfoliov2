@@ -1,19 +1,18 @@
-import React from 'react'
+import { cn } from '@/lib/utils'
 
-const SectionHeading = ({ children, position }: {
+const SectionHeading = ({ children, position, className }: {
     children: string,
-    position?: 'left' | 'right' | 'center'
+    position?: 'left' | 'right' | 'center',
+    className?: string
 }) => {
   return (
       <pre style={{
           fontFamily: "'Lucida Console', monospace",
-          fontSize: "10px",
-          lineHeight: "14px",
           whiteSpace: "pre",
           display: "block",
           margin: "20px 0",
             textAlign: position === 'right' ? 'right' : position === 'center' ? 'center' : 'left',
-      }} className="text-primary">
+      }} className={cn(`text-primary text-[6px] leading-[8px] sm:text-[8px] sm:leading-[11px] md:text-[10px] md:leading-[14px]`, className)}>
           {children}
       </pre>
   )

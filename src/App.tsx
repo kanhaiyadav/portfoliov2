@@ -470,7 +470,7 @@ function App() {
                 <ParallaxLayer
                     offset={1}
                     speed={0.4}
-                    factor={2.9}
+                    factor={0.9}
                     style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -484,15 +484,16 @@ function App() {
                 </ParallaxLayer>
                 <ParallaxLayer
                     speed={0.8}
-                    offset={3.9}
+                    offset={1.9}
                     id="achievements"
                 >
                     <Achievements setOpen={() => { }} />
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    offset={4.7}
+                    offset={2.7}
                     speed={1.2}
+                    factor={3}
                 >
                     <Skills />
                 </ParallaxLayer>
@@ -515,10 +516,7 @@ function App() {
                     offset={8.999}
                     speed={0.5}
                     factor={0.3}
-                    style={{
-                        display: 'flex',
-                        alignItems: 'flex-start'
-                    }}
+                    className="flex flex-col justify-end flex-1"
                 >
                     <Footer />
                 </ParallaxLayer>

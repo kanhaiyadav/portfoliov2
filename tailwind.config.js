@@ -5,6 +5,7 @@ module.exports = {
     theme: {
         extend: {
             screens: {
+                smlr: "400px",
                 xs: "365px",
             },
             borderRadius: {
@@ -58,6 +59,7 @@ module.exports = {
                 sans: ["Ubuntu", "sans-serif"],
                 pixel: ["VT323", "monospace"],
                 pixel_body: ["rainyhearts", "monospace"],
+                stylish: ["Lavishly Yours", "sans-serif"],
             },
             boxShadow: {},
             keyframes: {

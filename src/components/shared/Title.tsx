@@ -37,7 +37,7 @@ const Title = ({ title, className, big }: {
         <h1
             ref={ref}
             className={cn(
-                `text-secondary whitespace-nowrap font-pixel ${big ? 'text-6xl text-primary' : 'text-xl xs:text-2xl md:text-4xl'} leading-tight`,
+                `text-secondary whitespace-nowrap font-pixel ${big ? 'text-3xl sm:text-5xl md:text-6xl text-primary text-center' : 'text-xl xs:text-2xl md:text-4xl'} leading-tight`,
                 className
             )}
         >
