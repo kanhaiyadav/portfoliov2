@@ -37,13 +37,13 @@ const Title = ({ title, className, big }: {
         <h1
             ref={ref}
             className={cn(
-                `text-red-500 whitespace-nowrap font-pixel ${big ? 'text-6xl text-primary' : 'text-xl xs:text-2xl md:text-4xl'} leading-tight`,
+                `text-secondary whitespace-nowrap font-pixel ${big ? 'text-6xl text-primary' : 'text-xl xs:text-2xl md:text-4xl'} leading-tight`,
                 className
             )}
         >
-            <span className={` ${big ? 'text-red-500' : 'text-white'}`}>&lt;</span>
+            <span className={` ${big ? 'text-secondary' : 'text-white'}`}>&lt;</span>
             {shouldType && title ? <TypewriterComponent title={title} /> : ''}
-            <span className={` ${big ? 'text-red-500' : 'text-white'}`}>&gt;</span>
+            <span className={` ${big ? 'text-secondary' : 'text-white'}`}>&gt;</span>
         </h1>
     )
 }

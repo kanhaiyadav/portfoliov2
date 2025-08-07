@@ -36,10 +36,8 @@
         -ms-overflow-style: none; /* IE 10+ */
     }
     .shadow-card {
-        box-shadow:
-            0 0 0 5px hsl(var(--background)),
-            0 0 5px 3px rgba(0, 0, 0, 0.6),
-            0 5px 10px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 0 5px hsl(var(--background)),
+            0 0 5px 3px rgba(0, 0, 0, 0.6), 0 5px 10px rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -100,6 +98,12 @@
         --chart-5: 340 75% 55%;
         --radius: 0.5rem;
     }
+
+    @media (max-width: 767px) {
+        :root {
+            --background: 213.53, 89.47%, 7.45%;
+        }
+    }
 }
 
 @layer base {
@@ -129,7 +133,7 @@
     }
 
     * {
-        @apply selection:bg-primary selection:text-black
+        @apply selection:bg-primary selection:text-black;
     }
 }
 
@@ -142,7 +146,6 @@ body {
 .h {
     color: #edebea;
 }
-
 
 /*new project animation*/
 :root {
@@ -172,13 +175,9 @@ body {
 
 .zoom {
     background-size: 100%;
-    animation:
-        appear3 linear forwards,
-        appear linear forwards;
+    animation: appear3 linear forwards, appear linear forwards;
     animation-timeline: view(), view();
-    animation-range:
-        entry 20% cover 30%,
-        entry 0% cover 20%;
+    animation-range: entry 20% cover 30%, entry 0% cover 20%;
 }
 
 .card > div > div {
@@ -189,7 +188,6 @@ body {
         animation: blur linear forwards;
         animation-timeline: view();
         animation-range: entry 70% cover 95%;
-        
     }
 }
 

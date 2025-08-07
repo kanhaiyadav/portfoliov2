@@ -17,7 +17,7 @@ const WhoAmI = () => {
  ╚══╝╚══╝  ╚═╝  ╚═╝  ╚═════╝      ╚═╝  ╚═╝ ╚═╝     ╚═╝     ╚═╝
 `}
                 </SectionHeading>
-                <span className="text-[180px] leading-[180px] font-sans text-red-500">
+                <span className="text-[180px] leading-[180px] font-sans text-secondary">
                     ?
                 </span>
             </div>
@@ -26,7 +26,7 @@ const WhoAmI = () => {
                 <p>Student at <a href="https://heritageit.edu/" target="_blank" className="text-[#ffe100] hover:underline underline-offset-2">Heritage Institute of Technology</a>, pursuing bachelor's degree in Computer Science with specialization in Data Science.</p>
                 <p>Web development is my playground, JavaScript is my frenemy, and chess is my forever obsession.</p>
 
-                <Title title='My Github & Leetcode stats' big className='mt-[250px] '/>
+                <Title title='My Github & Leetcode stats' big className='mt-[250px] ' />
                 <motion.img
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ const WhoAmI = () => {
                     <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics-habits.svg" className="glass p-5" />
                     <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics.plugin.leetcode.svg" className="glass p-3" />
                 </motion.div>
-                
+
                 <div className='flex items-center justify-center mt-[50px] glass'>
                     <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics-isocalendar.svg" className="p-4  h-[350px]" />
                 </div>

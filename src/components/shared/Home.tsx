@@ -3,7 +3,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { LuGithub } from "react-icons/lu";
 import { RiTwitterXLine } from "react-icons/ri";
 import { motion } from "framer-motion";
-import { scrollToSection } from "@/lib/utils";
+// import { scrollToSection } from "@/lib/utils";
 import {
     Dialog,
     DialogContent,
@@ -23,15 +23,15 @@ const Home = () => {
 
     const pathVariants = {
         hidden: {
-            strokeDasharray: 1200, // Total length of the motion.path
-            strokeDashoffset: 1200, // Initially hidden
+            strokeDasharray: 1200,
+            strokeDashoffset: 1200,
         },
         visible: {
-            strokeDashoffset: 0, // Fully drawn
+            strokeDashoffset: 0,
             transition: {
-                duration: 4, // Animation duration
+                duration: 4,
                 ease: "easeInOut",
-                delay: 0.5, // Smoothing effect
+                delay: 0.5,
             },
         },
     };
@@ -46,12 +46,12 @@ const Home = () => {
                 <h1 className="text-2xl md:text-3xl lg:text-4xl text-gray-500">
                     Hello I'm
                 </h1>
-                <h1 className="text-primary/90 text-3xl md:text-5xl lg:text-8xl font-light">
-                    <span className="text-red-500 text-7xl font-sans">{'{ "'}</span>
+                <h1 className="text-primary/90 text-5xl md:text-7xl lg:text-8xl font-light">
+                    <span className="text-secondary text-4xl md:text-6xl lg:text-7xl font-sans">{'{ "'}</span>
                     <span className="font-pixel">
                         {text}
                     </span>
-                    <span className="text-red-500 text-7xl font-sans">{'" }'}</span>
+                    <span className="text-secondary text-4xl md:text-6xl lg:text-7xl font-sans">{'" }'}</span>
                 </h1>
                 <motion.svg
                     className={
@@ -179,7 +179,7 @@ const Home = () => {
                     </p>
                     <div className="flex justify-center gap-2 xs:gap-4 items-center">
                         <Dialog>
-                            <DialogTrigger className="flex items-center gap-2 py-2 xs:py-3 px-4 xs:px-6 text-base outline outline-3 outline-red-500 bg-transparent text-red-500  hover:text-white rounded-sm font-sans font-semibold horizontal-button relative">
+                            <DialogTrigger className="flex items-center gap-2 py-2 xs:py-3 px-4 xs:px-6 text-base outline outline-3 outline-secondary bg-transparent text-secondary  hover:text-white rounded-sm font-sans font-semibold horizontal-button relative">
                                 <span className="relative z-10">
                                     My Resume
                                 </span>
@@ -200,9 +200,9 @@ const Home = () => {
                             </DialogContent>
                         </Dialog>
                         <button
-                            className="py-2 xs:py-3 px-6 xs:px-8 outline outline-2 outline-red-500 bg-red-500 rounded-sm font-sans"
+                            className="py-2 xs:py-3 px-6 xs:px-8 outline outline-2 outline-secondary bg-secondary rounded-sm font-sans"
                             onClick={() => {
-                                scrollToSection("contact");
+                                // scrollToSection("contact");
                             }}
                         >
                             Hire Me
@@ -214,7 +214,7 @@ const Home = () => {
                             target="_blank"
                         >
                             <button
-                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-red-500 text-red-500 social-button relative overflow-hidden group"
+                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-secondary text-secondary social-button relative overflow-hidden group"
                                 name="linkedin"
                             >
                                 <FaLinkedinIn className="relative z-10 transition-all duration-1000" />
@@ -225,7 +225,7 @@ const Home = () => {
                             target="_blank"
                         >
                             <button
-                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-red-500 text-red-500 social-button relative overflow-hidden group"
+                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-secondary text-secondary social-button relative overflow-hidden group"
                                 name="github"
                             >
                                 <LuGithub className="relative z-10 transition-all duration-1000" />
@@ -233,7 +233,7 @@ const Home = () => {
                         </a>
                         <a href="https://www.facebook.com/profile.php?id=61563497158287" target="_blank">
                             <button
-                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-red-500 text-red-500 social-button relative overflow-hidden group"
+                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-secondary text-secondary social-button relative overflow-hidden group"
                                 name="facebook"
                             >
                                 <FaFacebookF className="relative z-10 transition-all duration-1000" />
@@ -241,7 +241,7 @@ const Home = () => {
                         </a>
                         <a href="https://x.com/Kanhaiyadav04" target="_blank">
                             <button
-                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-red-500 text-red-500 social-button relative overflow-hidden group"
+                                className="z-10 outline outline-2 p-3 rounded-md hover:text-foreground outline-secondary text-secondary social-button relative overflow-hidden group"
                                 name="twitter"
                             >
                                 <RiTwitterXLine className="relative z-10 transition-all duration-1000" />

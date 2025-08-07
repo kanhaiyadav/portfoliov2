@@ -24,17 +24,28 @@ import { BsTools } from "react-icons/bs";
 import { GrAchievement } from "react-icons/gr";
 import { HiUser } from "react-icons/hi2";
 import { GrProjects } from "react-icons/gr";
-import { scrollToSection } from "./lib/utils";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import React from "react";
 import AIFeaturesSection from "./components/shared/ProjectsV2.tsx";
 import WhoAmI from "./components/shared/WhoAmI.tsx";
+import { BiLineChart } from "react-icons/bi";
+import { RiMailSendLine } from "react-icons/ri";
 
 const navItems = [
     {
         name: "Home",
         href: "#home",
         icon: <ImHome />,
+    },
+    {
+        name: "Who Am I",
+        href: "#whoami",
+        icon: <HiUser />,
+    },
+    {
+        name: "Stats",
+        href: "#stats",
+        icon: <BiLineChart />,
     },
     {
         name: "Achievements",
@@ -59,13 +70,14 @@ const navItems = [
     {
         name: "Contact me",
         href: "#contact",
-        icon: <HiUser />,
+        icon: <RiMailSendLine />,
     },
 ];
 
 function App() {
     const [isHovered, setIsHovered] = React.useState(false);
     const [activeSection, setActiveSection] = React.useState("home");
+    const parallaxRef = React.useRef(null);
 
     const menuContainerVariants = {
         hidden: {
@@ -142,6 +154,28 @@ function App() {
         }
     };
 
+    interface SectionOffsets {
+        [key: string]: number;
+    }
+
+    const scrollToParallaxSection = (sectionName: string): void => {
+        const sectionOffsets: SectionOffsets = {
+            home: 0,
+            whoami: 0.6,
+            stats: 1.3,
+            achievements: 3.48,
+            skills: 4.33,
+            projects: 5,
+            contact: 8.1
+        };
+
+        if (parallaxRef.current && sectionOffsets[sectionName] !== undefined) {
+            //@ts-expect-error - Parallax ref does not have proper TypeScript definitions for scrollTo method
+            parallaxRef.current.scrollTo(sectionOffsets[sectionName]);
+            setActiveSection(sectionName === 'whoami' ? 'home' : sectionName);
+        }
+    };
+
     function changePrimaryColor(color: string) {
         document.documentElement.style.setProperty("--primary", color);
         document.documentElement.style.setProperty("--ring", color);
@@ -170,11 +204,15 @@ function App() {
 
     return (
         <div className="w-full h-dvh">
-            {/* Menu Container */}
-            <div
-                className="fixed top-6 left-4 z-50 h-[94vh]"
+            <div className="h-full bg-transparent top-0 left-0 w-3 fixed z-[100]"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+            />
+            {/* Menu Container */}
+            <div
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className={`fixed top-6 left-4 z-50 ${isHovered? "h-[94vh]": "h-auto"} flex flex-col`}
             >
                 {/* Background Blur */}
                 <motion.div
@@ -188,7 +226,7 @@ function App() {
 
                 {/* Menu Container */}
                 <motion.nav
-                    className="relative flex flex-col bg-transparent rounded-2xl overflow-hidden"
+                    className="relative flex flex-col bg-transparent rounded-2xl overflow-hidden flex-1"
                     variants={menuContainerVariants}
                     animate={isHovered ? "visible" : "hidden"}
                     style={{ height: "auto", minHeight: "60px" }}
@@ -217,7 +255,7 @@ function App() {
                                         className="rounded-full w-[32px] h-[32px] object-cover"
                                     />
                                     <h1 className="text-foreground text-xl font-medium whitespace-nowrap">
-                                        Kanhaiya
+                                        Kanhaiya Yadav
                                     </h1>
                                 </motion.div>
                             )}
@@ -238,7 +276,7 @@ function App() {
                                     <motion.div
                                         key={index}
                                         onClick={() => {
-                                            scrollToSection(item.href.slice(1));
+                                            scrollToParallaxSection(item.href.slice(1));
                                         }}
                                         className={`text-foreground flex items-center px-3 py-2.5 rounded-lg hover:bg-white/10 cursor-pointer gap-3 transition-colors duration-200 whitespace-nowrap
                                         ${activeSection === item.href.slice(1)
@@ -276,7 +314,7 @@ function App() {
 
                                 {/* Color Theme Selector */}
                                 <motion.div
-                                    className="mt-3 pt-3 border-t border-white/10"
+                                    className="mt-auto pt-3 border-t border-white/10"
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{
                                         opacity: 1,
@@ -340,7 +378,7 @@ function App() {
                 </motion.nav>
             </div>
 
-            <Parallax pages={9.37} style={{ top: 0, left: 0 }}
+            <Parallax ref={parallaxRef} pages={9.37} style={{ top: 0, left: 0 }}
                 className="thin-scrollbar"
             >
                 <section id="home" className="w-full h-full relative">
@@ -348,70 +386,83 @@ function App() {
                         offset={0}
                         speed={0.5}
                         style={{
-                            backgroundImage: `url('/bgLayer4.png')`,
-                            backgroundSize: "contain"
+                            backgroundImage: `url('/resized-images/bgLayer4.png')`,
                         }}
+                        className="bg-center hidden md:block"
                     />
                     <ParallaxLayer
                         offset={0}
                         speed={0.1}
                         style={{
-                            backgroundImage: `url('/bgLayer5.png')`,
-                            backgroundSize: "contain",
+                            backgroundImage: `url('/resized-images/bgLayer5.png')`,
                             marginTop: "-2px",
                         }}
+                        className="bg-center hidden md:block"
                     />
                     <ParallaxLayer
                         offset={0}
                         speed={0.1}
                         style={{
-                            backgroundImage: `url('/bgLayer6.png')`,
-                            backgroundSize: "contain"
+                            backgroundImage: `url('/resized-images/bgLayer6.png')`,
                         }}
+                        className="bg-center hidden md:block"
                     />
                     <ParallaxLayer
                         offset={0}
                         speed={0.1}
                         style={{
-                            backgroundImage: `url('/bgLayer7.png')`,
-                            backgroundSize: "contain"
+                            backgroundImage: `url('/resized-images/bgLayer7.png')`,
                         }}
+                        className="bg-center hidden md:block"
                     />
                     <ParallaxLayer
                         offset={0}
                         speed={0.6}
                         style={{
-                            backgroundImage: `url('/bgLayer8.png')`,
-                            backgroundSize: "contain"
+                            backgroundImage: `url('/resized-images/bgLayer8.png')`,
                         }}
+                        className="bg-center hidden md:block"
                     />
                     <ParallaxLayer
                         offset={0}
                         speed={0.8}
                         style={{
-                            backgroundImage: `url('/bgLayer9.png')`,
-                            backgroundSize: "contain"
+                            backgroundImage: `url('/resized-images/bgLayer9.png')`,
                         }}
+                        className="bg-center hidden md:block"
                     />
                     <ParallaxLayer
                         offset={0}
                         speed={0.5}
                         style={{
-                            backgroundImage: `url('/bgLayer2.png')`,
-                            backgroundSize: "contain"
+                            backgroundImage: `url('/resized-images/bgLayer2.png')`,
                         }}
+                        className="bg-center hidden md:block"
                     />
                     <ParallaxLayer
                         offset={0}
                         speed={0.8}
                         style={{
-                            backgroundImage: `url('/bgLayer.png')`,
-                            backgroundSize: "contain",
-                            position: "relative"
+                            backgroundImage: `url('/resized-images/bgLayer.png')`,
+                            position: "relative",
                         }}
+                        className="bg-center hidden md:block"
                     >
                         <div className="w-full h-[650px] bg-background absolute bottom-0 left-0 translate-y-[97.5%]"></div>
                     </ParallaxLayer>
+
+                    <ParallaxLayer
+                        offset={0}
+                        speed={0.8}
+                        style={{
+                            background: 'url(/resized-images/mobile2.jpg)',
+                            backgroundPosition: "center bottom"
+                        }}
+                        className="flex-start mt-[-100px] md:hidden relative"
+                    >
+                        <div className="absolute w-full h-2 bg-background bottom-0 left-0 translate-y-[91.5%]"/>
+                    </ParallaxLayer>
+                    
                     {/* <Navbar /> */}
                     <Home />
                 </section>
