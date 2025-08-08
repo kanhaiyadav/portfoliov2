@@ -17,7 +17,7 @@ const WhoAmI = () => {
  ╚══╝╚══╝  ╚═╝  ╚═╝  ╚═════╝      ╚═╝  ╚═╝ ╚═╝     ╚═╝     ╚═╝
 `}
                 </SectionHeading>
-                <span className="text-[110px] leading-[120px] sm:text-[150px] sm:leading-[160px] md:text-[180px] md:leading-[140px] font-stylish text-secondary">
+                <span className="text-[90px] leading-[100px] sm:text-[150px] sm:leading-[160px] md:text-[180px] md:leading-[140px] font-stylish text-secondary">
                     ?
                 </span>
             </div>

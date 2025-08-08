@@ -30,6 +30,9 @@ import AIFeaturesSection from "./components/shared/ProjectsV2.tsx";
 import WhoAmI from "./components/shared/WhoAmI.tsx";
 import { BiLineChart } from "react-icons/bi";
 import { RiMailSendLine } from "react-icons/ri";
+import CareerMap from "./components/shared/Experience.tsx";
+import ProjectDirectory from "./components/shared/Experience.tsx";
+import Experience from "./components/shared/Experience.tsx";
 
 const navItems = [
     {
@@ -378,7 +381,7 @@ function App() {
                 </motion.nav>
             </div>
 
-            <Parallax ref={parallaxRef} pages={9.37} style={{ top: 0, left: 0 }}
+            <Parallax ref={parallaxRef} pages={10.37} style={{ top: 0, left: 0 }}
                 className="thin-scrollbar"
             >
                 <section id="home" className="w-full h-full relative">
@@ -482,38 +485,69 @@ function App() {
                 >
                     <WhoAmI />
                 </ParallaxLayer>
+
+                <ParallaxLayer
+                    offset={1.9}
+                    speed={0.5}
+                    sticky={{ start: 1.9, end: 2.1 }}
+                >
+                    <img style={{
+                        position: 'relative',
+                        top: '100px',
+                        left: '50%',
+                    }}
+                        src="/experience/airplane.png"
+                        className="rotate-90 -translate-x-1/2"
+                    />
+                </ParallaxLayer>
+                
+                <ParallaxLayer
+                    offset={1.9}
+                    speed={0.5}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
+                        zIndex: 100,
+                    }}
+                >
+                    <Experience />
+                </ParallaxLayer>
+
+
                 <ParallaxLayer
                     speed={0.8}
-                    offset={1.9}
+                    offset={2.9}
                     id="achievements"
                 >
                     <Achievements setOpen={() => { }} />
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    offset={2.7}
+                    offset={3.7}
                     speed={1.2}
-                    factor={3}
+                    factor={1.5}
                 >
                     <Skills />
                 </ParallaxLayer>
 
                 <ParallaxLayer
                     speed={0.8}
-                    offset={5}
+                    offset={5.2}
                 >
                     <AIFeaturesSection />
                 </ParallaxLayer>
 
                 <ParallaxLayer
                     speed={1}
-                    offset={8.2}
+                    offset={9.2}
                 >
                     <Contact />
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    offset={8.999}
+                    offset={9.999}
                     speed={0.5}
                     factor={0.3}
                     className="flex flex-col justify-end flex-1"

@@ -112,7 +112,6 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
             className="w-screen min-h-screen px-[20px] sm:px-[30px] md:px-[80px] lg:px-[50px] xl:px-[100px] flex flex-col gap-2 pb-[20px]"
         >
             <SectionHeading
-               className="text-[5px] sm:text-[8px] md:text-[10px]"
             >
                 {` █████╗   ██████╗ ██╗  ██╗ ██╗ ███████╗ ██╗   ██╗ ███████╗ ███╗   ███╗ ███████╗ ███╗   ██╗ ████████╗ ███████╗ 
 ██╔══██╗ ██╔════╝ ██║  ██║ ██║ ██╔════╝ ██║   ██║ ██╔════╝ ████╗ ████║ ██╔════╝ ████╗  ██║ ╚══██╔══╝ ██╔════╝
@@ -122,6 +121,7 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
 ╚═╝  ╚═╝  ╚═════╝ ╚═╝  ╚═╝ ╚═╝ ╚══════╝   ╚═══╝   ╚══════╝ ╚═╝     ╚═╝ ╚══════╝ ╚═╝  ╚═══╝    ╚═╝    ╚══════╝
 `}
             </SectionHeading>
+            
             <div
                 className="flex flex-col lg:flex-row gap-2 md:gap-4"
                 onTouchStart={onTouchStart}

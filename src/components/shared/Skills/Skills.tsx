@@ -18,7 +18,7 @@ const Skills = () => {
 ╚══════╝ ╚═╝  ╚═╝ ╚═╝ ╚══════╝ ╚══════╝ ╚══════╝
 `}
                 </SectionHeading>
-                <span className="text-[110px] leading-[120px] sm:text-[150px] sm:leading-[160px] md:text-[180px] md:leading-[70px] font-stylish text-secondary">
+                <span className="text-[80px] leading-[70px] sm:text-[150px] sm:leading-[100px] md:text-[180px] md:leading-[70px] font-stylish text-secondary">
                     &
                 </span>
                 <SectionHeading position="right">
@@ -53,13 +53,13 @@ const Skills = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className='flex flex-col lg:flex-row gap-4 items-center justify-center w-full'
+                    className='flex flex-col md:flex-row gap-4 items-center justify-center w-full'
                 >
-                    <div className="glass flex-1 p-1">
-                        <img src="https://github-readme-stats.vercel.app/api?username=kanhaiyadav&show_icons=true&text_color=ffffff&icon_color=ff3c44&bg_color=00000000&hide_border=true&theme=monokai&title_color=01fea1"/>
+                    <div className="glass flex-1 p-1 w-full">
+                        <img src="https://github-readme-stats.vercel.app/api?username=kanhaiyadav&show_icons=true&text_color=ffffff&icon_color=ff3c44&bg_color=00000000&hide_border=true&theme=monokai&title_color=01fea1" className="max-w-[350px] sm:max-w-[400px] md:max-w-[350px] lg:max-w-none lg:w-auto"/>
                     </div>
-                    <div className="glass flex-1 h-full">
-                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kanhaiyadav&layout=compact&text_color=ffffff&icon_color=ff3c44&bg_color=00000000&hide_border=true&theme=monokai&title_color=01fea1" />
+                    <div className="glass flex-1 h-full flex items-center justify-center w-full">
+                        <img src="https://streak-stats.demolab.com/?user=kanhaiyadav&theme=dark&background=00000000&hide_border=true&stroke=01fea1&currStreakLabel=01fea1&ring=01fea1&fire=ff3c44&sideLabels=01fea1"  className="max-w-[350px] sm:max-w-[400px] md:max-w-[350px] lg:max-w-none lg:w-auto"/>
                     </div>
                 </motion.div>
 
@@ -68,13 +68,13 @@ const Skills = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className='flex flex-col lg:flex-row gap-4 items-center justify-center w-full'
+                    className='flex flex-col md:flex-row gap-4 items-center justify-center w-full'
                 >
-                    <div className="glass flex-1 h-full">
-                        <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics.plugin.languages.indepth.svg"/>
+                    <div className="glass flex-1 h-full w-full">
+                        <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics.plugin.languages.indepth.svg" className="max-w-[350px] sm:max-w-[400px] md:max-w-[350px] lg:max-w-none lg:w-auto"/>
                     </div>
-                    <div className="glass flex-1 p-1">
-                        <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics.plugin.lines.svg" />
+                    <div className="glass flex-1 p-1 w-full">
+                        <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics.plugin.lines.svg"  className="max-w-[350px] sm:max-w-[400px] md:max-w-[350px] lg:max-w-none lg:w-auto"/>
                     </div>
                 </motion.div>
 
@@ -83,27 +83,27 @@ const Skills = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className='flex flex-col lg:flex-row gap-4 items-center justify-center w-full'
+                    className='flex flex-col md:flex-row gap-4 items-center justify-center w-full'
                 >
-                    <div className="glass flex-1 p-2">
-                        <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics-habits.svg"/>
+                    <div className="glass flex-1 p-2 w-full">
+                        <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics-habits.svg" className="max-w-[350px] sm:max-w-[400px] md:max-w-[350px] lg:max-w-none lg:w-auto"/>
                     </div>
-                    <div className="glass flex-1 p-4">
-                        <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics.plugin.leetcode.svg" />
+                    <div className="glass flex-1 p-4 w-full">
+                        <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics.plugin.leetcode.svg"  className="max-w-[350px] sm:max-w-[400px] md:max-w-[350px] lg:max-w-none lg:w-auto"/>
                     </div>
                 </motion.div>
 
                 <div className='flex items-center justify-center glass w-full'>
-                    <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics-isocalendar.svg" className="p-4  md:h-[350px]" />
+                    <img src="https://raw.githubusercontent.com/kanhaiyadav/kanhaiyadav/main/metrics-isocalendar.svg" className="p-4  md:h-[350px]"/>
                 </div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className='glass w-full p-4 flex items-center justify-center'
+                    className='glass w-full p-2 sm:p-4 flex items-center justify-center'
                 >
-                    <img src="https://github-readme-activity-graph.vercel.app/graph?username=kanhaiyadav&bg_color=00000000&color=01fea1&line=ff3c44&hide_border=true" />
+                    <img src="https://github-readme-activity-graph.vercel.app/graph?username=kanhaiyadav&bg_color=00000000&color=01fea1&line=ff3c44&hide_border=true"/>
                 </motion.div>
             </div>
         </section>

@@ -11,18 +11,23 @@ const AIFeaturesSection = () => {
 
     return (
         <section
-            className="min-h-[200vh] md:min-h-auto py-16 md:py-8 overflow-x-hidden"
+            className="min-h-[200vh] md:min-h-auto py-16 md:py-8 overflow-x-hidden gap-0"
             ref={sectionRef}
         >
-            <SectionHeading>
-                {`                ██████╗  ██████╗   ██████╗       ██╗ ███████╗  ██████╗ ████████╗ ███████╗
+            <div className="flex m-auto justify-center">
+                <span className="text-[50px] leading-[75px] sm:text-[80px] md:text-[120px] md:leading-[140px] font-stylish text-secondary mr-[-30px] sm:mr-[-60px] md:mr-[-70px]">
+                    My
+                </span>
+                <SectionHeading>
+                    {`                ██████╗  ██████╗   ██████╗       ██╗ ███████╗  ██████╗ ████████╗ ███████╗
                 ██╔══██╗ ██╔══██╗ ██╔═══██╗      ██║ ██╔════╝ ██╔════╝ ╚══██╔══╝ ██╔════╝
                 ██████╔╝ ██████╔╝ ██║   ██║      ██║ █████╗   ██║         ██║    ███████╗
                 ██╔═══╝  ██╔══██╗ ██║   ██║ ██   ██║ ██╔══╝   ██║         ██║    ╚════██║
                 ██║      ██║  ██║ ╚██████╔╝ ╚█████╔╝ ███████╗ ╚██████╗    ██║    ███████║
                 ╚═╝      ╚═╝  ╚═╝  ╚═════╝   ╚════╝  ╚══════╝  ╚═════╝    ╚═╝    ╚══════╝
             `}
-            </SectionHeading>
+                </SectionHeading>
+            </div>
             <div className="max-w-[1400px] mx-auto px-0 md:px-8 flex flex-col">
 
                 {projects.slice(0, 5).map((project, index) => (
@@ -31,7 +36,7 @@ const AIFeaturesSection = () => {
                         initial={{ opacity: 0, scale: 0.70 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{
-                            once: false, 
+                            once: false,
                             amount: 0.3
                         }}
                         transition={{

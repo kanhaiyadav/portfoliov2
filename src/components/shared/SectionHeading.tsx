@@ -12,7 +12,7 @@ const SectionHeading = ({ children, position, className }: {
           display: "block",
           margin: "20px 0",
             textAlign: position === 'right' ? 'right' : position === 'center' ? 'center' : 'left',
-      }} className={cn(`text-primary text-[6px] leading-[8px] sm:text-[8px] sm:leading-[11px] md:text-[10px] md:leading-[14px]`, className)}>
+      }} className={cn(`text-primary text-[4px] leading-[6px] sm:text-[8px] sm:leading-[11px] md:text-[10px] md:leading-[14px]`, className)}>
           {children}
       </pre>
   )
