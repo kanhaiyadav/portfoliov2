@@ -3,6 +3,7 @@ import {
 } from "@/components/ui/dialog"
 import { useModal } from "@/Hooks/useModal"
 import ImageViewer from "./ImageViewer";
+import PdfViewer from "./pdfViewer";
 
 export function ModalManager() {
 
@@ -23,6 +24,13 @@ export function ModalManager() {
                         setType(null);
                         setData(null);
                     }}
+                />
+            )}
+            {type === "pdf" && data && (
+                <PdfViewer
+                    title={data.title}
+                    description={data.description}
+                    link={data.link}
                 />
             )}
         </Dialog>

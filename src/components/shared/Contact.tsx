@@ -89,18 +89,18 @@ const Contact = () => {
  ╚═════╝  ╚═════╝  ╚═╝  ╚═══╝    ╚═╝    ╚═╝  ╚═╝  ╚═════╝    ╚═╝         ╚═╝     ╚═╝ ╚══════╝
 `}
             </SectionHeading>
-            <div className="md:h-[80%] h-auto w-[95%] sm:w-auto flex flex-col-reverse md:flex-row sm:px-[20px] lg:px-[50px] xl:px-[100px] md:gap-[50px] flex-1 items-center justify-center mt-[-50px]">
+            <div className="md:h-[80%] h-auto w-[95%] sm:w-auto flex flex-col md:flex-row sm:px-[20px] lg:px-[50px] xl:px-[100px] md:gap-[50px] flex-1 items-center justify-center mt-[50px] md:mt-[-50px]">
                 <div className="h-fit w-full sm:w-[400px] flex flex-col gap-[20px]">
                     <img
                         src="/me.png"
                         alt=""
-                        className="w-[220px] m-auto my-[10px] outline outline-4 outline-offset-4 outline-gray-500 rounded-full border-4 border-gray-500 md:block hidden"
+                        className="w-[220px] m-auto my-[10px] outline outline-4 outline-offset-4 outline-gray-500 rounded-full border-4 border-gray-500"
                         onClick={() => {
                             setSubmitting(!submitting);
                         }}
                     />
 
-                    <div className="m-auto">
+                    <div className="m-auto hidden md:block">
                         <div className="flex-center gap-4 mb-2">
                             <MdOutlineMail className="text-lg sm:text-xl md:text-xl text-gray-500" />
                             <span className="text-sm sm:text-lg md:text-xl text-primary hover:underline">
@@ -123,7 +123,7 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="mt-[50px] md:mt-0">
                     {!(submitted && !loading) ? (
                         <motion.form
                             ref={form}

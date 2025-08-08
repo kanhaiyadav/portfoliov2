@@ -60,7 +60,7 @@ const AIFeaturesSection = () => {
                                 <img
                                     src={project.icon}
                                     alt="ai icon"
-                                    className="w-6 h-6 md:w-12 md:h-12"
+                                    className="w-10 h-10 md:w-12 md:h-12"
                                 />
                                 <Title title={project.title} />
                             </div>

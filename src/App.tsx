@@ -30,8 +30,6 @@ import AIFeaturesSection from "./components/shared/ProjectsV2.tsx";
 import WhoAmI from "./components/shared/WhoAmI.tsx";
 import { BiLineChart } from "react-icons/bi";
 import { RiMailSendLine } from "react-icons/ri";
-import CareerMap from "./components/shared/Experience.tsx";
-import ProjectDirectory from "./components/shared/Experience.tsx";
 import Experience from "./components/shared/Experience.tsx";
 
 const navItems = [
@@ -381,7 +379,7 @@ function App() {
                 </motion.nav>
             </div>
 
-            <Parallax ref={parallaxRef} pages={10.37} style={{ top: 0, left: 0 }}
+            <Parallax ref={parallaxRef} pages={9.4} style={{ top: 0, left: 0 }}
                 className="thin-scrollbar"
             >
                 <section id="home" className="w-full h-full relative">
@@ -465,7 +463,12 @@ function App() {
                     >
                         <div className="absolute w-full h-2 bg-background bottom-0 left-0 translate-y-[91.5%]"/>
                     </ParallaxLayer>
-                    
+                    <ParallaxLayer
+                        offset={0}
+                        speed={0.8}
+                        className="bg-gradient-to-b from-black/30 to-transparent "
+                    />
+
                     {/* <Navbar /> */}
                     <Home />
                 </section>
@@ -489,15 +492,16 @@ function App() {
                 <ParallaxLayer
                     offset={1.9}
                     speed={0.5}
-                    sticky={{ start: 1.9, end: 2.1 }}
+                    sticky={{ start: 1.9, end: 2 }}
+                    style={{ pointerEvents: 'none' }}
                 >
-                    <img style={{
-                        position: 'relative',
-                        top: '100px',
-                        left: '50%',
-                    }}
+                    <img
+                        style={{
+                            pointerEvents: 'auto', // Re-enable pointer events only for the airplane if needed
+                        }}
                         src="/experience/airplane.png"
-                        className="rotate-90 -translate-x-1/2"
+                        className="w-[50px] md:w-auto relative rotate-90 left-[10%] sm:left-1/2 top-[100px] -translate-x-1/2"
+                        alt="Airplane navigation icon"
                     />
                 </ParallaxLayer>
                 
@@ -541,15 +545,16 @@ function App() {
 
                 <ParallaxLayer
                     speed={1}
-                    offset={9.2}
+                    offset={8}
+                    factor={0.8}
                 >
                     <Contact />
                 </ParallaxLayer>
 
                 <ParallaxLayer
-                    offset={9.999}
+                    offset={8.8}
                     speed={0.5}
-                    factor={0.3}
+                    factor={0.8}
                     className="flex flex-col justify-end flex-1"
                 >
                     <Footer />
