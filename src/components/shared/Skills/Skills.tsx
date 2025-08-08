@@ -1,7 +1,6 @@
 import SkillDirectory from "../SkillDirectory/SkiillDirectory";
 import SectionHeading from "../SectionHeading";
 import { motion } from "framer-motion";
-import Title from "../Title";
 
 const Skills = () => {
 

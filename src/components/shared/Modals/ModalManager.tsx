@@ -3,7 +3,7 @@ import {
 } from "@/components/ui/dialog"
 import { useModal } from "@/Hooks/useModal"
 import ImageViewer from "./ImageViewer";
-import PdfViewer from "./pdfViewer";
+import PdfViewer from "./PdfViewer";
 
 export function ModalManager() {
 

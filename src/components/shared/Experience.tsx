@@ -1,4 +1,3 @@
-import React from 'react'
 import SectionHeading from './SectionHeading'
 import Title from './Title'
 import { LiaCertificateSolid } from "react-icons/lia";

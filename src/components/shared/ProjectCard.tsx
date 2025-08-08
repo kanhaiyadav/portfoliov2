@@ -1,4 +1,3 @@
-import { scrollToSection } from "@/lib/utils";
 import type { ProjectType } from "@/types/index";
 
 const ProjectCard = ({
@@ -14,15 +13,12 @@ const ProjectCard = ({
 }) => {
     return (
         <div
-            className={`h-[80px] sm:h-[100px] xl:h-[120px] 2xl:h-[150px]  aspect-[16/9] bg-cover bg-center rounded-lg hover:ring-2 ring-primary/60 cursor-pointer ${
-                active ? "ring-2 ring-primary" : ""
-            }`}
+            className={`h-[80px] sm:h-[100px] xl:h-[120px] 2xl:h-[150px]  aspect-[16/9] bg-cover bg-center rounded-lg hover:ring-2 ring-primary/60 cursor-pointer ${active ? "ring-2 ring-primary" : ""
+                }`}
             style={{
                 backgroundImage: `url(${project.thumbnail})`,
             }}
             onClick={() => {
-                                        scrollToSection("project-details");
-                scrollToSection("project-details");
                 setProject(project);
                 setActiveIndex(project.title);
             }}
