@@ -16,7 +16,7 @@ import converzaIcon from "../src/assets/projects/converza/icon.png";
 import converzaThumbnail from "../src/assets/projects/converza/thumbnail.png";
 import pythonIcon from "../src/assets/projects/python.png";
 import hackboxThumbnail from "../src/assets/projects/hackbox/thumbnail.png";
-import hackboxIcon from "../src/assets/projects/hackbox/icon.png";
+import hackboxIcon from "../src/assets/projects/Hackbox/icon.png";
 
 export const colors = [
     {
