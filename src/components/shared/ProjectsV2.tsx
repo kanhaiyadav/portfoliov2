@@ -33,16 +33,15 @@ const AIFeaturesSection = () => {
                 {projects.slice(0, 5).map((project, index) => (
                     <motion.div
                         key={project.title}
-                        initial={{ opacity: 0, scale: 0.70 }}
+                        initial={{ opacity: 0.2, scale: 0.70 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{
                             once: false,
-                            amount: 0.3
+                            amount: 0.4
                         }}
                         transition={{
                             duration: 0.6,
                             ease: "easeOut",
-                            delay: index * 0.1
                         }}
                         className={`order-2 flex ${index % 2 === 0 ? "flex-col lg:flex-row" : "flex-col lg:flex-row-reverse"} items-center gap-6 md:gap-[30px] lg:gap-[72px] md:p-8 md:px-4 lg:px-0 md:py-8 md:pb-[100px] lg:pb-[250px] overflow-x-visible scroll-smooth scrollbar-none w-full pr-0 md:pr-8 lg:pr-0`}
                     >

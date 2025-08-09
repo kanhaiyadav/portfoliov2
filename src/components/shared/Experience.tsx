@@ -3,11 +3,12 @@ import Title from './Title'
 import { LiaCertificateSolid } from "react-icons/lia";
 import { IoMailOpenOutline } from "react-icons/io5";
 import { useModal } from '@/Hooks/useModal';
+import { MdOutlineDateRange } from "react-icons/md";
 
 const Experience = () => {
 
     const { setType, setData } = useModal();
-    
+
     return (
         <section className='flex-1 w-full flex flex-col items-center gap-[50px]'>
             <div className='flex items-center justify-center gap-4'>
@@ -30,6 +31,16 @@ const Experience = () => {
                     </a>
                     <Title title='Full Stack Developer  ' />
                     <p className='text-xl md:text-2xl sm:text-right'>Developed and maintained features for projects HobbyCue, Sahaj Money and Plnr.</p>
+                    <div className='flex items-center gap-4 md:gap-8'>
+                        <div className='flex items-center gap-2'>
+                            <MdOutlineDateRange className='text-sm sm:text-lg md:text-xl text-primary' />
+                            <span className='text-sm sm:text-lg md:text-xl text-primary whitespace-nowrap'>Dec 2024 - June 2025</span>
+                        </div>
+                        <div className='whitespace-nowrap'>
+                            <span className='text-sm sm:text-lg md:text-xl text-primary'>Type: </span>
+                            <span className='text-sm sm:text-lg md:text-xl text-primary'>Internship</span>
+                        </div>
+                    </div>
                     <div className='flex items-center gap-4 mt-4'>
                         <div className='flex items-center justify-center w-[60px] h-[60px] md:w-[80px] md:h-[80px] rounded-md border border-1 border-primary hover:bg-primary/10'
                             onClick={() => {
@@ -66,6 +77,16 @@ const Experience = () => {
                     </div>
                     <Title title='Unknown' />
                     <p className='text-xl md:text-2xl'>Currently looking finding a new job opportunity. After the last internship.</p>
+                    <div className='flex items-center gap-4 md:gap-8'>
+                        <div className='flex items-center gap-2'>
+                            <MdOutlineDateRange className='text-sm sm:text-lg md:text-xl text-primary' />
+                            <span className='text-sm sm:text-lg md:text-xl text-primary whitespace-nowrap'>____ - ____</span>
+                        </div>
+                        <div className='whitespace-nowrap'>
+                            <span className='text-sm sm:text-lg md:text-xl text-primary'>Type: </span>
+                            <span className='text-sm sm:text-lg md:text-xl text-primary'>NA</span>
+                        </div>
+                    </div>
                     <div className='flex items-center gap-4 mt-4 grayscale'>
                         <div className='flex items-center justify-center w-[60px] h-[60px] md:w-[80px] md:h-[80px] rounded-md border border-1 border-primary hover:bg-primary/10'>
                             <IoMailOpenOutline className='text-xl sm:text-2xl md:text-3xl text-primary' />

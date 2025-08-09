@@ -7,19 +7,18 @@ import Home from "./components/shared/Home";
 import Skills from "./components/shared/Skills/Skills";
 import Contact from "./components/shared/Contact";
 import Achievements from "./components/shared/Achievements";
-import { colors } from "../constants/global";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import { FaCircle } from "react-icons/fa";
+// import { colors } from "../constants/global";
+// import {
+//     Select,
+//     SelectContent,
+//     SelectItem,
+//     SelectTrigger,
+//     SelectValue,
+// } from "@/components/ui/select";
+// import { FaCircle } from "react-icons/fa";
 import { TbLayoutSidebar } from "react-icons/tb";
 import Footer from "./components/shared/Footer";
 import { ImHome } from "react-icons/im";
-import { FaGraduationCap } from "react-icons/fa6";
 import { BsTools } from "react-icons/bs";
 import { GrAchievement } from "react-icons/gr";
 import { HiUser } from "react-icons/hi2";
@@ -28,56 +27,54 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import React from "react";
 import AIFeaturesSection from "./components/shared/ProjectsV2.tsx";
 import WhoAmI from "./components/shared/WhoAmI.tsx";
-import { BiLineChart } from "react-icons/bi";
 import { RiMailSendLine } from "react-icons/ri";
 import Experience from "./components/shared/Experience.tsx";
+import { TbRoute } from "react-icons/tb";
 
 const navItems = [
     {
         name: "Home",
-        href: "#home",
+        key: "home",
         icon: <ImHome />,
     },
     {
         name: "Who Am I",
-        href: "#whoami",
+        key: "whoami",
         icon: <HiUser />,
     },
     {
-        name: "Stats",
-        href: "#stats",
-        icon: <BiLineChart />,
+        name: "Career Path",
+        key: "career_path",
+        icon: <TbRoute />,
     },
     {
         name: "Achievements",
-        href: "#achievements",
+        key: "achievements",
         icon: <GrAchievement />,
     },
     {
-        name: "Skills",
-        href: "#skills",
+        name: "Skills & Stats",
+        key: "skills_stats",
         icon: <BsTools />,
     },
     {
         name: "Projects",
-        href: "#projects",
+        key: "projects",
         icon: <GrProjects />,
     },
     {
-        name: "Education",
-        href: "#education",
-        icon: <FaGraduationCap />,
-    },
-    {
         name: "Contact me",
-        href: "#contact",
+        key: "contact",
         icon: <RiMailSendLine />,
     },
 ];
 
 function App() {
     const [isHovered, setIsHovered] = React.useState(false);
+    //@ts-expect-error - activeSection is managed by intersection observer but not directly used in JSX
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [activeSection, setActiveSection] = React.useState("home");
+    const sectionNameRef = React.useRef<string>('home');
     const parallaxRef = React.useRef(null);
 
     const menuContainerVariants = {
@@ -162,25 +159,24 @@ function App() {
     const scrollToParallaxSection = (sectionName: string): void => {
         const sectionOffsets: SectionOffsets = {
             home: 0,
-            whoami: 0.6,
-            stats: 1.3,
-            achievements: 3.48,
-            skills: 4.33,
-            projects: 5,
-            contact: 8.1
+            whoami: 0.8,
+            career_path: 1.5,
+            achievements: 2.45,
+            skills_stats: 3.3,
+            projects: 5.12,
+            contact: 8
         };
 
         if (parallaxRef.current && sectionOffsets[sectionName] !== undefined) {
             //@ts-expect-error - Parallax ref does not have proper TypeScript definitions for scrollTo method
             parallaxRef.current.scrollTo(sectionOffsets[sectionName]);
-            setActiveSection(sectionName === 'whoami' ? 'home' : sectionName);
         }
     };
 
-    function changePrimaryColor(color: string) {
-        document.documentElement.style.setProperty("--primary", color);
-        document.documentElement.style.setProperty("--ring", color);
-    }
+    // function changePrimaryColor(color: string) {
+    //     document.documentElement.style.setProperty("--primary", color);
+    //     document.documentElement.style.setProperty("--ring", color);
+    // }
 
     React.useEffect(() => {
         const sections = document.querySelectorAll("section");
@@ -190,6 +186,7 @@ function App() {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         setActiveSection(entry.target.id);
+                        sectionNameRef.current = entry.target.id;
                     }
                 });
             },
@@ -255,7 +252,7 @@ function App() {
                                         alt=""
                                         className="rounded-full w-[32px] h-[32px] object-cover"
                                     />
-                                    <h1 className="text-foreground text-xl font-medium whitespace-nowrap">
+                                    <h1 className="text-foreground text-xl sm:text-2xl whitespace-nowrap font-semibold">
                                         Kanhaiya Yadav
                                     </h1>
                                 </motion.div>
@@ -277,11 +274,13 @@ function App() {
                                     <motion.div
                                         key={index}
                                         onClick={() => {
-                                            scrollToParallaxSection(item.href.slice(1));
+                                            scrollToParallaxSection(item.key);
+                                            sectionNameRef.current = item.key;
+                                            setIsHovered(false);
                                         }}
-                                        className={`text-foreground flex items-center px-3 py-2.5 rounded-lg hover:bg-white/10 cursor-pointer gap-3 transition-colors duration-200 whitespace-nowrap
-                                        ${activeSection === item.href.slice(1)
-                                                ? "bg-primary/20 text-primary"
+                                        className={`text-foreground text-base sm:text-lg font-medium flex items-center px-3 py-2.5 rounded-lg hover:bg-white/10 cursor-pointer gap-3 transition-colors duration-200 whitespace-nowrap
+                                        ${sectionNameRef.current === item.key
+                                                ? "bg-primary/20 text-primary font-semibold text-xl"
                                                 : ""
                                             }
                                         `}
@@ -309,12 +308,12 @@ function App() {
                                         }}
                                     >
                                         <span className="text-lg">{item.icon}</span>
-                                        <span className="text-sm font-medium">{item.name}</span>
+                                        <span className="">{item.name}</span>
                                     </motion.div>
                                 ))}
 
                                 {/* Color Theme Selector */}
-                                <motion.div
+                                {/* <motion.div
                                     className="mt-auto pt-3 border-t border-white/10"
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{
@@ -372,7 +371,7 @@ function App() {
                                             )}
                                         </SelectContent>
                                     </Select>
-                                </motion.div>
+                                </motion.div> */}
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -466,7 +465,7 @@ function App() {
                     <ParallaxLayer
                         offset={0}
                         speed={0.8}
-                        className="bg-gradient-to-b from-black/30 to-transparent "
+                        className="bg-gradient-to-b from-black/40 to-transparent "
                     />
 
                     {/* <Navbar /> */}
@@ -484,7 +483,7 @@ function App() {
                         flexDirection: 'column',
                         zIndex: 1,
                     }}
-                    className="flex-start mt-[-100px]"
+                    className="flex-start mt-[-150px]"
                 >
                     <WhoAmI />
                 </ParallaxLayer>
@@ -507,7 +506,7 @@ function App() {
                 
                 <ParallaxLayer
                     offset={1.9}
-                    speed={0.5}
+                    speed={0.6}
                     style={{
                         display: 'flex',
                         alignItems: 'center',

@@ -275,13 +275,12 @@ export const projects = [
         title: "HackBox",
         description:
             "Ever felt like you needed a Swiss Army knife, but for the internet? Meet HackBox – the only web app that can boost your productivity, fix your life, and maybe even find your missing socks. (Okay, not the last one… yet.)",
-        preview: "https://hackbox.vercel.app",
+        preview: "https://hackbox.kanhaiya.me",
         source: "https://github.com/kanhaiyadav/HackBox",
         package: false,
         timeSpan: "July 2024 - October 2024",
         technologies: [17, 18, 5, 3, 19, 21, 22, 20],
-        youtube:
-            "https://www.youtube.com/embed/hS1kEGRxCWk?si=FQZCseS3NHMfTAcN",
+        youtube:"https://www.youtube.com/embed/hS1kEGRxCWk?si=FQZCseS3NHMfTAcN",
     },
     {
         thumbnail: converzaThumbnail,
