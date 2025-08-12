@@ -18,10 +18,10 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
     const { setType, setData } = useModal();
 
     const [touchStart, setTouchStart] = useState({ x: 0, y: 0 });
-        const [touchEnd, setTouchEnd] = useState({ x: 0, y: 0 });
-    
-        const minSwipeDistance = 60; // Minimum horizontal swipe distance
-        const maxVerticalThreshold = 40; // Prevents vertical swipes from being detected
+    const [touchEnd, setTouchEnd] = useState({ x: 0, y: 0 });
+
+    const minSwipeDistance = 60; // Minimum horizontal swipe distance
+    const maxVerticalThreshold = 40; // Prevents vertical swipes from being detected
 
     useEffect(() => {
         if (isPaused) {
@@ -101,17 +101,18 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
             } else {
                 setOpen(true);
             }
-        } 
-        setTouchStart({x:0, y:0}); // Reset touch start
-        setTouchEnd({x:0, y: 0}); // Reset touch end
+        }
+        setTouchStart({ x: 0, y: 0 }); // Reset touch start
+        setTouchEnd({ x: 0, y: 0 }); // Reset touch end
     };
 
     return (
         <section
             id="achievements"
-            className="w-screen min-h-screen px-[20px] sm:px-[30px] md:px-[80px] lg:px-[50px] xl:px-[100px] flex flex-col gap-2 pb-[20px]"
+            className="w-screen min-h-dvh px-[20px] sm:px-[30px] md:px-[80px] lg:px-[50px] xl:px-[100px] flex flex-col gap-2 pb-[20px]"
         >
             <SectionHeading
+                className="text-center lg:text-left"
             >
                 {` █████╗   ██████╗ ██╗  ██╗ ██╗ ███████╗ ██╗   ██╗ ███████╗ ███╗   ███╗ ███████╗ ███╗   ██╗ ████████╗ ███████╗ 
 ██╔══██╗ ██╔════╝ ██║  ██║ ██║ ██╔════╝ ██║   ██║ ██╔════╝ ████╗ ████║ ██╔════╝ ████╗  ██║ ╚══██╔══╝ ██╔════╝
@@ -121,7 +122,7 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
 ╚═╝  ╚═╝  ╚═════╝ ╚═╝  ╚═╝ ╚═╝ ╚══════╝   ╚═══╝   ╚══════╝ ╚═╝     ╚═╝ ╚══════╝ ╚═╝  ╚═══╝    ╚═╝    ╚══════╝
 `}
             </SectionHeading>
-            
+
             <div
                 className="flex flex-col lg:flex-row gap-2 md:gap-4"
                 onTouchStart={onTouchStart}
@@ -184,8 +185,7 @@ const Achievements = ({ setOpen }: AchievementsProps) => {
                     {achievements.map((_, index) => (
                         <button
                             key={index}
-                            className={`w-4 h-4 rounded-full ${
-                                index === current
+                            className={`w-4 h-4 rounded-full ${index === current
                                     ? "bg-primary"
                                     : "bg-primary/20"
                                 }`}

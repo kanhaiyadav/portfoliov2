@@ -78,17 +78,23 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="w-full h-fit md:h-screen overflow-hidden px-[15px] sm:px-[40px] lg:px-[80px] xl:px-[150px] flex flex-col flex-between gap-4 py-4"
+            className="w-full h-fit md:h-dvh overflow-hidden px-[15px] sm:px-[40px] lg:px-[80px] xl:px-[150px] flex flex-col flex-between gap-4 py-4"
         >
-            <SectionHeading position="center">
-                {` ██████╗  ██████╗  ███╗   ██╗ ████████╗  █████╗   ██████╗ ████████╗      ███╗   ███╗ ███████╗
-██╔════╝ ██╔═══██╗ ████╗  ██║ ╚══██╔══╝ ██╔══██╗ ██╔════╝ ╚══██╔══╝      ████╗ ████║ ██╔════╝
-██║      ██║   ██║ ██╔██╗ ██║    ██║    ███████║ ██║         ██║         ██╔████╔██║ █████╗  
-██║      ██║   ██║ ██║╚██╗██║    ██║    ██╔══██║ ██║         ██║         ██║╚██╔╝██║ ██╔══╝  
-╚██████╗ ╚██████╔╝ ██║ ╚████║    ██║    ██║  ██║ ╚██████╗    ██║         ██║ ╚═╝ ██║ ███████╗
- ╚═════╝  ╚═════╝  ╚═╝  ╚═══╝    ╚═╝    ╚═╝  ╚═╝  ╚═════╝    ╚═╝         ╚═╝     ╚═╝ ╚══════╝
+            <div className='flex items-center justify-center'>
+
+                <SectionHeading>
+                    {` ██████╗  ██████╗  ███╗   ██╗ ████████╗  █████╗   ██████╗ ████████╗
+██╔════╝ ██╔═══██╗ ████╗  ██║ ╚══██╔══╝ ██╔══██╗ ██╔════╝ ╚══██╔══╝
+██║      ██║   ██║ ██╔██╗ ██║    ██║    ███████║ ██║         ██║   
+██║      ██║   ██║ ██║╚██╗██║    ██║    ██╔══██║ ██║         ██║   
+╚██████╗ ╚██████╔╝ ██║ ╚████║    ██║    ██║  ██║ ╚██████╗    ██║   
+ ╚═════╝  ╚═════╝  ╚═╝  ╚═══╝    ╚═╝    ╚═╝  ╚═╝  ╚═════╝    ╚═╝   
 `}
-            </SectionHeading>
+                </SectionHeading>
+                <span className="text-[50px] leading-[75px] sm:text-[80px] md:text-[120px] md:leading-[140px] font-stylish text-secondary mr-[-30px] sm:mr-[-60px] md:mr-[-70px]">
+                    Me
+                </span>
+            </div>
             <div className="md:h-[80%] h-auto w-[95%] sm:w-auto flex flex-col md:flex-row sm:px-[20px] lg:px-[50px] xl:px-[100px] md:gap-[50px] flex-1 items-center justify-center mt-[50px] md:mt-[-50px]">
                 <div className="h-fit w-full sm:w-[400px] flex flex-col gap-[20px]">
                     <img

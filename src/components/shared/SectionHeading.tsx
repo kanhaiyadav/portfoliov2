@@ -1,8 +1,7 @@
 import { cn } from '@/lib/utils'
 
-const SectionHeading = ({ children, position, className }: {
+const SectionHeading = ({ children, className }: {
     children: string,
-    position?: 'left' | 'right' | 'center',
     className?: string
 }) => {
   return (
@@ -11,8 +10,7 @@ const SectionHeading = ({ children, position, className }: {
           whiteSpace: "pre",
           display: "block",
           margin: "20px 0",
-            textAlign: position === 'right' ? 'right' : position === 'center' ? 'center' : 'left',
-      }} className={cn(`text-primary text-[4px] leading-[6px] sm:text-[8px] sm:leading-[11px] md:text-[10px] md:leading-[14px]`, className)}>
+      }} className={cn(`text-primary text-center text-[4px] leading-[5px] sm:text-[8px] sm:leading-[11px] md:text-[10px] md:leading-[14px]`, className)}>
           {children}
       </pre>
   )

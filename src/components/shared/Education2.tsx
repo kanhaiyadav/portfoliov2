@@ -4,7 +4,7 @@ const Education2 = () => {
     return (
         <section
             id="education"
-            className="container min-h-screen w-full mx-auto mt-[100px]"
+            className="container min-h-dvh w-full mx-auto mt-[100px]"
         >
             <SectionHeading position="center">
                 {`███████╗██████╗ ██╗   ██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗

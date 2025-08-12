@@ -34,7 +34,7 @@ const Education = () => {
 
     return (
         <section
-            className="w-full h-screen px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
+            className="w-full h-dvh px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4"
         >
             <motion.div
                 className="flex gap-8 items-center ml-auto"

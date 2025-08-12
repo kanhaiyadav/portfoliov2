@@ -469,7 +469,7 @@ function App() {
                     />
 
                     {/* <Navbar /> */}
-                    <Home />
+                    <Home parallaxRef={parallaxRef} />
                 </section>
 
                 <ParallaxLayer
