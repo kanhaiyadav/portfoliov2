@@ -5,7 +5,7 @@ const WhoAmI = () => {
         <>
             {/* <div className="w-full h-[200px] bg-background absolute top-0 left-0 translate-y-[-97.5%]"></div> */}
             <div className="flex items-end mt-[100px]">
-                <SectionHeading position="center">
+                <SectionHeading>
                     {`██╗    ██╗ ██╗  ██╗  ██████╗       █████╗  ███╗   ███╗     ██╗
 ██║    ██║ ██║  ██║ ██╔═══██╗     ██╔══██╗ ████╗ ████║     ██║
 ██║ █╗ ██║ ███████║ ██║   ██║     ███████║ ██╔████╔██║     ██║

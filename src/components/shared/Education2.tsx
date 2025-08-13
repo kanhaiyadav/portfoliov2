@@ -6,7 +6,7 @@ const Education2 = () => {
             id="education"
             className="container min-h-dvh w-full mx-auto mt-[100px]"
         >
-            <SectionHeading position="center">
+            <SectionHeading>
                 {`███████╗██████╗ ██╗   ██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
 ██╔════╝██╔══██╗██║   ██║██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
 █████╗  ██║  ██║██║   ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║

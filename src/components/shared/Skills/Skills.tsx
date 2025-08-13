@@ -8,7 +8,7 @@ const Skills = () => {
         <section
             id="skills" className="w-full h-dvh px-[15px] sm:px-[20px] lg:px-[50px] xl:px-[100px] flex flex-col gap-4 py-4">
             <div className="m-auto flex mb-4">
-                <SectionHeading position="right">
+                <SectionHeading>
                     {`███████╗ ██╗  ██╗ ██╗ ██╗      ██╗      ███████╗
 ██╔════╝ ██║ ██╔╝ ██║ ██║      ██║      ██╔════╝
 ███████╗ █████╔╝  ██║ ██║      ██║      ███████╗
@@ -20,7 +20,7 @@ const Skills = () => {
                 <span className="text-[80px] leading-[70px] sm:text-[150px] sm:leading-[100px] md:text-[180px] md:leading-[70px] font-stylish text-secondary">
                     &
                 </span>
-                <SectionHeading position="right">
+                <SectionHeading>
                     {`███████╗ ████████╗  █████╗  ████████╗ ███████╗
 ██╔════╝ ╚══██╔══╝ ██╔══██╗ ╚══██╔══╝ ██╔════╝
 ███████╗    ██║    ███████║    ██║    ███████╗
