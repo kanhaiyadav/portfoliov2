@@ -93,7 +93,7 @@ export const webDev = [
     {
         imgPath: "react.png",
         name: "React",
-        progress: 85,
+        progress: 90,
         imgStyle: { borderRadius: "8px", border: "2px solid #00d8ff" },
         documentation: "https://reactjs.org/docs/getting-started.html",
     },
@@ -112,7 +112,7 @@ export const webDev = [
     {
         imgPath: "Express.png",
         name: "Express",
-        progress: 70,
+        progress: 85,
         imgStyle: {
             borderRadius: "11px",
             backgroundColor: "#343434",
@@ -122,10 +122,9 @@ export const webDev = [
         documentation: "https://expressjs.com/en/starter/installing.html",
     },
     {
-        imgPath: "nextjs.png",
+        imgPath: "/skills/nextjs.png",
         name: "Next.js",
-        progress: 40,
-        imgStyle: { borderRadius: "8px", border: "3px solid #000" },
+        progress: 80,
         documentation: "https://nextjs.org/",
     },
     {
@@ -143,7 +142,7 @@ export const webDev = [
     {
         imgPath: "mongodb.png",
         name: "MongoDB",
-        progress: 60,
+        progress: 80,
         documentation: "https://docs.mongodb.com/",
     },
     {
@@ -185,29 +184,61 @@ export const webDev = [
         documentation: "https://ui.shadcn.com/",
     },
     {
+        imgPath: "/skills/react-native.svg",
+        name: "React Native",
+        imgStyle: { height: "40px" },
+        progress: 60,
+        documentation: "https://reactnative.dev",
+    },
+    {
+        imgPath: "/skills/expo.png",
+        name: "Expo",
+        progress: 60,
+        imgStyle: {
+            borderRadius: "8px",
+            padding: "5px",
+            backgroundColor: "white",
+            border: "3px solid black",
+        },
+        documentation: "https://docs.expo.dev/",
+    },
+    {
+        imgPath: "/skills/firebase.svg",
+        name: "Firebase",
+        progress: 50,
+        documentation: "https://firebase.google.com/docs",
+    },
+    {
+        imgPath: "/skills/gemini.png",
+        name: "Gemini API",
+        progress: 90,
+        documentation: "https://geminiapi.com/docs",
+    },
+    {
+        imgPath: "/skills/s3.png",
+        name: "AWS S3",
+        progress: 80,
+        documentation:
+            "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html",
+    },
+    {
+        imgPath: "/skills/appwrite.svg",
+        name: "Appwrite",
+        progress: 60,
+        documentation: "https://docs.appwrite.io/",
+    },
+    {
+        imgPath: "/skills/redux.svg",
+        name: "Redux",
+        progress: 85,
+        documentation: "https://redux-toolkit.js.org/",
+    },
+    {
         imgPath: "Postman.png",
         name: "Postman",
         progress: 73,
         documentation:
             "https://learning.postman.com/docs/getting-started/introduction/",
-    },
-    {
-        imgPath: "html.png",
-        name: "HTML",
-        progress: 80,
-        documentation: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    },
-    {
-        imgPath: "css.png",
-        name: "CSS",
-        progress: 93,
-        documentation: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-    },
-    {
-        imgPath: "social.png",
-        name: "Git",
-        progress: 80,
-        documentation: "https://git-scm.com/doc",
     },
 ];
 
@@ -280,7 +311,8 @@ export const projects = [
         package: false,
         timeSpan: "July 2024 - October 2024",
         technologies: [17, 18, 5, 3, 19, 21, 22, 20],
-        youtube:"https://www.youtube.com/embed/hS1kEGRxCWk?si=FQZCseS3NHMfTAcN",
+        youtube:
+            "https://www.youtube.com/embed/hS1kEGRxCWk?si=FQZCseS3NHMfTAcN",
     },
     {
         thumbnail: converzaThumbnail,
@@ -551,7 +583,7 @@ export const technologies = [
         name: "Algolia",
         imgPath: "/algolia.png",
         documentation: "https://www.algolia.com",
-    }
+    },
 ];
 
 export const achievements = [

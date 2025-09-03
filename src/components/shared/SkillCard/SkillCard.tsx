@@ -84,12 +84,12 @@ const SkillCard: React.FC<SkillCardProps> = ({
                         />
                     </div>
                     <div className="flex-1 flex flex-col justify-between w-full text-center">
-                        <span className="text-sm xs:text-lg  md:text-xl font-normal md:font-medium mt-[-12px] mb-[2px] sm:mb-0 sm:mt-0">
+                        <span className="text-sm xs:text-lg md:text-xl font-normal md:font-medium mt-[-12px] mb-[2px] sm:mb-0 sm:mt-0 whitespace-nowrap">
                             {name}
                         </span>
-                        <div className="w-full h-2 md:h-2 md:mt-2 rounded-full shadow-[inset_0_0_8px_rgba(0,0,0,0.5)] bg-white relative">
+                        <div className="w-full h-2 md:h-2 md:mt-2 rounded-full bg-white relative">
                             <motion.div
-                                className="absolute top-0 left-0 h-full rounded-full"
+                                className="absolute top-0 left-0 h-full rounded-full shadow-md border border-gray-500"
                                 initial={{ width: "0%" }}
                                 whileInView={{ width: `${progress}%` }}
                                 viewport={{ once: true, amount: 0.1 }}

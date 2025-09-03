@@ -75,19 +75,7 @@ const SkillDirectory = () => {
                 <CardContent>
                     <div className="w-full flex justify-center items-start flex-wrap gap-2 md:gap-4 max-h-[400px] overflow-auto no-scrollbar py-[10px]">
                         {webDev.map(
-                            (
-                                skill: {
-                                    imgPath?: string;
-                                    name?: string;
-                                    progress: number;
-                                    imgStyle?: {
-                                        borderRadius: string;
-                                        border: string;
-                                    };
-                                    documentation?: string;
-                                },
-                                index: number
-                            ) => (
+                            (skill, index) => (
                                 <SkillCard key={index} {...skill} />
                             )
                         )}
