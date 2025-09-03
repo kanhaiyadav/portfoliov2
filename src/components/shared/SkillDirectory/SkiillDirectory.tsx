@@ -66,7 +66,7 @@ const SkillDirectory = () => {
             whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } }}
             viewport={{ once: true }}
         >
-            <Card className="glass">
+            <Card className="glass max-w-[888px]">
                 <CardHeader>
                     <CardTitle className="text-xl sm:text-2xl">
                         <Title title="Frameworks/Tools" />
